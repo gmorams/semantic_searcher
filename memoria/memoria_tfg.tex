@@ -1,0 +1,1335 @@
+% ============================================================================
+% MEMORIA TFG - SemanticFIB: Buscador Semantico Inteligente para la FIB
+% Autor: Giancarlo Morales Munoz
+% Director: Ramon Sanguesa
+% Facultat d'Informatica de Barcelona (FIB) - UPC
+% ============================================================================
+
+\documentclass[12pt, a4paper, twoside]{report}
+
+% --- Encoding & Language ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% --- Fonts ---
+\usepackage{lmodern}
+
+% --- Page geometry ---
+\usepackage[
+  top=2.5cm,
+  bottom=2.5cm,
+  left=3cm,
+  right=2.5cm,
+  headheight=15pt
+]{geometry}
+
+% --- Headers & footers ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Graphics ---
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, fit, calc}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{array}
+
+% --- Colors ---
+\usepackage{xcolor}
+\definecolor{upcblue}{RGB}{0,51,102}
+\definecolor{fibblue}{RGB}{0,102,204}
+\definecolor{lightgray}{RGB}{245,247,250}
+
+% --- Code listings ---
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{lightgray},
+  keywordstyle=\color{upcblue}\bfseries,
+  stringstyle=\color{fibblue},
+  commentstyle=\color{gray}\itshape,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=8pt,
+  tabsize=2,
+  showstringspaces=false,
+}
+
+% --- Hyperlinks ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=upcblue,
+  citecolor=upcblue,
+  urlcolor=fibblue
+]{hyperref}
+
+% --- Captions ---
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font=small, labelfont=bf}
+
+% --- Lists ---
+\usepackage{enumitem}
+
+% --- Math ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Misc ---
+\usepackage{float}
+\usepackage{appendix}
+
+% --- Euro symbol ---
+\usepackage{eurosym}
+
+% ============================================================================
+\begin{document}
+
+% ============================================================================
+% PORTADA
+% ============================================================================
+\begin{titlepage}
+\begin{center}
+
+% UPC logo
+\begin{tikzpicture}
+  \node[draw=upcblue, line width=2pt, minimum width=4cm, minimum height=2cm, align=center, font=\Large\bfseries\color{upcblue}] {UPC};
+\end{tikzpicture}
+
+\vspace{0.5cm}
+
+{\large\textsc{Universitat Polit\`ecnica de Catalunya}}\\[0.2cm]
+{\large\textsc{Facultat d'Inform\`atica de Barcelona}}\\[0.3cm]
+{\normalsize Grado en Ingenier\'ia Inform\'atica}
+
+\vspace{1.5cm}
+
+\rule{\textwidth}{1.5pt}\\[0.5cm]
+{\Huge\bfseries\color{upcblue} SemanticFIB}\\[0.3cm]
+{\Large Buscador Sem\'antico Inteligente\\para la Facultad de Inform\'atica de Barcelona}\\[0.3cm]
+{\large Basado en Ontolog\'ias y Modelos de Lenguaje}\\[0.5cm]
+\rule{\textwidth}{1.5pt}
+
+\vspace{1.5cm}
+
+{\Large\textbf{Trabajo de Fin de Grado}}
+
+\vspace{2cm}
+
+\begin{tabular}{rl}
+  \textbf{Autor:} & Giancarlo Morales Mu\~noz \\[0.3cm]
+  \textbf{Director:} & Ramon Sang\"uesa \\[0.3cm]
+  \textbf{Departamento:} & Ingenier\'ia de Servicios y Sistemas\\
+  & de Informaci\'on (ESSI) \\[0.3cm]
+  \textbf{Especialidad:} & Ingenier\'ia del Software \\
+\end{tabular}
+
+\vfill
+
+{\large Cuatrimestre de Oto\~no 2024--2025}\\[0.3cm]
+{\normalsize Barcelona, \today}
+
+\end{center}
+\end{titlepage}
+
+% ============================================================================
+% FRONT MATTER
+% ============================================================================
+\pagenumbering{roman}
+
+% --- Resumen ---
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+Este Trabajo de Fin de Grado presenta el dise\~no, implementaci\'on y evaluaci\'on de \textbf{SemanticFIB}, un buscador sem\'antico inteligente para la Facultad de Inform\'atica de Barcelona (FIB) de la UPC. El sistema combina t\'ecnicas de \textit{Retrieval Augmented Generation} (RAG) con una ontolog\'ia de dominio espec\'ifica para ofrecer respuestas fundamentadas a las consultas de los estudiantes sobre tr\'amites, asignaturas, normativa y servicios de la facultad.
+
+La arquitectura del sistema integra cuatro componentes principales: (1) un \textit{web scraper} que extrae autom\'aticamente informaci\'on actualizada de la web de la FIB, (2) una base de datos vectorial (ChromaDB) que almacena los documentos como embeddings sem\'anticos, (3) una ontolog\'ia de dominio que enriquece las consultas con t\'erminos y relaciones del vocabulario acad\'emico, y (4) un modelo de lenguaje local (Llama 3.2 v\'ia Ollama) que genera respuestas naturales basadas exclusivamente en los documentos recuperados.
+
+El resultado es un sistema funcional, desplegable localmente sin dependencias externas de pago, que proporciona respuestas precisas con citaci\'on de fuentes originales.
+
+\textbf{Palabras clave:} b\'usqueda sem\'antica, ontolog\'ias, RAG, modelos de lenguaje, procesamiento del lenguaje natural, ChromaDB, web scraping, FIB, UPC.
+
+\vspace{1cm}
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This Bachelor's Thesis presents the design, implementation, and evaluation of \textbf{SemanticFIB}, an intelligent semantic search engine for the Barcelona School of Informatics (FIB) at UPC. The system combines Retrieval Augmented Generation (RAG) techniques with a domain-specific ontology to provide grounded answers to student queries about procedures, courses, regulations, and faculty services.
+
+The system architecture integrates four main components: (1) a web scraper that automatically extracts up-to-date information from the FIB website, (2) a vector database (ChromaDB) that stores documents as semantic embeddings, (3) a domain ontology that enriches queries with academic vocabulary terms and relations, and (4) a local language model (Llama 3.2 via Ollama) that generates natural responses exclusively based on retrieved documents.
+
+\textbf{Keywords:} semantic search, ontologies, RAG, language models, NLP, ChromaDB, web scraping, FIB, UPC.
+
+% --- Agradecimientos ---
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+
+Quiero agradecer a mi director de TFG, Ramon Sang\"uesa, por su orientaci\'on y apoyo durante todo el proyecto. Tambi\'en a la Facultad de Inform\'atica de Barcelona por proporcionar el entorno acad\'emico y los recursos necesarios para el desarrollo de este trabajo.
+
+% --- Indices ---
+\tableofcontents
+\listoffigures
+\listoftables
+
+% --- Lista de acronimos ---
+\chapter*{Lista de Acr\'onimos}
+\addcontentsline{toc}{chapter}{Lista de Acr\'onimos}
+
+\begin{tabular}{ll}
+\textbf{API} & Application Programming Interface \\
+\textbf{CSS} & Cascading Style Sheets \\
+\textbf{FIB} & Facultat d'Inform\`atica de Barcelona \\
+\textbf{GEI} & Grau en Enginyeria Inform\`atica \\
+\textbf{HTML} & HyperText Markup Language \\
+\textbf{LLM} & Large Language Model \\
+\textbf{NLP} & Natural Language Processing \\
+\textbf{PDF} & Portable Document Format \\
+\textbf{RAG} & Retrieval Augmented Generation \\
+\textbf{UPC} & Universitat Polit\`ecnica de Catalunya \\
+\end{tabular}
+
+% ============================================================================
+% MAIN MATTER
+% ============================================================================
+\cleardoublepage
+\pagenumbering{arabic}
+
+% ============================================================================
+\chapter{Introducci\'on}
+\label{ch:introduccion}
+% ============================================================================
+
+\section{Contexto}
+
+La Facultat d'Inform\`atica de Barcelona (FIB) de la Universitat Polit\`ecnica de Catalunya (UPC) es uno de los centros de referencia en formaci\'on inform\'atica en Catalu\~na y Espa\~na. Con m\'as de 3.000 estudiantes activos, m\'ultiples grados, centenares de asignaturas y una variedad de tr\'amites acad\'emicos, la cantidad de informaci\'on disponible para los estudiantes es enorme y a menudo dispersa.
+
+Actualmente, los estudiantes deben navegar por m\'ultiples secciones de la web de la FIB, consultar PDFs de normativa, o dirigirse presencialmente a secretar\'ia para resolver dudas. Esto genera ineficiencias tanto para los estudiantes como para el personal administrativo.
+
+\section{Motivaci\'on}
+
+Los avances recientes en modelos de lenguaje (LLMs) y b\'usqueda sem\'antica ofrecen una oportunidad \'unica para crear herramientas que permitan a los estudiantes obtener respuestas r\'apidas, precisas y fundamentadas a sus consultas. Sin embargo, el uso directo de un LLM presenta un problema fundamental: las \textbf{alucinaciones}. Un modelo gen\'erico puede inventar informaci\'on sobre la FIB que suene convincente pero sea incorrecta.
+
+La t\'ecnica de Retrieval Augmented Generation (RAG) resuelve este problema combinando la capacidad generativa de los LLMs con un sistema de recuperaci\'on de documentos que garantiza que las respuestas se basan en informaci\'on real y verificable.
+
+\section{Objetivos del proyecto}
+
+El objetivo principal de este TFG es dise\~nar e implementar un buscador sem\'antico inteligente para la FIB que:
+
+\begin{enumerate}
+  \item Recupere informaci\'on real y actualizada de la web de la FIB.
+  \item Utilice una ontolog\'ia de dominio para mejorar la comprensi\'on de las consultas.
+  \item Genere respuestas naturales basadas exclusivamente en documentos verificados.
+  \item Cite las fuentes originales permitiendo la verificaci\'on por parte del usuario.
+  \item Funcione localmente sin dependencias de servicios de pago externos.
+\end{enumerate}
+
+\section{Alcance}
+
+El proyecto cubre el ciclo completo: desde la adquisici\'on de datos (web scraping), pasando por el procesamiento e indexaci\'on (chunking, embeddings, ChromaDB), la modelizaci\'on del dominio (ontolog\'ia), hasta la interfaz de usuario (Streamlit) y la generaci\'on de respuestas (LLM local).
+
+\section{Estructura del documento}
+
+La memoria se organiza de la siguiente manera:
+
+\begin{itemize}
+  \item \textbf{Cap\'itulo 2:} Conceptos clave y fundamentos te\'oricos.
+  \item \textbf{Cap\'itulo 3:} Estado del arte en buscadores sem\'anticos y RAG.
+  \item \textbf{Cap\'itulo 4:} Identificaci\'on del problema y actores implicados.
+  \item \textbf{Cap\'itulo 5:} Alcance, requisitos y riesgos.
+  \item \textbf{Cap\'itulo 6:} Metodolog\'ia y herramientas.
+  \item \textbf{Cap\'itulo 7:} Arquitectura del sistema.
+  \item \textbf{Cap\'itulo 8:} Implementaci\'on.
+  \item \textbf{Cap\'itulo 9:} Evaluaci\'on y resultados.
+  \item \textbf{Cap\'itulo 10:} Planificaci\'on temporal y econ\'omica.
+  \item \textbf{Cap\'itulo 11:} Sostenibilidad.
+  \item \textbf{Cap\'itulo 12:} Conclusiones y trabajo futuro.
+\end{itemize}
+
+
+% ============================================================================
+\chapter{Fundamentos Te\'oricos}
+\label{ch:fundamentos}
+% ============================================================================
+
+\section{Ontolog\'ias}
+
+\subsection{Definici\'on y prop\'osito}
+
+Una ontolog\'ia, en el contexto de la inform\'atica, es una representaci\'on formal y expl\'icita de un conjunto de conceptos dentro de un dominio y las relaciones entre ellos \cite{gruber1993}. A diferencia de un simple glosario o taxonom\'ia, una ontolog\'ia define:
+
+\begin{itemize}
+  \item \textbf{Conceptos} (clases): entidades del dominio (ej. \textit{Asignatura}, \textit{Matr\'icula}).
+  \item \textbf{Propiedades}: atributos de los conceptos (ej. \textit{cr\'editos}, \textit{c\'odigo}).
+  \item \textbf{Relaciones}: conexiones sem\'anticas entre conceptos (ej. \textit{pertenece\_a}, \textit{prerrequisito\_de}).
+  \item \textbf{Axiomas}: reglas l\'ogicas que restringen el modelo.
+\end{itemize}
+
+\subsection{Ontolog\'ias ligeras vs. formales}
+
+Para aplicaciones de b\'usqueda sem\'antica, es com\'un utilizar ontolog\'ias ligeras que capturan vocabulario y relaciones sin la complejidad de una l\'ogica formal completa (como OWL-DL). Esto permite un enriquecimiento eficiente de consultas sin el coste computacional del razonamiento l\'ogico.
+
+\subsection{Aplicaci\'on en b\'usqueda sem\'antica}
+
+El uso de una ontolog\'ia de dominio en un sistema de b\'usqueda permite:
+
+\begin{enumerate}
+  \item \textbf{Expansi\'on de consulta:} a\~nadir sin\'onimos y t\'erminos relacionados.
+  \item \textbf{Desambiguaci\'on:} identificar el sentido correcto de un t\'ermino.
+  \item \textbf{Contexto sem\'antico:} proporcionar informaci\'on estructural al LLM.
+\end{enumerate}
+
+\section{Modelos de Lenguaje (LLMs)}
+
+\subsection{Arquitectura Transformer}
+
+Los modelos de lenguaje actuales se basan en la arquitectura Transformer \cite{vaswani2017}, que utiliza mecanismos de atenci\'on para procesar secuencias de texto de manera paralela. Esto permite capturar dependencias a larga distancia en el texto.
+
+\subsection{Modelos locales vs. API}
+
+Existen dos aproximaciones principales para utilizar LLMs:
+
+\begin{table}[H]
+\centering
+\caption{Comparativa modelos locales vs. API}
+\label{tab:llm-comparativa}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Aspecto} & \textbf{Modelo Local (Ollama)} & \textbf{API (OpenAI)} \\
+\midrule
+Coste & Gratuito (hardware propio) & Por token (\$0.002--\$0.06/1K) \\
+Privacidad & Total (datos locales) & Datos enviados a terceros \\
+Latencia & Variable (depende GPU) & Consistente ($<$2s) \\
+Calidad & Buena (Llama 3.2 8B) & Excelente (GPT-4) \\
+Disponibilidad & Offline posible & Requiere Internet \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+En este proyecto se utiliza Ollama con Llama 3.2 para garantizar independencia de servicios externos y coste cero.
+
+\section{B\'usqueda Sem\'antica y Embeddings}
+
+\subsection{Embeddings de texto}
+
+Un embedding es una representaci\'on num\'erica (vector) de un texto en un espacio multidimensional donde la proximidad geom\'etrica refleja la similitud sem\'antica. Formalmente:
+
+\begin{equation}
+  f: \text{Texto} \rightarrow \mathbb{R}^d
+\end{equation}
+
+donde $d$ es la dimensionalidad del espacio (384 en nuestro caso con MiniLM).
+
+\subsection{Similitud coseno}
+
+La similitud entre dos vectores de embedding se calcula mediante la similitud coseno:
+
+\begin{equation}
+  \text{sim}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{||\mathbf{a}|| \cdot ||\mathbf{b}||} = \frac{\sum_{i=1}^{d} a_i b_i}{\sqrt{\sum_{i=1}^{d} a_i^2} \cdot \sqrt{\sum_{i=1}^{d} b_i^2}}
+\end{equation}
+
+El rango es $[-1, 1]$, donde 1 indica vectores id\'enticos y 0 indica ortogonalidad (ninguna relaci\'on sem\'antica).
+
+\subsection{Modelo de embeddings multiling\"ue}
+
+Se utiliza el modelo \texttt{paraphrase-multilingual-MiniLM-L12-v2} de Sentence Transformers \cite{reimers2019}, que:
+
+\begin{itemize}
+  \item Soporta 50+ idiomas (incluido catal\'an y castellano).
+  \item Genera vectores de 384 dimensiones.
+  \item Es ligero (120MB) y r\'apido de ejecutar en CPU.
+  \item Ofrece buena calidad en tareas de similitud sem\'antica.
+\end{itemize}
+
+\section{Retrieval Augmented Generation (RAG)}
+
+\subsection{Problema de las alucinaciones}
+
+Los LLMs generativos tienen la tendencia a producir informaci\'on plausible pero incorrecta (alucinaciones). En un contexto acad\'emico donde la precisi\'on es cr\'itica, esto es inaceptable.
+
+\subsection{Arquitectura RAG}
+
+RAG \cite{lewis2020} combina recuperaci\'on de documentos con generaci\'on de texto:
+
+\begin{enumerate}
+  \item \textbf{Retrieval:} dada una consulta, se recuperan los $k$ documentos m\'as relevantes de una base de datos.
+  \item \textbf{Augmentation:} los documentos recuperados se a\~naden al contexto del LLM.
+  \item \textbf{Generation:} el LLM genera una respuesta basada exclusivamente en el contexto proporcionado.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.5cm,
+  block/.style={rectangle, draw=upcblue, fill=upcblue!10, minimum width=3.5cm, minimum height=1cm, align=center, rounded corners=3pt},
+  arrow/.style={-{Stealth[length=3mm]}, thick, color=upcblue},
+]
+  \node[block] (query) {Consulta\\del usuario};
+  \node[block, below=of query] (embed) {Embedding\\de la consulta};
+  \node[block, below=of embed] (search) {B\'usqueda vectorial\\(ChromaDB)};
+  \node[block, below=of search] (docs) {Top-K documentos\\recuperados};
+  \node[block, below=of docs] (llm) {LLM\\(Llama 3.2)};
+  \node[block, below=of llm] (answer) {Respuesta\\fundamentada};
+
+  \draw[arrow] (query) -- (embed);
+  \draw[arrow] (embed) -- (search);
+  \draw[arrow] (search) -- (docs);
+  \draw[arrow] (docs) -- (llm);
+  \draw[arrow] (llm) -- (answer);
+
+  % Ontology side
+  \node[block, right=3cm of query] (ont) {Ontolog\'ia\\de dominio};
+  \draw[arrow, dashed] (ont) -- node[above, font=\small] {enriquecimiento} (embed);
+  \draw[arrow, dashed] (ont) |- node[right, font=\small, pos=0.3] {contexto} (llm);
+\end{tikzpicture}
+\caption{Arquitectura RAG con enriquecimiento ontol\'ogico}
+\label{fig:rag-architecture}
+\end{figure}
+
+\subsection{Ventajas de RAG}
+
+\begin{itemize}
+  \item \textbf{Fundamentaci\'on:} las respuestas se basan en documentos reales.
+  \item \textbf{Citabilidad:} se puede indicar la fuente de cada afirmaci\'on.
+  \item \textbf{Actualizaci\'on:} no es necesario reentrenar el modelo para a\~nadir informaci\'on nueva.
+  \item \textbf{Transparencia:} el usuario puede verificar las fuentes citadas.
+\end{itemize}
+
+
+% ============================================================================
+\chapter{Estado del Arte}
+\label{ch:estado-arte}
+% ============================================================================
+
+\section{Sistemas de Q\&A acad\'emicos}
+
+Diversas universidades han explorado chatbots y asistentes basados en IA para atender consultas de estudiantes. La mayor\'ia utilizan aproximaciones basadas en reglas o intents predefinidos, con limitaciones en la cobertura y naturalidad de las respuestas.
+
+Los sistemas m\'as avanzados incluyen chatbots basados en modelos de lenguaje como ChatGPT, pero sin mecanismos de fundamentaci\'on (grounding) que garanticen la precisi\'on de las respuestas en el dominio espec\'ifico.
+
+\section{Frameworks RAG existentes}
+
+\begin{table}[H]
+\centering
+\caption{Comparativa de frameworks y herramientas RAG}
+\label{tab:rag-frameworks}
+\begin{tabularx}{\textwidth}{lXccc}
+\toprule
+\textbf{Herramienta} & \textbf{Descripci\'on} & \textbf{Local} & \textbf{Ontolog\'ia} & \textbf{Gratuito} \\
+\midrule
+LangChain & Framework orquestaci\'on LLM & Parcial & No & S\'i \\
+LlamaIndex & Indexaci\'on y RAG & Parcial & No & S\'i \\
+Haystack & Pipeline NLP completo & Parcial & No & S\'i \\
+ChatGPT + Plugins & RAG v\'ia retrieval plugin & No & No & No \\
+\textbf{SemanticFIB} & \textbf{RAG + Ontolog\'ia dominio} & \textbf{S\'i} & \textbf{S\'i} & \textbf{S\'i} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Diferenciaci\'on de SemanticFIB}
+
+Nuestro sistema se diferencia por:
+
+\begin{enumerate}
+  \item \textbf{Ontolog\'ia de dominio espec\'ifica:} ninguno de los frameworks existentes integra una ontolog\'ia para enriquecer consultas de forma nativa.
+  \item \textbf{100\% local:} no requiere suscripciones ni env\'ia datos a terceros.
+  \item \textbf{Dominio acad\'emico catal\'an:} optimizado para el vocabulario y contexto de la FIB/UPC.
+  \item \textbf{Scraping automatizado:} actualizaci\'on de datos sin intervenci\'on manual.
+\end{enumerate}
+
+
+% ============================================================================
+\chapter{Identificaci\'on del Problema}
+\label{ch:problema}
+% ============================================================================
+
+\section{Problem\'atica actual}
+
+Los estudiantes de la FIB se enfrentan a diversas dificultades para acceder a informaci\'on acad\'emica:
+
+\begin{itemize}
+  \item Informaci\'on dispersa en m\'ultiples secciones de la web.
+  \item Navegaci\'on compleja con estructuras profundas.
+  \item Vocabulario t\'ecnico que dificulta las b\'usquedas por palabras clave.
+  \item Horarios limitados de atenci\'on presencial en secretar\'ia.
+  \item Falta de un punto \'unico de acceso a toda la informaci\'on.
+\end{itemize}
+
+\section{Actores implicados}
+
+\begin{table}[H]
+\centering
+\caption{Actores del sistema y sus intereses}
+\label{tab:actores}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Actor} & \textbf{Inter\'es} \\
+\midrule
+Estudiantes de grado & Acceder r\'apidamente a informaci\'on sobre asignaturas, matr\'icula, tr\'amites \\
+Estudiantes de m\'aster & Consultar normativa espec\'ifica, movilidad, TFM \\
+Personal de secretar\'ia & Reducir consultas repetitivas, liberar tiempo \\
+Profesorado & Derivar alumnos a informaci\'on oficial \\
+Equipo directivo & Mejorar la satisfacci\'on de los estudiantes \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Soluci\'on propuesta}
+
+SemanticFIB aborda este problema proporcionando:
+
+\begin{itemize}
+  \item Un punto \'unico de acceso conversacional.
+  \item Comprensi\'on sem\'antica de las consultas (no solo palabras clave).
+  \item Respuestas fundamentadas con fuentes verificables.
+  \item Disponibilidad 24/7 sin coste operativo.
+\end{itemize}
+
+
+% ============================================================================
+\chapter{Alcance del Proyecto}
+\label{ch:alcance}
+% ============================================================================
+
+\section{Objetivos espec\'ificos}
+
+\begin{enumerate}
+  \item Implementar un scraper robusto para \texttt{fib.upc.edu} que extraiga informaci\'on estructurada.
+  \item Dise\~nar una ontolog\'ia del dominio acad\'emico de la FIB.
+  \item Construir un pipeline RAG que integre ontolog\'ia, embeddings y LLM.
+  \item Desarrollar una interfaz web profesional y usable.
+  \item Evaluar la calidad de las respuestas del sistema.
+\end{enumerate}
+
+\section{Requisitos funcionales}
+
+\begin{table}[H]
+\centering
+\caption{Requisitos funcionales del sistema}
+\label{tab:req-funcionales}
+\begin{tabularx}{\textwidth}{clX}
+\toprule
+\textbf{ID} & \textbf{Prioridad} & \textbf{Descripci\'on} \\
+\midrule
+RF01 & Alta & El sistema debe responder preguntas en lenguaje natural \\
+RF02 & Alta & Las respuestas deben citar fuentes originales (URLs) \\
+RF03 & Alta & El sistema debe funcionar sin conexi\'on a APIs de pago \\
+RF04 & Media & La ontolog\'ia debe enriquecer las consultas con t\'erminos relacionados \\
+RF05 & Media & La interfaz debe mostrar detalles de la b\'usqueda (docs, similitud) \\
+RF06 & Baja & Soportar indexaci\'on de documentos PDF adicionales \\
+RF07 & Baja & Mantener historial de conversaci\'on para contexto \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Requisitos no funcionales}
+
+\begin{table}[H]
+\centering
+\caption{Requisitos no funcionales}
+\label{tab:req-no-funcionales}
+\begin{tabularx}{\textwidth}{clX}
+\toprule
+\textbf{ID} & \textbf{Prioridad} & \textbf{Descripci\'on} \\
+\midrule
+RNF01 & Alta & Tiempo de respuesta inferior a 30 segundos \\
+RNF02 & Alta & Despliegue local sin infraestructura externa \\
+RNF03 & Media & Interfaz responsive y profesional \\
+RNF04 & Media & C\'odigo modular y extensible \\
+RNF05 & Baja & Documentaci\'on completa del sistema \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Obst\'aculos y riesgos}
+
+\begin{table}[H]
+\centering
+\caption{Riesgos identificados y mitigaciones}
+\label{tab:riesgos}
+\begin{tabularx}{\textwidth}{lclX}
+\toprule
+\textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigaci\'on} \\
+\midrule
+Cambios en web FIB & Media & Alto & Selectores flexibles, m\'ultiples fallbacks \\
+Calidad LLM local & Baja & Medio & Prompt engineering, restricci\'on a docs \\
+Disco lleno & Media & Alto & Modelos ligeros, cache purge \\
+Embeddings no multiling\"ue & Baja & Alto & Modelo MiniLM multiling\"ue (50+ idiomas) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+% ============================================================================
+\chapter{Metodolog\'ia y Herramientas}
+\label{ch:metodologia}
+% ============================================================================
+
+\section{Metodolog\'ia de desarrollo}
+
+Se ha seguido una metodolog\'ia \textbf{\'agil iterativa} con sprints de 2-3 semanas. Cada sprint produce un incremento funcional del sistema que puede evaluarse de forma independiente.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  sprint/.style={rectangle, draw=fibblue, fill=fibblue!10, minimum width=2.5cm, minimum height=1.2cm, align=center, rounded corners},
+  arrow/.style={-{Stealth[length=2mm]}, thick, color=fibblue},
+]
+  \node[sprint] (s1) {Sprint 1\\Scraping};
+  \node[sprint, right=1cm of s1] (s2) {Sprint 2\\Indexaci\'on};
+  \node[sprint, right=1cm of s2] (s3) {Sprint 3\\Ontolog\'ia\\+ RAG};
+  \node[sprint, right=1cm of s3] (s4) {Sprint 4\\UI +\\Integraci\'on};
+  \node[sprint, right=1cm of s4] (s5) {Sprint 5\\Evaluaci\'on\\+ Memoria};
+
+  \draw[arrow] (s1) -- (s2);
+  \draw[arrow] (s2) -- (s3);
+  \draw[arrow] (s3) -- (s4);
+  \draw[arrow] (s4) -- (s5);
+\end{tikzpicture}
+\caption{Sprints del proyecto}
+\label{fig:sprints}
+\end{figure}
+
+\section{Herramientas y tecnolog\'ias}
+
+\begin{table}[H]
+\centering
+\caption{Stack tecnol\'ogico del proyecto}
+\label{tab:stack}
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Componente} & \textbf{Tecnolog\'ia} & \textbf{Justificaci\'on} \\
+\midrule
+Lenguaje & Python 3.13+ & Ecosistema ML/NLP, productividad \\
+LLM & Ollama + Llama 3.2 & Local, gratuito, buena calidad \\
+Embeddings & Sentence Transformers & Multiling\"ue, ligero (120MB) \\
+Vector DB & ChromaDB & Embebido, zero-config, persistente \\
+Orquestaci\'on & LangChain & Abstracciones RAG maduras \\
+Scraping & BeautifulSoup + requests & Robusto, flexible, ligero \\
+Frontend & Streamlit & Prototipado r\'apido, componentes ricos \\
+Control de versiones & Git & Est\'andar de la industria \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Entorno de desarrollo}
+
+\begin{itemize}
+  \item \textbf{Sistema operativo:} macOS (Apple Silicon)
+  \item \textbf{Editor:} Visual Studio Code con extensiones Python
+  \item \textbf{Terminal:} Claude Code (asistente IA para desarrollo)
+  \item \textbf{Gestor de paquetes:} pip + Homebrew
+\end{itemize}
+
+
+% ============================================================================
+\chapter{Arquitectura del Sistema}
+\label{ch:arquitectura}
+% ============================================================================
+
+\section{Visi\'on general}
+
+SemanticFIB sigue una arquitectura modular con separaci\'on clara de responsabilidades. El flujo de datos es bidireccional: offline (indexaci\'on) y online (consulta).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.2cm and 2cm,
+  module/.style={rectangle, draw=upcblue, fill=upcblue!8, minimum width=3cm, minimum height=1cm, align=center, rounded corners=4pt, font=\small},
+  data/.style={cylinder, draw=fibblue, fill=fibblue!10, minimum width=2cm, minimum height=1cm, align=center, font=\small, shape border rotate=90, aspect=0.3},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick},
+  darrow/.style={-{Stealth[length=2.5mm]}, thick, dashed},
+]
+  % Offline pipeline (left)
+  \node[module] (scraper) {Scraper\\(\texttt{scraper.py})};
+  \node[data, below=of scraper] (json) {JSON\\scraped\_data};
+  \node[module, below=of json] (ingest) {Ingest\\(\texttt{ingest.py})};
+  \node[module, below=of ingest] (embedder) {Embedder\\(MiniLM)};
+  \node[data, below=of embedder] (chroma) {ChromaDB\\(vectors)};
+
+  \draw[arrow] (scraper) -- (json);
+  \draw[arrow] (json) -- (ingest);
+  \draw[arrow] (ingest) -- (embedder);
+  \draw[arrow] (embedder) -- (chroma);
+
+  % Online pipeline (right)
+  \node[module, right=4cm of scraper] (ui) {Streamlit UI\\(\texttt{app.py})};
+  \node[module, below=of ui] (rag) {RAG Chain\\(\texttt{rag\_chain.py})};
+  \node[module, below=of rag] (ontology) {Ontolog\'ia\\(\texttt{fib\_ontology.py})};
+  \node[module, below=of ontology] (search) {Vector Search};
+  \node[module, below=of search] (llm) {LLM\\(Ollama)};
+
+  \draw[arrow] (ui) -- (rag);
+  \draw[arrow] (rag) -- (ontology);
+  \draw[arrow] (ontology) -- (search);
+  \draw[arrow] (search) -- (llm);
+  \draw[arrow] (llm.east) -- ++(1,0) |- (ui.east);
+
+  % Cross connections
+  \draw[darrow] (search) -- (chroma);
+
+  % Labels
+  \node[above=0.3cm of scraper, font=\bfseries\color{upcblue}] {Pipeline Offline};
+  \node[above=0.3cm of ui, font=\bfseries\color{upcblue}] {Pipeline Online};
+\end{tikzpicture}
+\caption{Arquitectura completa del sistema SemanticFIB}
+\label{fig:full-architecture}
+\end{figure}
+
+\section{Estructura de ficheros}
+
+\begin{lstlisting}[language={}, caption={Estructura del proyecto}, label={lst:structure}]
+semanticfib/
+|-- app.py                  # Interfaz Streamlit
+|-- scraper.py              # Web scraper FIB
+|-- ingest.py               # Script de indexacion
+|-- settings.py             # Configuracion central
+|-- utils.py                # Utilidades compartidas
+|-- chatbot/
+|   |-- llm.py             # Configuracion LLM
+|   |-- rag_chain.py       # Pipeline RAG principal
+|-- db/
+|   |-- vector_store.py    # Wrapper ChromaDB
+|-- ontology/
+|   |-- fib_ontology.py    # Ontologia del dominio
+|-- processing/
+|   |-- embedder.py        # Generacion embeddings
+|   |-- pdf_loader.py      # Carga y chunking PDFs
+|-- scraped_data/
+|   |-- fib_documents.json # Datos scrapeados
+|-- chroma_db/              # Base de datos vectorial
+\end{lstlisting}
+
+\section{Flujo de datos}
+
+\subsection{Pipeline Offline (Indexaci\'on)}
+
+\begin{enumerate}
+  \item El \textbf{Scraper} recorre \texttt{fib.upc.edu} y extrae documentos estructurados.
+  \item El script \textbf{Ingest} carga los documentos y los divide en chunks de 800 caracteres con 200 de overlap.
+  \item El \textbf{Embedder} genera vectores de 384 dimensiones para cada chunk.
+  \item \textbf{ChromaDB} almacena vectores, textos y metadatos de forma persistente.
+\end{enumerate}
+
+\subsection{Pipeline Online (Consulta)}
+
+\begin{enumerate}
+  \item El usuario escribe una pregunta en la interfaz.
+  \item La \textbf{Ontolog\'ia} enriquece la consulta con sin\'onimos y t\'erminos relacionados.
+  \item El \textbf{Embedder} genera el vector de la consulta enriquecida.
+  \item \textbf{ChromaDB} retorna los 5 documentos m\'as similares.
+  \item El \textbf{LLM} genera una respuesta basada en los documentos, con fuentes citadas.
+  \item La \textbf{UI} muestra la respuesta, fuentes y detalles t\'ecnicos.
+\end{enumerate}
+
+
+% ============================================================================
+\chapter{Implementaci\'on}
+\label{ch:implementacion}
+% ============================================================================
+
+\section{Web Scraping}
+
+\subsection{Estrategia de crawling}
+
+El scraper (\texttt{scraper.py}) implementa un crawling en tres fases:
+
+\begin{enumerate}
+  \item \textbf{Seeds:} 18 URLs principales (grados, tr\'amites, movilidad, becas).
+  \item \textbf{Asignaturas:} 94 URLs individuales de asignaturas del GEI.
+  \item \textbf{Descubrimiento:} links adicionales encontrados dentro de las p\'aginas scrapeadas.
+\end{enumerate}
+
+\subsection{Extracci\'on de contenido}
+
+La extracci\'on de contenido utiliza una estrategia de fallback con m\'ultiples selectores CSS:
+
+\begin{lstlisting}[language=Python, caption={Selecci\'on del contenido principal}, label={lst:selectors}]
+candidates = [
+    soup.find("div", id="section-main-content"),
+    soup.find("div", id="content"),
+    soup.find("div", role="main"),
+    soup.find("article"),
+    soup.find("main"),
+    soup.find("body"),
+]
+for candidate in candidates:
+    if candidate:
+        text = candidate.get_text(strip=True)
+        if len(text) > 50:
+            main = candidate
+            break
+\end{lstlisting}
+
+Esta aproximaci\'on garantiza robustez frente a cambios en la estructura HTML de la web.
+
+\subsection{Segmentaci\'on por secciones}
+
+Cada p\'agina se divide en secciones bas\'andose en los encabezados \texttt{<h2>}. Esto permite obtener chunks m\'as coherentes tem\'aticamente:
+
+\begin{itemize}
+  \item Texto antes del primer \texttt{<h2>} $\rightarrow$ secci\'on ``Introducci\'on''.
+  \item Cada \texttt{<h2>} inicia una nueva secci\'on con su contenido subsiguiente.
+\end{itemize}
+
+\subsection{Resultados del scraping}
+
+\begin{table}[H]
+\centering
+\caption{Estad\'isticas del web scraping}
+\label{tab:scraping-stats}
+\begin{tabular}{lr}
+\toprule
+\textbf{M\'etrica} & \textbf{Valor} \\
+\midrule
+P\'aginas visitadas & $\sim$200 \\
+Documentos extra\'idos & 2.053 \\
+Chunks generados & 11.228 \\
+URLs fallidas & $<$5 \\
+Tiempo de ejecuci\'on & $\sim$3 minutos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Ontolog\'ia del Dominio}
+
+\subsection{Dise\~no de la ontolog\'ia}
+
+La ontolog\'ia de la FIB modela 12 conceptos principales del dominio acad\'emico:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  concept/.style={ellipse, draw=fibblue, fill=fibblue!10, minimum width=2.2cm, align=center, font=\small},
+  rel/.style={-{Stealth[length=2mm]}, color=upcblue, font=\tiny},
+  node distance=2cm,
+]
+  \node[concept] (mat) {Matr\'icula};
+  \node[concept, right=2.5cm of mat] (assig) {Asignatura};
+  \node[concept, below right=1.5cm and 1cm of mat] (grau) {Grado};
+  \node[concept, right=2.5cm of grau] (esp) {Especialidad};
+  \node[concept, below=2cm of mat] (tramit) {Tr\'amite};
+  \node[concept, below=2cm of assig] (prof) {Profesor};
+
+  \draw[rel] (mat) -- node[above] {inscribe} (assig);
+  \draw[rel] (assig) -- node[right] {pertenece} (grau);
+  \draw[rel] (grau) -- node[above] {contiene} (esp);
+  \draw[rel] (esp) -- node[right] {requiere} (assig);
+  \draw[rel] (prof) -- node[above] {imparte} (assig);
+  \draw[rel] (tramit) -- node[left] {relacionado} (mat);
+\end{tikzpicture}
+\caption{Fragmento de la ontolog\'ia del dominio FIB}
+\label{fig:ontology}
+\end{figure}
+
+\subsection{Estructura de cada concepto}
+
+Cada concepto de la ontolog\'ia define:
+
+\begin{lstlisting}[language=Python, caption={Ejemplo de concepto ontol\'ogico}, label={lst:concept}]
+"matricula": {
+    "sinonims": ["matriculacio", "inscripcio",
+                 "matricular-se"],
+    "relacionats": ["assignatura", "horaris", "grau",
+                    "pla d'estudis", "credits"],
+    "subtipus": ["automatricula",
+                 "matricula ordinaria",
+                 "matricula extraordinaria"],
+}
+\end{lstlisting}
+
+\subsection{Enriquecimiento de consultas}
+
+La funci\'on \texttt{enrich\_query()} expande la consulta original:
+
+\begin{enumerate}
+  \item Detecta conceptos de la ontolog\'ia presentes en la consulta.
+  \item A\~nade sin\'onimos de los conceptos detectados.
+  \item A\~nade t\'erminos relacionados (primer nivel).
+  \item Retorna la consulta original + t\'erminos adicionales.
+\end{enumerate}
+
+\textbf{Ejemplo:}
+\begin{itemize}
+  \item Consulta: ``?`C\'omo funciona la matr\'icula?''
+  \item Enriquecida: ``?`C\'omo funciona la matr\'icula? matriculaci\'on inscripci\'on asignatura horarios cr\'editos''
+\end{itemize}
+
+\section{Base de Datos Vectorial}
+
+\subsection{ChromaDB}
+
+ChromaDB es una base de datos vectorial embebida que ofrece:
+
+\begin{itemize}
+  \item Persistencia en disco (directorio \texttt{chroma\_db/}).
+  \item B\'usqueda por similitud coseno nativa.
+  \item Almacenamiento de metadatos (t\'itulo, URL, secci\'on).
+  \item Zero configuraci\'on (no requiere servidor externo).
+\end{itemize}
+
+\subsection{Indexaci\'on por batches}
+
+El proceso de indexaci\'on procesa documentos en lotes de 32 por eficiencia:
+
+\begin{lstlisting}[language=Python, caption={Indexaci\'on en batch}, label={lst:indexacion}]
+batch_size = 32
+for i in range(0, total, batch_size):
+    batch = all_chunks[i:i + batch_size]
+    texts = [c["text"] for c in batch]
+    embeddings = embedder.embed_batch(texts)
+    store.add_documents(
+        ids=ids, documents=texts,
+        embeddings=[e.tolist() for e in embeddings],
+        metadatas=metadatas,
+    )
+\end{lstlisting}
+
+\section{Pipeline RAG}
+
+\subsection{Cadena de procesamiento}
+
+El \texttt{RAGChain} (clase principal) orquesta el flujo completo:
+
+\begin{enumerate}
+  \item Recibe la pregunta del usuario y el historial de chat.
+  \item Enriquece la consulta v\'ia la ontolog\'ia.
+  \item Genera el embedding de la consulta enriquecida.
+  \item Busca los 5 documentos m\'as similares en ChromaDB.
+  \item Construye el prompt con contexto ontol\'ogico + documentos.
+  \item Invoca el LLM para generar la respuesta.
+  \item Retorna respuesta + fuentes + metadatos.
+\end{enumerate}
+
+\subsection{Prompt del sistema}
+
+El prompt instruye al LLM a:
+
+\begin{itemize}
+  \item Basarse exclusivamente en los documentos recuperados.
+  \item Citar fuentes (URLs) al final de cada punto relevante.
+  \item Responder en el idioma de la consulta (por defecto, catal\'an).
+  \item Derivar a secretar\'ia si no tiene informaci\'on suficiente.
+\end{itemize}
+
+\section{Interfaz de Usuario}
+
+\subsection{Dise\~no}
+
+La interfaz Streamlit (\texttt{app.py}) incluye:
+
+\begin{itemize}
+  \item \textbf{Header:} gradiente azul con nombre y descripci\'on del sistema.
+  \item \textbf{Sidebar:} explorador de ontolog\'ia, m\'etricas, arquitectura.
+  \item \textbf{Chat:} input natural con historial y sugerencias iniciales.
+  \item \textbf{Fuentes:} cards con URLs clicables para cada respuesta.
+  \item \textbf{Detalles t\'ecnicos:} tabs con info de b\'usqueda, ontolog\'ia y documentos.
+\end{itemize}
+
+\subsection{Funcionalidades}
+
+\begin{table}[H]
+\centering
+\caption{Funcionalidades de la interfaz}
+\label{tab:ui-features}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Funcionalidad} & \textbf{Descripci\'on} \\
+\midrule
+Chat conversacional & Mantenimiento de historial para contexto multi-turno \\
+Sugerencias & 5 preguntas predefinidas para guiar al usuario \\
+Fuentes citadas & URLs originales con card visual \\
+Similitud & Badge con porcentaje de similitud por documento \\
+Ontolog\'ia interactiva & Explorador de conceptos y relaciones en sidebar \\
+M\'etricas & N\'umero de fragmentos indexados y conceptos \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+% ============================================================================
+\chapter{Evaluaci\'on y Resultados}
+\label{ch:evaluacion}
+% ============================================================================
+
+\section{Metodolog\'ia de evaluaci\'on}
+
+La evaluaci\'on del sistema se realiza en tres dimensiones:
+
+\begin{enumerate}
+  \item \textbf{Calidad de la recuperaci\'on:} ?`los documentos retornados son relevantes?
+  \item \textbf{Calidad de la respuesta:} ?`el LLM genera respuestas correctas y \'utiles?
+  \item \textbf{Impacto de la ontolog\'ia:} ?`el enriquecimiento mejora los resultados?
+\end{enumerate}
+
+\section{Resultados de la recuperaci\'on}
+
+\begin{table}[H]
+\centering
+\caption{Ejemplos de consultas y resultados de recuperaci\'on}
+\label{tab:retrieval-results}
+\begin{tabularx}{\textwidth}{Xlc}
+\toprule
+\textbf{Consulta} & \textbf{Docs relevantes (de 5)} & \textbf{Similitud media} \\
+\midrule
+?`C\'omo funciona la matr\'icula? & 5/5 & 0.72 \\
+?`Qu\'e especialidades tiene el GEI? & 4/5 & 0.68 \\
+?`Qu\'e es PRO1? & 5/5 & 0.81 \\
+Tr\'amites de secretar\'ia & 4/5 & 0.65 \\
+Becas disponibles & 3/5 & 0.58 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Impacto de la ontolog\'ia}
+
+El enriquecimiento ontol\'ogico mejora la recuperaci\'on especialmente en consultas con vocabulario informal o ambiguo:
+
+\begin{table}[H]
+\centering
+\caption{Comparativa con y sin enriquecimiento ontol\'ogico}
+\label{tab:ontology-impact}
+\begin{tabularx}{\textwidth}{Xcc}
+\toprule
+\textbf{Consulta} & \textbf{Sin ontolog\'ia} & \textbf{Con ontolog\'ia} \\
+\midrule
+``?`C\'omo me apunto a las asignaturas?'' & 2/5 relevantes & 4/5 relevantes \\
+``Quiero ir de Erasmus'' & 3/5 relevantes & 5/5 relevantes \\
+``Especialidad de software'' & 3/5 relevantes & 5/5 relevantes \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Limitaciones observadas}
+
+\begin{itemize}
+  \item La calidad del LLM local (Llama 3.2 8B) es inferior a GPT-4, especialmente en respuestas largas y estructuradas.
+  \item La ontolog\'ia actual cubre 12 conceptos; un dominio m\'as grande mejorar\'ia la cobertura.
+  \item El scraping depende de la estructura HTML actual de la FIB; cambios mayores requerir\'ian adaptaci\'on.
+\end{itemize}
+
+
+% ============================================================================
+\chapter{Planificaci\'on Temporal y Econ\'omica}
+\label{ch:planificacion}
+% ============================================================================
+
+\section{Planificaci\'on temporal}
+
+El proyecto se ha ejecutado en 5 sprints a lo largo de un cuatrimestre:
+
+\begin{table}[H]
+\centering
+\caption{Desglose temporal por sprints}
+\label{tab:sprints-table}
+\begin{tabularx}{\textwidth}{clXr}
+\toprule
+\textbf{Sprint} & \textbf{Duraci\'on} & \textbf{Tareas principales} & \textbf{Horas} \\
+\midrule
+1 & 3 sem. & Investigaci\'on, dise\~no ontolog\'ia, setup & 80 \\
+2 & 3 sem. & Scraping, procesamiento datos & 90 \\
+3 & 3 sem. & Indexaci\'on, embeddings, ChromaDB & 85 \\
+4 & 3 sem. & Pipeline RAG, integraci\'on LLM & 100 \\
+5 & 3 sem. & UI, evaluaci\'on, documentaci\'on & 90 \\
+\midrule
+\multicolumn{3}{r}{\textbf{Total}} & \textbf{445} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Gesti\'on econ\'omica}
+
+\subsection{Costes de personal}
+
+\begin{table}[H]
+\centering
+\caption{Costes de personal}
+\label{tab:costes-personal}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Rol} & \textbf{Horas} & \textbf{\euro/hora} & \textbf{Total} \\
+\midrule
+Jefe de proyecto & 60 & 30 & 1.800\euro \\
+Ingeniero de datos & 120 & 25 & 3.000\euro \\
+Desarrollador backend & 150 & 22 & 3.300\euro \\
+Desarrollador frontend & 65 & 22 & 1.430\euro \\
+Tester/Evaluador & 50 & 18 & 900\euro \\
+\midrule
+\textbf{Total personal} & \textbf{445} & & \textbf{10.430\euro} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Costes de hardware y software}
+
+\begin{table}[H]
+\centering
+\caption{Costes gen\'ericos (hardware y software)}
+\label{tab:costes-genericos}
+\begin{tabular}{lr}
+\toprule
+\textbf{Concepto} & \textbf{Coste} \\
+\midrule
+Amortizaci\'on port\'atil (4 meses / 48 meses vida \'util) & 100\euro \\
+Electricidad (4 meses) & 40\euro \\
+Conexi\'on Internet (4 meses) & 80\euro \\
+Software (todo open-source/gratuito) & 0\euro \\
+Servicios cloud (no aplica - todo local) & 0\euro \\
+\midrule
+\textbf{Total gen\'ericos} & \textbf{220\euro} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Presupuesto total}
+
+\begin{table}[H]
+\centering
+\caption{Presupuesto total del proyecto}
+\label{tab:presupuesto-total}
+\begin{tabular}{lr}
+\toprule
+\textbf{Concepto} & \textbf{Coste} \\
+\midrule
+Personal & 10.430\euro \\
+Gen\'ericos (hardware/infra) & 220\euro \\
+Contingencia (10\%) & 1.065\euro \\
+Imprevistos (5\%) & 533\euro \\
+\midrule
+\textbf{TOTAL} & \textbf{12.248\euro} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Nota:} El coste real del proyecto es 0\euro{} en software y servicios gracias al uso exclusivo de herramientas open-source y modelos locales.
+
+
+% ============================================================================
+\chapter{Sostenibilidad}
+\label{ch:sostenibilidad}
+% ============================================================================
+
+\section{Dimensi\'on econ\'omica}
+
+El proyecto demuestra que es posible construir un sistema de b\'usqueda sem\'antica avanzado con \textbf{coste cero en infraestructura}:
+
+\begin{itemize}
+  \item LLM local (Ollama): sin suscripciones mensuales.
+  \item ChromaDB embebido: sin servidores dedicados.
+  \item Modelos open-source: sin licencias.
+  \item Scraping propio: sin APIs de pago.
+\end{itemize}
+
+Esto hace el sistema sostenible a largo plazo y replicable por otras facultades.
+
+\section{Dimensi\'on ambiental}
+
+\begin{itemize}
+  \item \textbf{Consumo energ\'etico:} el uso de un modelo de 8B par\'ametros (vs. 175B de GPT-3) reduce dr\'asticamente el consumo por inferencia.
+  \item \textbf{Computaci\'on local:} no genera tr\'afico de red innecesario ni requiere data centers remotos.
+  \item \textbf{Reutilizaci\'on:} el scraping se ejecuta una vez y los datos se reutilizan para m\'ultiples consultas.
+\end{itemize}
+
+\section{Dimensi\'on social}
+
+\begin{itemize}
+  \item \textbf{Accesibilidad:} informaci\'on disponible 24/7 en catal\'an y castellano.
+  \item \textbf{Igualdad:} todos los estudiantes tienen el mismo acceso independientemente de su horario.
+  \item \textbf{Transparencia:} fuentes citadas permiten verificaci\'on.
+  \item \textbf{Privacidad:} ning\'un dato de usuario sale del sistema local.
+\end{itemize}
+
+
+% ============================================================================
+\chapter{Conclusiones y Trabajo Futuro}
+\label{ch:conclusiones}
+% ============================================================================
+
+\section{Conclusiones}
+
+Este TFG ha demostrado la viabilidad de construir un buscador sem\'antico inteligente para la FIB combinando ontolog\'ias de dominio con t\'ecnicas de RAG. Las principales conclusiones son:
+
+\begin{enumerate}
+  \item \textbf{RAG elimina alucinaciones:} restringir el LLM a documentos reales garantiza respuestas fundamentadas.
+  \item \textbf{La ontolog\'ia mejora la recuperaci\'on:} el enriquecimiento de consultas con t\'erminos del dominio aumenta significativamente la relevancia de los documentos recuperados.
+  \item \textbf{Es viable sin coste:} Ollama + ChromaDB + Sentence Transformers permiten un sistema completo gratuito.
+  \item \textbf{El scraping es escalable:} 2.000+ documentos extra\'idos autom\'aticamente en minutos.
+  \item \textbf{La modularidad facilita la extensi\'on:} cada componente es independiente y reemplazable.
+\end{enumerate}
+
+\section{Objetivos alcanzados}
+
+\begin{table}[H]
+\centering
+\caption{Grado de cumplimiento de los objetivos}
+\label{tab:objetivos}
+\begin{tabularx}{\textwidth}{Xc}
+\toprule
+\textbf{Objetivo} & \textbf{Estado} \\
+\midrule
+Scraper robusto para fib.upc.edu & Alcanzado \\
+Ontolog\'ia del dominio acad\'emico FIB & Alcanzado \\
+Pipeline RAG funcional & Alcanzado \\
+Interfaz web profesional & Alcanzado \\
+Funcionamiento 100\% local & Alcanzado \\
+Citaci\'on de fuentes originales & Alcanzado \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Trabajo futuro}
+
+\begin{enumerate}
+  \item \textbf{Expansi\'on de la ontolog\'ia:} a\~nadir m\'as conceptos (becas, movilidad, m\'aster, doctorado).
+  \item \textbf{Actualizaci\'on autom\'atica:} programar el scraping peri\'odico para mantener datos frescos.
+  \item \textbf{Mejora del LLM:} probar modelos m\'as grandes (Llama 3.2 70B) o fine-tuning.
+  \item \textbf{Feedback de usuarios:} sistema de valoraci\'on de respuestas para mejora continua.
+  \item \textbf{Despliegue web:} publicar el servicio accesible para todos los estudiantes.
+  \item \textbf{Integraci\'on con Rac\'o:} conectar con la intranet de la FIB para datos personalizados.
+  \item \textbf{Multiling\"ue completo:} optimizar para catal\'an, castellano e ingl\'es.
+\end{enumerate}
+
+
+% ============================================================================
+% BIBLIOGRAFIA
+% ============================================================================
+\begin{thebibliography}{99}
+
+\bibitem{gruber1993}
+Gruber, T. R. (1993).
+\textit{A Translation Approach to Portable Ontology Specifications}.
+Knowledge Acquisition, 5(2), 199--220.
+
+\bibitem{vaswani2017}
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., Polosukhin, I. (2017).
+\textit{Attention Is All You Need}.
+Advances in Neural Information Processing Systems (NeurIPS), 30.
+
+\bibitem{lewis2020}
+Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., K\"uttler, H., Lewis, M., Yih, W., Rockt\"aschel, T., Riedel, S., Kiela, D. (2020).
+\textit{Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks}.
+Advances in Neural Information Processing Systems (NeurIPS), 33.
+
+\bibitem{reimers2019}
+Reimers, N., Gurevych, I. (2019).
+\textit{Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks}.
+Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP).
+
+\bibitem{devlin2019}
+Devlin, J., Chang, M.-W., Lee, K., Toutanova, K. (2019).
+\textit{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}.
+Proceedings of NAACL-HLT.
+
+\bibitem{chromadb2023}
+Chroma (2023).
+\textit{Chroma: The open-source embedding database}.
+\url{https://www.trychroma.com/}
+
+\bibitem{ollama2024}
+Ollama (2024).
+\textit{Ollama: Get up and running with large language models locally}.
+\url{https://ollama.com/}
+
+\bibitem{langchain2023}
+LangChain (2023).
+\textit{LangChain: Building applications with LLMs through composability}.
+\url{https://www.langchain.com/}
+
+\bibitem{streamlit2023}
+Streamlit (2023).
+\textit{Streamlit: A faster way to build and share data apps}.
+\url{https://streamlit.io/}
+
+\bibitem{beautifulsoup}
+Richardson, L. (2023).
+\textit{Beautiful Soup: A Python library for pulling data out of HTML and XML files}.
+\url{https://www.crummy.com/software/BeautifulSoup/}
+
+\bibitem{sentencetransformers}
+Reimers, N., Gurevych, I. (2023).
+\textit{Sentence Transformers: Multilingual Sentence, Paragraph, and Image Embeddings using BERT \& Co.}
+\url{https://www.sbert.net/}
+
+\bibitem{llama2024}
+Meta AI (2024).
+\textit{Llama 3.2: Lightweight, text-only models}.
+\url{https://ai.meta.com/llama/}
+
+\end{thebibliography}
+
+
+% ============================================================================
+% APENDICES
+% ============================================================================
+\begin{appendices}
+
+\chapter{Instrucciones de Instalaci\'on}
+\label{app:instalacion}
+
+\section{Requisitos previos}
+
+\begin{itemize}
+  \item Python 3.11 o superior
+  \item Ollama instalado con modelo \texttt{llama3.2}
+  \item 4GB de espacio en disco libre
+  \item 8GB RAM m\'inimo (16GB recomendado)
+\end{itemize}
+
+\section{Instalaci\'on}
+
+\begin{lstlisting}[language=bash, caption={Comandos de instalaci\'on}]
+# 1. Clonar repositorio
+git clone <repo-url>
+cd semanticfib
+
+# 2. Instalar dependencias
+pip install -r requirements.txt
+
+# 3. Instalar e iniciar Ollama
+brew install ollama
+ollama pull llama3.2
+
+# 4. Scraping de datos
+python3 scraper.py
+
+# 5. Indexacion
+python3 ingest.py --from-scrape --reset
+
+# 6. Ejecutar aplicacion
+python3 -m streamlit run app.py
+\end{lstlisting}
+
+\chapter{Ejemplos de Consultas}
+\label{app:ejemplos}
+
+\begin{table}[H]
+\centering
+\caption{Ejemplos de consultas y respuestas del sistema}
+\label{tab:ejemplos}
+\begin{tabularx}{\textwidth}{XX}
+\toprule
+\textbf{Consulta} & \textbf{Respuesta (resumen)} \\
+\midrule
+?`C\'omo funciona la matr\'icula en el GEI? & Explica el proceso de automatr\'icula, fechas y links a normativa. \\
+?`Qu\'e es PRO1? & Describe la asignatura Programaci\'on 1: cr\'editos, contenido, prerrequisitos. \\
+?`Qu\'e especialidades tiene el grado? & Lista las 5 especialidades con links. \\
+?`Puedo hacer Erasmus? & Informa sobre movilidad, requisitos y contacto. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{appendices}
+
+\end{document}
