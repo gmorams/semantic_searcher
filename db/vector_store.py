@@ -24,6 +24,16 @@ class VectorStore(metaclass=SingletonMeta):
             metadatas=metadatas,
         )
 
+    def upsert_documents(self, ids, documents, embeddings, metadatas=None):
+        """Afegeix o actualitza documents (idempotent, sense errors per IDs duplicats)."""
+        emb_list = [e if isinstance(e, list) else e.tolist() for e in embeddings]
+        self.collection.upsert(
+            ids=ids,
+            documents=documents,
+            embeddings=emb_list,
+            metadatas=metadatas,
+        )
+
     def search(self, query_embedding, n_results=5):
         """Cerca els n documents mes similars per embedding."""
         emb = query_embedding if isinstance(query_embedding, list) else query_embedding.tolist()

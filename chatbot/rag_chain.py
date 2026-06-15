@@ -1,20 +1,19 @@
 """
-Pipeline RAG (Retrieval Augmented Generation) amb enriquiment ontologic.
+Pipeline RAG (Retrieval Augmented Generation) amb estrategia de cerca configurable.
 
 Flux:
-  1. L'usuari fa una pregunta
-  2. L'ontologia enriqueix la consulta amb termes relacionats
-  3. Es genera l'embedding de la consulta enriquida
-  4. ChromaDB retorna els documents mes similars
-  5. El LLM genera una resposta basada EXCLUSIVAMENT en els documents recuperats
+  1. Si hi ha historial, el LLM condensa la pregunta de seguiment en una
+     pregunta autonoma (query condensation) perque el retrieval funcioni.
+  2. El retriever del mode actiu (bm25 / dense / ontology / controlled /
+     hybrid) recupera els documents mes rellevants.
+  3. El LLM genera una resposta fonamentada EXCLUSIVAMENT en aquests documents,
+     amb el context ontologic com a coneixement estructurat addicional.
 """
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.messages import HumanMessage, AIMessage
+
 from chatbot.llm import get_llm
-from db.vector_store import VectorStore
-from processing.embedder import Embedder
-from ontology.fib_ontology import enrich_query, get_ontology_context
+from retrieval import get_retriever, MODES
 import settings
 
 
@@ -28,13 +27,22 @@ INSTRUCCIONS:
 5. Respon en el MATEIX idioma que l'usuari. Per defecte, catala.
 6. Sigues clar, estructurat i util.
 
-CONTEXT ONTOLOGIC:
+CONTEXT ONTOLOGIC (coneixement estructurat del domini):
 {ontology_context}
 
 ===== DOCUMENTS RECUPERATS =====
 {retrieved_docs}
 ===== FI =====
 """
+
+CONDENSE_PROMPT = """Reescriu l'ultima pregunta de l'usuari com una pregunta autonoma i completa en el mateix idioma, incorporant el context necessari de la conversa. Respon NOMES amb la pregunta reescrita, sense explicacions.
+
+Conversa:
+{history}
+
+Ultima pregunta: {question}
+
+Pregunta autonoma:"""
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", SYSTEM_PROMPT),
@@ -44,88 +52,77 @@ prompt = ChatPromptTemplate.from_messages([
 
 
 class RAGChain:
-    """Cadena RAG: consulta -> ontologia -> retrieval -> LLM -> resposta fonamentada."""
+    """Cadena RAG: consulta -> retriever (mode configurable) -> LLM -> resposta."""
 
-    def __init__(self):
+    def __init__(self, mode=None):
+        self.mode = mode or settings.RETRIEVAL_MODE
+        if self.mode not in MODES:
+            raise ValueError(f"Mode desconegut: {self.mode}")
         self.llm = get_llm()
-        self.vector_store = VectorStore()
-        self.embedder = Embedder()
+        self.retriever = get_retriever(self.mode)
         self.chain = prompt | self.llm
 
-    def ask(self, question: str, chat_history: list = None) -> dict:
+    def _condense_question(self, question, chat_history):
+        """Reescriu preguntes de seguiment com a preguntes autonomes."""
+        if not chat_history:
+            return question
+        history_text = "\n".join(
+            f"{'Usuari' if m.type == 'human' else 'Assistent'}: {m.content[:300]}"
+            for m in chat_history[-6:]
+        )
+        try:
+            response = self.llm.invoke(
+                CONDENSE_PROMPT.format(history=history_text, question=question)
+            )
+            condensed = response.content.strip().strip('"')
+            return condensed if condensed else question
+        except Exception:
+            return question
+
+    def ask(self, question, chat_history=None):
         if chat_history is None:
             chat_history = []
 
-        # 1. Enriquiment ontologic
-        enriched_query = enrich_query(question)
+        # 1. Condensacio de la pregunta (nomes si hi ha historial)
+        search_question = self._condense_question(question, chat_history)
 
-        # 2. Context ontologic per al prompt
-        ontology_ctx = get_ontology_context(question)
+        # 2. Retrieval amb l'estrategia activa
+        retrieval = self.retriever.search(search_question, top_k=settings.TOP_K)
+        results = retrieval["results"]
 
-        # 3. Cerca vectorial
-        query_embedding = self.embedder.embed(enriched_query)
-        results = self.vector_store.search(
-            query_embedding=query_embedding,
-            n_results=settings.TOP_K,
-        )
-
-        # 4. Formatar documents
-        docs_text, retrieved_docs_detail = self._format_results(results)
-        n_docs = len(results["documents"][0]) if results and results["documents"] else 0
-
-        # 5. Generar resposta
+        # 3. Generacio de la resposta
+        docs_text = self._format_docs_for_prompt(results)
         response = self.chain.invoke({
             "question": question,
-            "ontology_context": ontology_ctx if ontology_ctx else "Cap context ontologic especific.",
-            "retrieved_docs": docs_text if docs_text else "NO S'HAN TROBAT DOCUMENTS. Informa l'usuari que no tens informacio.",
+            "ontology_context": retrieval["ontology_context"] or "Cap context ontologic especific.",
+            "retrieved_docs": docs_text or "NO S'HAN TROBAT DOCUMENTS. Informa l'usuari que no tens informacio.",
             "chat_history": chat_history,
         })
 
-        # 6. Fonts
+        # 4. Fonts uniques en ordre de ranking
         sources = []
-        if results and results["metadatas"]:
-            for meta in results["metadatas"][0]:
-                src = meta.get("source", "")
-                if src and src not in sources:
-                    sources.append(src)
+        for item in results:
+            src = item["source"]
+            if src and src not in sources:
+                sources.append(src)
 
         return {
             "answer": response.content,
             "sources": sources,
-            "enriched_query": enriched_query,
-            "ontology_context": ontology_ctx,
-            "num_docs_retrieved": n_docs,
-            "retrieved_docs": retrieved_docs_detail,
+            "mode": self.mode,
+            "search_question": search_question,
+            "enriched_query": retrieval["enriched_query"],
+            "ontology_context": retrieval["ontology_context"],
+            "entities": retrieval.get("entities", []),
+            "num_docs_retrieved": len(results),
+            "retrieved_docs": results,
         }
 
-    def _format_results(self, results):
-        """Retorna (text_per_prompt, llista_detall_per_ui)."""
-        if not results or not results["documents"] or not results["documents"][0]:
-            return "", []
-
+    def _format_docs_for_prompt(self, results):
         parts = []
-        details = []
-        for i, (doc, meta, dist) in enumerate(zip(
-            results["documents"][0],
-            results["metadatas"][0],
-            results["distances"][0],
-        )):
-            title = meta.get("title", "Document")
-            source = meta.get("source", "")
-            section = meta.get("section", "")
-            similarity = max(0, 1 - dist)
-
-            header = f"[Document {i+1}] Font: {source}"
-            if section:
-                header += f" | Seccio: {section}"
-            parts.append(f"{header}\nTitol: {title}\nContingut:\n{doc}\n")
-
-            details.append({
-                "title": title,
-                "source": source,
-                "section": section,
-                "similarity": round(similarity, 3),
-                "preview": doc[:200] + "..." if len(doc) > 200 else doc,
-            })
-
-        return "\n".join(parts), details
+        for i, item in enumerate(results, start=1):
+            header = f"[Document {i}] Font: {item['source']}"
+            if item["section"]:
+                header += f" | Seccio: {item['section']}"
+            parts.append(f"{header}\nTitol: {item['title']}\nContingut:\n{item['content']}\n")
+        return "\n".join(parts)

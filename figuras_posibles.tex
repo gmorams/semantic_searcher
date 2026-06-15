@@ -1,0 +1,133 @@
+% ============================================================================
+% FIGURA 1: Arquitectura en dos capas (TBox / ABox)
+% ============================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.5cm and 2cm,
+  tboxnode/.style={rectangle, draw=upcblue, fill=upcblue!10, minimum width=2.5cm, minimum height=1cm, align=center, rounded corners, font=\small\bfseries},
+  aboxnode/.style={ellipse, draw=fibblue, fill=fibblue!10, minimum width=2cm, align=center, font=\small},
+  rel/.style={-{Stealth[length=2mm]}, thick, color=upcblue, font=\scriptsize},
+  isa/.style={-{Stealth[length=2mm, open]}, thick, color=gray, dashed, font=\scriptsize}
+]
+  % Cajas de fondo (se dibujan primero para quedar detrás)
+  \node[fill=gray!5, rounded corners, draw=gray!40, dashed, minimum width=14cm, minimum height=5cm] (tbox) at (2,-1.5) {};
+  \node[anchor=north west, font=\itshape\bfseries\color{gray}] at (tbox.north west) {TBox (Esquema Conceptual)};
+
+  \node[fill=fibblue!5, rounded corners, draw=fibblue!30, dashed, minimum width=14cm, minimum height=3.5cm] (abox) at (2,-6.5) {};
+  \node[anchor=north west, font=\itshape\bfseries\color{fibblue}] at (abox.north west) {ABox (Afirmaciones de Instancias)};
+
+  % Capa TBox (Clases)
+  \node[tboxnode] (entitat) at (2,0) {EntitatAcademica};
+  \node[tboxnode] (titulacio) at (-2,-2) {Titulacio};
+  \node[tboxnode] (assignatura) at (2,-2) {Assignatura};
+  \node[tboxnode] (especialitat) at (6,-2) {Especialitat};
+  \node[tboxnode] (grau) at (-3.5,-3.5) {Grau};
+  \node[tboxnode] (master) at (-0.5,-3.5) {Màster};
+
+  % Relaciones subClassOf
+  \draw[isa] (titulacio) -- node[above left] {subClassOf} (entitat);
+  \draw[isa] (assignatura) -- node[right] {subClassOf} (entitat);
+  \draw[isa] (grau) -- (titulacio);
+  \draw[isa] (master) -- (titulacio);
+
+  % Relaciones (Object Properties TBox)
+  \draw[rel] (titulacio) to[bend left=15] node[above] {teEspecialitat} (especialitat);
+  \draw[rel] (assignatura) -- node[above] {pertanyA} (titulacio);
+  \draw[rel] (assignatura) -- node[above] {dinsEspecialitat} (especialitat);
+
+  % Capa ABox (Instancias)
+  \node[aboxnode] (gei) at (-3.5,-6) {GEI};
+  \node[aboxnode] (xc) at (2,-6) {XC};
+  \node[aboxnode] (comp) at (6,-6) {Computació};
+  \node[aboxnode] (mat) at (2,-7.5) {Matrícula}; 
+
+  % Relaciones instanceOf
+  \draw[isa, color=fibblue!80] (gei) -- node[left] {instanceOf} (grau);
+  \draw[isa, color=fibblue!80] (xc) -- node[left] {instanceOf} (assignatura);
+  \draw[isa, color=fibblue!80] (comp) -- node[right] {instanceOf} (especialitat);
+
+  % Relaciones (Object Properties ABox)
+  \draw[rel, draw=fibblue] (xc) -- node[above] {pertanyA} (gei);
+  \draw[rel, draw=fibblue] (xc) -- node[above] {dinsEspecialitat} (comp);
+  \draw[rel, draw=fibblue] (mat) -- node[left] {relacionatAmb} (xc);
+
+\end{tikzpicture}
+\caption{Arquitectura de la ontología en dos capas: distinción formal entre el esquema jerárquico (TBox) y la población de instancias (ABox).}
+\label{fig:tbox_abox}
+\end{figure}
+
+% ============================================================================
+% FIGURA 2: Pipeline de Población Semiautomática
+% ============================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.2cm and 1.5cm,
+  step/.style={rectangle, draw=fibblue, fill=fibblue!10, minimum width=2.8cm, minimum height=1.2cm, align=center, rounded corners, font=\small\bfseries},
+  arrow/.style={-{Stealth[length=3mm]}, thick, color=upcblue}
+]
+  \node[step, fill=lightgray, draw=gray] (web) {Web FIB\\(HTML)};
+  \node[step, right=of web] (scraper) {Extracción NLP\\(Nombres/Códigos)};
+  \node[step, right=of scraper] (graph) {Constructor\\Grafo RDF};
+  \node[step, right=of graph, fill=upcblue!10, draw=upcblue] (ttl) {Ontología\\(.ttl)};
+
+  \draw[arrow] (web) -- node[above, font=\scriptsize] {Scraping} (scraper);
+  \draw[arrow] (scraper) -- node[above, font=\scriptsize] {Mapeo} (graph);
+  \draw[arrow] (graph) -- node[above, font=\scriptsize] {Serialización} (ttl);
+
+  \node[below=0.5cm of scraper, font=\footnotesize\itshape, text width=3cm, align=center] {Expresiones regulares\\y selectores CSS};
+  \node[below=0.5cm of graph, font=\footnotesize\itshape, text width=3cm, align=center] {Población del ABox\\sobre el esquema};
+
+\end{tikzpicture}
+\caption{Pipeline de población semiautomática. La ontología se reconstruye dinámicamente desde los datos reales de la facultad.}
+\label{fig:pipeline_ontologia}
+\end{figure}
+
+% ============================================================================
+% TABLA: Propiedades Operativas
+% ============================================================================
+\begin{table}[H]
+\centering
+\caption{Propiedades de datos (Datatype Properties) y su rol operativo en el \textit{retrieval}}
+\label{tab:datatype_properties}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\ttfamily}lXX}
+\toprule
+\textbf{\textnormal{Propiedad}} & \textbf{Descripción ontológica} & \textbf{Rol en el Pipeline RAG} \\
+\midrule
+recursCanonic & URL oficial y definitiva del recurso en la web de la FIB. & Inyección de candidatos. Garantiza que la página clave entre al \textit{pool} eludiendo el filtro de similitud semántica. \\
+pesIntencio & Valor numérico $[0, 1]$ que indica la relevancia de la entidad. & Magnitud del \textit{boost}. Modifica el \textit{score} del documento para forzar su aparición en el Top-1. \\
+patroUrl & Patrón Regex o fragmento de URL asociado a la categoría. & Emparejamientos (\textit{matches}) parciales durante el re-ranqueo para subir la prioridad de páginas hijas. \\
+codi & Acrónimo, sigla oficial o alias (ej. XC, GEI). & Activador del \textit{Entity Linking}. Si la consulta contiene el código, detona las reglas de inyección. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================================
+% LISTADO SPARQL Y EJEMPLO DE EJECUCIÓN
+% ============================================================================
+El mecanismo de expansión utiliza consultas SPARQL para navegar por el grafo y detonar el re-ranqueo dirigido.
+
+\begin{lstlisting}[language=SQL, caption={Consulta SPARQL para recuperar atributos de inyección}, label={lst:sparql_expansion}]
+PREFIX fib: <http://www.fib.upc.edu/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?altLabel ?canonicalUrl ?boostWeight
+WHERE {
+  ?concept a fib:Tramit ;
+           rdfs:label "Mobilitat" ;
+           fib:altLabel ?altLabel ;
+           fib:recursCanonic ?canonicalUrl ;
+           fib:pesIntencio ?boostWeight .
+}
+\end{lstlisting}
+
+\textbf{Ejemplo de ejecución paso a paso:}
+\begin{enumerate}
+    \item \textbf{Consulta original:} \textit{"vull anar d'Erasmus"}
+    \item \textbf{Entity Linking:} El sistema identifica "Erasmus" como \texttt{altLabel} del concepto \texttt{Mobilitat}.
+    \item \textbf{Expansión:} Se recupera la URL canónica (\texttt{/ca/mobilitat}) y su peso de intención ($0.45$).
+    \item \textbf{Inyección y Re-ranqueo:} Se inyectan los fragmentos de la URL canónica en los candidatos devueltos por ChromaDB y se les aplica el \textit{boost} de $+0.45$.
+    \item \textbf{Resultado:} La normativa oficial de movilidad de la FIB aparece garantizada en el Top-1, sin importar el fraseo informal del estudiante.
+\end{enumerate}

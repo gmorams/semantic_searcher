@@ -1,5 +1,5 @@
 from sentence_transformers import SentenceTransformer
-from utils import measure_time, SingletonMeta
+from utils import SingletonMeta
 import settings
 
 
@@ -17,11 +17,10 @@ class Embedder(metaclass=SingletonMeta):
             self.model = SentenceTransformer(model, device="cpu")
         print(f"Model d'embeddings carregat: {model}")
 
-    @measure_time
     def embed(self, text: str):
         """Retorna el vector d'embedding per al text donat."""
         return self.model.encode(text)
 
     def embed_batch(self, texts: list):
-        """Retorna embeddings per a una llista de textos (sense decorator per rendiment)."""
+        """Retorna embeddings per a una llista de textos."""
         return self.model.encode(texts)

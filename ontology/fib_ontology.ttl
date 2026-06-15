@@ -1,0 +1,1201 @@
+@prefix fib: <https://semanticfib.fib.upc.edu/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fib:assignatura-A a fib:Assignatura ;
+    skos:altLabel "A" ;
+    skos:prefLabel "Algorísmia"@ca ;
+    fib:codi "A" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/A"^^xsd:anyURI .
+
+fib:assignatura-AA a fib:Assignatura ;
+    skos:altLabel "AA" ;
+    skos:prefLabel "Ampliació d'Algorísmia"@ca ;
+    fib:codi "AA" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AA"^^xsd:anyURI .
+
+fib:assignatura-ABD a fib:Assignatura ;
+    skos:altLabel "ABD" ;
+    skos:prefLabel "Administració de Bases de Dades"@ca ;
+    fib:codi "ABD" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ABD"^^xsd:anyURI .
+
+fib:assignatura-AC a fib:Assignatura ;
+    skos:altLabel "AC" ;
+    skos:prefLabel "Arquitectura de Computadors"@ca ;
+    fib:codi "AC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AC"^^xsd:anyURI .
+
+fib:assignatura-AC2 a fib:Assignatura ;
+    skos:altLabel "AC2" ;
+    skos:prefLabel "Arquitectura de Computadors II"@ca ;
+    fib:codi "AC2" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AC2"^^xsd:anyURI .
+
+fib:assignatura-AD a fib:Assignatura ;
+    skos:altLabel "AD" ;
+    skos:prefLabel "Aplicacions Distribuïdes"@ca ;
+    fib:codi "AD" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AD"^^xsd:anyURI .
+
+fib:assignatura-ADEI a fib:Assignatura ;
+    skos:altLabel "ADEI" ;
+    skos:prefLabel "Anàlisi de Dades i Explotació de la Informació"@ca ;
+    fib:codi "ADEI" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ADEI"^^xsd:anyURI .
+
+fib:assignatura-APA a fib:Assignatura ;
+    skos:altLabel "APA" ;
+    skos:prefLabel "Aprenentatge Automàtic"@ca ;
+    fib:codi "APA" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/APA"^^xsd:anyURI .
+
+fib:assignatura-APC a fib:Assignatura ;
+    skos:altLabel "APC" ;
+    skos:prefLabel "Arquitectura del PC"@ca ;
+    fib:codi "APC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/APC"^^xsd:anyURI .
+
+fib:assignatura-AS a fib:Assignatura ;
+    skos:altLabel "AS" ;
+    skos:prefLabel "Arquitectura del Software"@ca ;
+    fib:codi "AS" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AS"^^xsd:anyURI .
+
+fib:assignatura-ASMI a fib:Assignatura ;
+    skos:altLabel "ASMI" ;
+    skos:prefLabel "Aspectes Socials i Mediambientals de la Informàtica"@ca ;
+    fib:codi "ASMI" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ASMI"^^xsd:anyURI .
+
+fib:assignatura-ASO a fib:Assignatura ;
+    skos:altLabel "ASO" ;
+    skos:prefLabel "Administració de Sistemes Operatius"@ca ;
+    fib:codi "ASO" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ASO"^^xsd:anyURI .
+
+fib:assignatura-ASW a fib:Assignatura ;
+    skos:altLabel "ASW" ;
+    skos:prefLabel "Aplicacions i Serveis Web"@ca ;
+    fib:codi "ASW" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ASW"^^xsd:anyURI .
+
+fib:assignatura-BD a fib:Assignatura ;
+    skos:altLabel "BD" ;
+    skos:prefLabel "Bases de Dades"@ca ;
+    fib:codi "BD" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/BD"^^xsd:anyURI .
+
+fib:assignatura-C a fib:Assignatura ;
+    skos:altLabel "C" ;
+    skos:prefLabel "Criptografia"@ca ;
+    fib:codi "C" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/C"^^xsd:anyURI .
+
+fib:assignatura-CAIM a fib:Assignatura ;
+    skos:altLabel "CAIM" ;
+    skos:prefLabel "Cerca i Anàlisi d'Informació Massiva"@ca ;
+    fib:codi "CAIM" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CAIM"^^xsd:anyURI .
+
+fib:assignatura-CAP a fib:Assignatura ;
+    skos:altLabel "CAP" ;
+    skos:prefLabel "Conceptes Avançats de Programació"@ca ;
+    fib:codi "CAP" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CAP"^^xsd:anyURI .
+
+fib:assignatura-CASO a fib:Assignatura ;
+    skos:altLabel "CASO" ;
+    skos:prefLabel "Conceptes Avançats de Sistemes Operatius"@ca ;
+    fib:codi "CASO" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CASO"^^xsd:anyURI .
+
+fib:assignatura-CBDE a fib:Assignatura ;
+    skos:altLabel "CBDE" ;
+    skos:prefLabel "Conceptes per a Bases de Dades Especialitzades"@ca ;
+    fib:codi "CBDE" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CBDE"^^xsd:anyURI .
+
+fib:assignatura-CCQ a fib:Assignatura ;
+    skos:altLabel "CCQ" ;
+    skos:prefLabel "Computació i Criptografia Quàntiques"@ca ;
+    fib:codi "CCQ" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CCQ"^^xsd:anyURI .
+
+fib:assignatura-CDI a fib:Assignatura ;
+    skos:altLabel "CDI" ;
+    skos:prefLabel "Compressió de Dades i Imatges"@ca ;
+    fib:codi "CDI" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CDI"^^xsd:anyURI .
+
+fib:assignatura-CI a fib:Assignatura ;
+    skos:altLabel "CI" ;
+    skos:prefLabel "Interfícies de Computadors"@ca ;
+    fib:codi "CI" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CI"^^xsd:anyURI .
+
+fib:assignatura-CL a fib:Assignatura ;
+    skos:altLabel "CL" ;
+    skos:prefLabel "Compiladors"@ca ;
+    fib:codi "CL" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CL"^^xsd:anyURI .
+
+fib:assignatura-CN a fib:Assignatura ;
+    skos:altLabel "CN" ;
+    skos:prefLabel "Computació Numèrica"@ca ;
+    fib:codi "CN" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CN"^^xsd:anyURI .
+
+fib:assignatura-CPD a fib:Assignatura ;
+    skos:altLabel "CPD" ;
+    skos:prefLabel "Centres de Processament de Dades"@ca ;
+    fib:codi "CPD" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CPD"^^xsd:anyURI .
+
+fib:assignatura-CSI a fib:Assignatura ;
+    skos:altLabel "CSI" ;
+    skos:prefLabel "Conceptes de Sistemes d'Informació"@ca ;
+    fib:codi "CSI" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CSI"^^xsd:anyURI .
+
+fib:assignatura-DBD a fib:Assignatura ;
+    skos:altLabel "DBD" ;
+    skos:prefLabel "Disseny de Bases de Dades"@ca ;
+    fib:codi "DBD" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/DBD"^^xsd:anyURI .
+
+fib:assignatura-DCS a fib:Assignatura ;
+    skos:altLabel "DCS" ;
+    skos:prefLabel "Disseny de Corbes i Superfícies"@ca ;
+    fib:codi "DCS" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/DCS"^^xsd:anyURI .
+
+fib:assignatura-DSBM a fib:Assignatura ;
+    skos:altLabel "DSBM" ;
+    skos:prefLabel "Disseny de Sistemes Basats en Microcomputadors"@ca ;
+    fib:codi "DSBM" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/DSBM"^^xsd:anyURI .
+
+fib:assignatura-DSI a fib:Assignatura ;
+    skos:altLabel "DSI" ;
+    skos:prefLabel "Disseny de Sistemes d'Informació"@ca ;
+    fib:codi "DSI" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/DSI"^^xsd:anyURI .
+
+fib:assignatura-EC a fib:Assignatura ;
+    skos:altLabel "EC" ;
+    skos:prefLabel "Estructura de Computadors"@ca ;
+    fib:codi "EC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/EC"^^xsd:anyURI .
+
+fib:assignatura-ECSDI a fib:Assignatura ;
+    skos:altLabel "ECSDI" ;
+    skos:prefLabel "Enginyeria del Coneixement i Sistemes Distribuïts Intel·ligents"@ca ;
+    fib:codi "ECSDI" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ECSDI"^^xsd:anyURI .
+
+fib:assignatura-EDA a fib:Assignatura ;
+    skos:altLabel "EDA" ;
+    skos:prefLabel "Estructures de Dades i Algorismes"@ca ;
+    fib:codi "EDA" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/EDA"^^xsd:anyURI .
+
+fib:assignatura-EDO a fib:Assignatura ;
+    skos:altLabel "EDO" ;
+    skos:prefLabel "Estratègia Digital a Les Organitzacions"@ca ;
+    fib:codi "EDO" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/EDO"^^xsd:anyURI .
+
+fib:assignatura-EEE a fib:Assignatura ;
+    skos:altLabel "EEE" ;
+    skos:prefLabel "Empresa i Entorn Econòmic"@ca ;
+    fib:codi "EEE" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/EEE"^^xsd:anyURI .
+
+fib:assignatura-EET a fib:Assignatura ;
+    skos:altLabel "EET" ;
+    skos:prefLabel "Educació, Enginyeria i Tecnologia"@ca ;
+    fib:codi "EET" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/EET"^^xsd:anyURI .
+
+fib:assignatura-ER a fib:Assignatura ;
+    skos:altLabel "ER" ;
+    skos:prefLabel "Enginyeria de Requisits"@ca ;
+    fib:codi "ER" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ER"^^xsd:anyURI .
+
+fib:assignatura-F a fib:Assignatura ;
+    skos:altLabel "F" ;
+    skos:prefLabel "Física"@ca ;
+    fib:codi "F" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/F"^^xsd:anyURI .
+
+fib:assignatura-FM a fib:Assignatura ;
+    skos:altLabel "FM" ;
+    skos:prefLabel "Fonaments Matemàtics"@ca ;
+    fib:codi "FM" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/FM"^^xsd:anyURI .
+
+fib:assignatura-G a fib:Assignatura ;
+    skos:altLabel "G" ;
+    skos:prefLabel "Gràfics"@ca ;
+    fib:codi "G" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/G"^^xsd:anyURI .
+
+fib:assignatura-GCS a fib:Assignatura ;
+    skos:altLabel "GCS" ;
+    skos:prefLabel "Gestió de la Ciberseguretat"@ca ;
+    fib:codi "GCS" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/GCS"^^xsd:anyURI .
+
+fib:assignatura-GEOC a fib:Assignatura ;
+    skos:altLabel "GEOC" ;
+    skos:prefLabel "Geometria Computacional"@ca ;
+    fib:codi "GEOC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/GEOC"^^xsd:anyURI .
+
+fib:assignatura-GPS a fib:Assignatura ;
+    skos:altLabel "GPS" ;
+    skos:prefLabel "Gestió de Projectes de Software"@ca ;
+    fib:codi "GPS" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/GPS"^^xsd:anyURI .
+
+fib:assignatura-IA a fib:Assignatura ;
+    skos:altLabel "IA" ;
+    skos:prefLabel "Intel·ligència Artificial"@ca ;
+    fib:codi "IA" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IA"^^xsd:anyURI .
+
+fib:assignatura-IC a fib:Assignatura ;
+    skos:altLabel "IC" ;
+    skos:prefLabel "Introducció als Computadors"@ca ;
+    fib:codi "IC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IC"^^xsd:anyURI .
+
+fib:assignatura-IDI a fib:Assignatura ;
+    skos:altLabel "IDI" ;
+    skos:prefLabel "Interacció i Disseny d'Interfícies"@ca ;
+    fib:codi "IDI" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IDI"^^xsd:anyURI .
+
+fib:assignatura-IES a fib:Assignatura ;
+    skos:altLabel "IES" ;
+    skos:prefLabel "Introducció a l'Enginyeria del Software"@ca ;
+    fib:codi "IES" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IES"^^xsd:anyURI .
+
+fib:assignatura-IM a fib:Assignatura ;
+    skos:altLabel "IM" ;
+    skos:prefLabel "Internet Mòbil"@ca ;
+    fib:codi "IM" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IM"^^xsd:anyURI .
+
+fib:assignatura-IO a fib:Assignatura ;
+    skos:altLabel "IO" ;
+    skos:prefLabel "Investigació Operativa"@ca ;
+    fib:codi "IO" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IO"^^xsd:anyURI .
+
+fib:assignatura-LDPE a fib:Assignatura ;
+    skos:altLabel "LDPE" ;
+    skos:prefLabel "Lideratge i Desenvolupament Professional a l'Enginyeria"@ca ;
+    fib:codi "LDPE" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/LDPE"^^xsd:anyURI .
+
+fib:assignatura-LI a fib:Assignatura ;
+    skos:altLabel "LI" ;
+    skos:prefLabel "Lògica a la Informàtica"@ca ;
+    fib:codi "LI" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/LI"^^xsd:anyURI .
+
+fib:assignatura-LP a fib:Assignatura ;
+    skos:altLabel "LP" ;
+    skos:prefLabel "Llenguatges de Programació"@ca ;
+    fib:codi "LP" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/LP"^^xsd:anyURI .
+
+fib:assignatura-M1 a fib:Assignatura ;
+    skos:altLabel "M1" ;
+    skos:prefLabel "Matemàtiques I"@ca ;
+    fib:codi "M1" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/M1"^^xsd:anyURI .
+
+fib:assignatura-M2 a fib:Assignatura ;
+    skos:altLabel "M2" ;
+    skos:prefLabel "Matemàtiques II"@ca ;
+    fib:codi "M2" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/M2"^^xsd:anyURI .
+
+fib:assignatura-MD a fib:Assignatura ;
+    skos:altLabel "MD" ;
+    skos:prefLabel "Mineria de Dades"@ca ;
+    fib:codi "MD" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/MD"^^xsd:anyURI .
+
+fib:assignatura-MI a fib:Assignatura ;
+    skos:altLabel "MI" ;
+    skos:prefLabel "Màrqueting a Internet"@ca ;
+    fib:codi "MI" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/MI"^^xsd:anyURI .
+
+fib:assignatura-MP a fib:Assignatura ;
+    skos:altLabel "MP" ;
+    skos:prefLabel "Multiprocessadors"@ca ;
+    fib:codi "MP" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/MP"^^xsd:anyURI .
+
+fib:assignatura-NE a fib:Assignatura ;
+    skos:altLabel "NE" ;
+    skos:prefLabel "Negoci Electrònic"@ca ;
+    fib:codi "NE" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/NE"^^xsd:anyURI .
+
+fib:assignatura-PAE a fib:Assignatura ;
+    skos:altLabel "PAE" ;
+    skos:prefLabel "Projecte Aplicat d'Enginyeria"@ca ;
+    fib:codi "PAE" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PAE"^^xsd:anyURI .
+
+fib:assignatura-PAP a fib:Assignatura ;
+    skos:altLabel "PAP" ;
+    skos:prefLabel "Programació i Arquitectures Paral·leles"@ca ;
+    fib:codi "PAP" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PAP"^^xsd:anyURI .
+
+fib:assignatura-PAR a fib:Assignatura ;
+    skos:altLabel "PAR" ;
+    skos:prefLabel "Paral·lelisme"@ca ;
+    fib:codi "PAR" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PAR"^^xsd:anyURI .
+
+fib:assignatura-PCA a fib:Assignatura ;
+    skos:altLabel "PCA" ;
+    skos:prefLabel "Programació Conscient de l'Arquitectura"@ca ;
+    fib:codi "PCA" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PCA"^^xsd:anyURI .
+
+fib:assignatura-PDS a fib:Assignatura ;
+    skos:altLabel "PDS" ;
+    skos:prefLabel "Processament Digital del Senyal"@ca ;
+    fib:codi "PDS" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PDS"^^xsd:anyURI .
+
+fib:assignatura-PE a fib:Assignatura ;
+    skos:altLabel "PE" ;
+    skos:prefLabel "Probabilitat i Estadística"@ca ;
+    fib:codi "PE" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PE"^^xsd:anyURI .
+
+fib:assignatura-PEC a fib:Assignatura ;
+    skos:altLabel "PEC" ;
+    skos:prefLabel "Projecte d'Enginyeria de Computadors"@ca ;
+    fib:codi "PEC" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PEC"^^xsd:anyURI .
+
+fib:assignatura-PES a fib:Assignatura ;
+    skos:altLabel "PES" ;
+    skos:prefLabel "Projecte d'Enginyeria del Software"@ca ;
+    fib:codi "PES" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PES"^^xsd:anyURI .
+
+fib:assignatura-PI a fib:Assignatura ;
+    skos:altLabel "PI" ;
+    skos:prefLabel "Protocols d'Internet"@ca ;
+    fib:codi "PI" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PI"^^xsd:anyURI .
+
+fib:assignatura-PRO1 a fib:Assignatura ;
+    skos:altLabel "PRO1" ;
+    skos:prefLabel "Programació I"@ca ;
+    fib:codi "PRO1" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PRO1"^^xsd:anyURI .
+
+fib:assignatura-PRO2 a fib:Assignatura ;
+    skos:altLabel "PRO2" ;
+    skos:prefLabel "Programació II"@ca ;
+    fib:codi "PRO2" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PRO2"^^xsd:anyURI .
+
+fib:assignatura-PROP a fib:Assignatura ;
+    skos:altLabel "PROP" ;
+    skos:prefLabel "Projectes de Programació"@ca ;
+    fib:codi "PROP" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PROP"^^xsd:anyURI .
+
+fib:assignatura-PSI a fib:Assignatura ;
+    skos:altLabel "PSI" ;
+    skos:prefLabel "Projecte de Sistemes d'Informació"@ca ;
+    fib:codi "PSI" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PSI"^^xsd:anyURI .
+
+fib:assignatura-PTI a fib:Assignatura ;
+    skos:altLabel "PTI" ;
+    skos:prefLabel "Projecte de Tecnologies de la Informació"@ca ;
+    fib:codi "PTI" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PTI"^^xsd:anyURI .
+
+fib:assignatura-ROB a fib:Assignatura ;
+    skos:altLabel "ROB" ;
+    skos:prefLabel "Robòtica"@ca ;
+    fib:codi "ROB" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ROB"^^xsd:anyURI .
+
+fib:assignatura-SDX a fib:Assignatura ;
+    skos:altLabel "SDX" ;
+    skos:prefLabel "Sistemes Distribuïts en Xarxa"@ca ;
+    fib:codi "SDX" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SDX"^^xsd:anyURI .
+
+fib:assignatura-SI a fib:Assignatura ;
+    skos:altLabel "SI" ;
+    skos:prefLabel "Seguretat Informàtica"@ca ;
+    fib:codi "SI" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SI"^^xsd:anyURI .
+
+fib:assignatura-SID a fib:Assignatura ;
+    skos:altLabel "SID" ;
+    skos:prefLabel "Sistemes Intel·ligents Distribuïts"@ca ;
+    fib:codi "SID" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SID"^^xsd:anyURI .
+
+fib:assignatura-SIM a fib:Assignatura ;
+    skos:altLabel "SIM" ;
+    skos:prefLabel "Simulació"@ca ;
+    fib:codi "SIM" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SIM"^^xsd:anyURI .
+
+fib:assignatura-SIO a fib:Assignatura ;
+    skos:altLabel "SIO" ;
+    skos:prefLabel "Sistemes d'Informació per a Les Organitzacions"@ca ;
+    fib:codi "SIO" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SIO"^^xsd:anyURI .
+
+fib:assignatura-SLDS a fib:Assignatura ;
+    skos:altLabel "SLDS" ;
+    skos:prefLabel "Software Lliure i Desenvolupament Social"@ca ;
+    fib:codi "SLDS" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SLDS"^^xsd:anyURI .
+
+fib:assignatura-SO a fib:Assignatura ;
+    skos:altLabel "SO" ;
+    skos:prefLabel "Sistemes Operatius"@ca ;
+    fib:codi "SO" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SO"^^xsd:anyURI .
+
+fib:assignatura-SO2 a fib:Assignatura ;
+    skos:altLabel "SO2" ;
+    skos:prefLabel "Sistemes Operatius II"@ca ;
+    fib:codi "SO2" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SO2"^^xsd:anyURI .
+
+fib:assignatura-SOA a fib:Assignatura ;
+    skos:altLabel "SOA" ;
+    skos:prefLabel "Sistemes Operatius Avançats"@ca ;
+    fib:codi "SOA" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SOA"^^xsd:anyURI .
+
+fib:assignatura-SOAD a fib:Assignatura ;
+    skos:altLabel "SOAD" ;
+    skos:prefLabel "Sistemes Operatius per a Aplicacions Distribuïdes"@ca ;
+    fib:codi "SOAD" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SOAD"^^xsd:anyURI .
+
+fib:assignatura-STR a fib:Assignatura ;
+    skos:altLabel "STR" ;
+    skos:prefLabel "Sistemes de Temps Real"@ca ;
+    fib:codi "STR" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/STR"^^xsd:anyURI .
+
+fib:assignatura-TC a fib:Assignatura ;
+    skos:altLabel "TC" ;
+    skos:prefLabel "Teoria de la Computació"@ca ;
+    fib:codi "TC" ;
+    fib:dinsEspecialitat fib:especialitat-computacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TC"^^xsd:anyURI .
+
+fib:assignatura-TCI a fib:Assignatura ;
+    skos:altLabel "TCI" ;
+    skos:prefLabel "Transmissió i Codificació de la Informació"@ca ;
+    fib:codi "TCI" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TCI"^^xsd:anyURI .
+
+fib:assignatura-TGA a fib:Assignatura ;
+    skos:altLabel "TGA" ;
+    skos:prefLabel "Targetes Gràfiques i Acceleradors"@ca ;
+    fib:codi "TGA" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TGA"^^xsd:anyURI .
+
+fib:assignatura-TXC a fib:Assignatura ;
+    skos:altLabel "TXC" ;
+    skos:prefLabel "Tecnologies de Xarxes de Computadors"@ca ;
+    fib:codi "TXC" ;
+    fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TXC"^^xsd:anyURI .
+
+fib:assignatura-VC a fib:Assignatura ;
+    skos:altLabel "VC" ;
+    skos:prefLabel "Visió per Computador"@ca ;
+    fib:codi "VC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VC"^^xsd:anyURI .
+
+fib:assignatura-VJ a fib:Assignatura ;
+    skos:altLabel "VJ" ;
+    skos:prefLabel "Videojocs"@ca ;
+    fib:codi "VJ" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VJ"^^xsd:anyURI .
+
+fib:assignatura-VLSI a fib:Assignatura ;
+    skos:altLabel "VLSI" ;
+    skos:prefLabel "VLSI"@ca ;
+    fib:codi "VLSI" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VLSI"^^xsd:anyURI .
+
+fib:assignatura-VPE a fib:Assignatura ;
+    skos:altLabel "VPE" ;
+    skos:prefLabel "Viabilitat de Projectes Empresarials"@ca ;
+    fib:codi "VPE" ;
+    fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VPE"^^xsd:anyURI .
+
+fib:assignatura-XC a fib:Assignatura ;
+    skos:altLabel "XC" ;
+    skos:prefLabel "Xarxes de Computadors"@ca ;
+    fib:codi "XC" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/XC"^^xsd:anyURI .
+
+fib:assignatura-XC2 a fib:Assignatura ;
+    skos:altLabel "XC2" ;
+    skos:prefLabel "Xarxes de Computadors II"@ca ;
+    fib:codi "XC2" ;
+    fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/XC2"^^xsd:anyURI .
+
+fib:codi a owl:DatatypeProperty ;
+    rdfs:label "codi"@ca ;
+    rdfs:range xsd:string .
+
+fib:dinsEspecialitat a owl:ObjectProperty ;
+    rdfs:label "dins l'especialitat"@ca ;
+    rdfs:domain fib:Assignatura ;
+    rdfs:range fib:Especialitat .
+
+fib:grau-grau-en-bioinformatica a fib:Grau ;
+    skos:altLabel "bioinformatics"@ca,
+        "bioinformàtica"@ca,
+        "bioinformática"@ca ;
+    skos:prefLabel "Grau en Bioinformàtica"@ca ;
+    fib:codi "GBIO" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica"^^xsd:anyURI .
+
+fib:grau-grau-en-ciencia-i-enginyeria-de-dades a fib:Grau ;
+    skos:altLabel "GCED"@ca,
+        "ciencia e ingeniería de datos"@ca,
+        "ciència i enginyeria de dades"@ca,
+        "data science and engineering"@ca ;
+    skos:prefLabel "Grau en Ciència i Enginyeria de Dades"@ca ;
+    fib:codi "GCED" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades"^^xsd:anyURI .
+
+fib:grau-grau-en-intel-ligencia-artificial a fib:Grau ;
+    skos:altLabel "GIA"@ca,
+        "grado en inteligencia artificial"@ca,
+        "grau en intel·ligència artificial"@ca ;
+    skos:prefLabel "Grau en Intel·ligència Artificial"@ca ;
+    fib:codi "GIA" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial"^^xsd:anyURI .
+
+fib:master-master-en-ciencia-de-dades a fib:Master ;
+    skos:altLabel "MDS"@ca,
+        "màster en ciència de dades"@ca,
+        "máster en ciencia de datos"@ca ;
+    skos:prefLabel "Màster en Ciència de Dades"@ca ;
+    fib:codi "MDS" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades"^^xsd:anyURI .
+
+fib:master-master-en-enginyeria-informatica a fib:Master ;
+    skos:altLabel "MEI"@ca,
+        "màster en enginyeria informàtica"@ca,
+        "máster en ingeniería informática"@ca ;
+    skos:prefLabel "Màster en Enginyeria Informàtica"@ca ;
+    fib:codi "MEI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica"^^xsd:anyURI .
+
+fib:master-master-en-innovacio-i-recerca-en-informatica a fib:Master ;
+    skos:altLabel "MIRI"@ca,
+        "màster en innovació i recerca en informàtica"@ca ;
+    skos:prefLabel "Màster en Innovació i Recerca en Informàtica"@ca ;
+    fib:codi "MIRI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica"^^xsd:anyURI .
+
+fib:master-master-en-intel-ligencia-artificial a fib:Master ;
+    skos:altLabel "MAI"@ca,
+        "màster en intel·ligència artificial"@ca,
+        "máster en inteligencia artificial"@ca ;
+    skos:prefLabel "Màster en Intel·ligència Artificial"@ca ;
+    fib:codi "MAI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial"^^xsd:anyURI .
+
+fib:patroUrl a owl:DatatypeProperty ;
+    rdfs:label "patró d'URL per al reranking"@ca ;
+    rdfs:range xsd:string .
+
+fib:pertanyA a owl:ObjectProperty ;
+    rdfs:label "pertany a"@ca ;
+    rdfs:domain fib:Assignatura ;
+    rdfs:range fib:Titulacio .
+
+fib:pesIntencio a owl:DatatypeProperty ;
+    rdfs:label "pes d'intenció per al reranking"@ca ;
+    rdfs:range xsd:float .
+
+fib:recursCanonic a owl:DatatypeProperty ;
+    rdfs:label "recurs web canònic"@ca ;
+    rdfs:range xsd:anyURI .
+
+fib:teEspecialitat a owl:ObjectProperty ;
+    rdfs:label "té especialitat"@ca ;
+    rdfs:domain fib:Grau ;
+    rdfs:range fib:Especialitat .
+
+fib:concepte-borsa-de-treball a fib:ConcepteAcademic ;
+    skos:altLabel "bolsa de trabajo"@ca,
+        "borsa de treball"@ca,
+        "buscar feina"@ca,
+        "feina"@ca,
+        "ofertas de trabajo"@ca,
+        "ofertes de feina"@ca,
+        "treballar"@ca ;
+    skos:prefLabel "Borsa de treball"@ca ;
+    skos:related fib:concepte-practiques-en-empresa ;
+    fib:patroUrl "borsa-de-treball" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/empresa/borsa-de-treball"^^xsd:anyURI .
+
+fib:concepte-especialitats a fib:ConcepteAcademic ;
+    skos:altLabel "especialidad"@ca,
+        "especialidades"@ca,
+        "especialitat"@ca,
+        "especialitats"@ca,
+        "especialización"@ca,
+        "mencions"@ca,
+        "menció"@ca,
+        "specialization"@ca ;
+    skos:prefLabel "Especialitats"@ca ;
+    skos:related fib:concepte-pla-d-estudis ;
+    fib:patroUrl "especialitats" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats"^^xsd:anyURI .
+
+fib:concepte-la-facultat a fib:ConcepteAcademic ;
+    skos:altLabel "facultad de informática"@ca,
+        "facultat d'informàtica"@ca,
+        "la facultat"@ca,
+        "la fib"@ca,
+        "què és la fib"@ca ;
+    skos:prefLabel "La FIB"@ca ;
+    skos:related fib:concepte-contacte ;
+    fib:patroUrl "la-fib" ;
+    fib:pesIntencio "0.18"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib"^^xsd:anyURI .
+
+fib:concepte-nota-de-tall a fib:ConcepteAcademic ;
+    skos:altLabel "nota d'accés"@ca,
+        "nota d'admissió"@ca,
+        "nota de corte"@ca,
+        "nota de tall"@ca ;
+    skos:prefLabel "Nota de tall"@ca ;
+    skos:related fib:concepte-matricula ;
+    fib:pesIntencio "0.15"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica"^^xsd:anyURI .
+
+fib:concepte-places-lliures a fib:ConcepteAcademic ;
+    skos:altLabel "hi ha lloc"@ca,
+        "hi ha places"@ca,
+        "places lliures"@ca,
+        "places vacants"@ca,
+        "plazas libres"@ca,
+        "queda lloc"@ca,
+        "queden places"@ca,
+        "vacants"@ca ;
+    skos:prefLabel "Places lliures"@ca ;
+    skos:related fib:concepte-matricula ;
+    fib:patroUrl "places-lliures" ;
+    fib:pesIntencio "0.25"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/matricula/places-lliures"^^xsd:anyURI .
+
+fib:concepte-practiques-en-empresa a fib:ConcepteAcademic ;
+    skos:altLabel "conveni"@ca,
+        "conveni de cooperació educativa"@ca,
+        "convenis"@ca,
+        "internship"@ca,
+        "practiques"@ca,
+        "pràctiques"@ca,
+        "pràctiques en empresa"@ca,
+        "prácticas"@ca ;
+    skos:prefLabel "Pràctiques en empresa"@ca ;
+    skos:related fib:concepte-borsa-de-treball ;
+    fib:patroUrl "practiques-en-empresa" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/empresa/practiques-en-empresa"^^xsd:anyURI .
+
+fib:concepte-professorat a fib:ConcepteAcademic ;
+    skos:altLabel "despatx"@ca,
+        "docent"@ca,
+        "docents"@ca,
+        "profesorado"@ca,
+        "professor"@ca,
+        "professora"@ca,
+        "professorat"@ca,
+        "professors"@ca,
+        "tutor"@ca,
+        "tutoria"@ca ;
+    skos:prefLabel "Professorat"@ca ;
+    skos:related fib:concepte-assignatures ;
+    fib:patroUrl "professorat" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/professorat"^^xsd:anyURI .
+
+fib:concepte-assignatures a fib:ConcepteAcademic ;
+    skos:altLabel "asignatura"@ca,
+        "asignaturas"@ca,
+        "assignatura"@ca,
+        "assignatures"@ca,
+        "guia docent"@ca,
+        "matèria"@ca,
+        "matèries"@ca,
+        "temari"@ca ;
+    skos:prefLabel "Assignatures"@ca ;
+    skos:related fib:concepte-pla-d-estudis,
+        fib:concepte-professorat ;
+    fib:patroUrl "assignatures" ;
+    fib:pesIntencio "0.1"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures"^^xsd:anyURI .
+
+fib:concepte-calendari-academic a fib:ConcepteAcademic ;
+    skos:altLabel "calendari"@ca,
+        "calendari acadèmic"@ca,
+        "calendario académico"@ca,
+        "calendaris"@ca,
+        "dies lectius"@ca,
+        "festius"@ca,
+        "inici de curs"@ca ;
+    skos:prefLabel "Calendari acadèmic"@ca ;
+    skos:related fib:concepte-horaris,
+        fib:concepte-matricula ;
+    fib:patroUrl "calendari",
+        "calendaris-academics" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/calendaris-academics"^^xsd:anyURI .
+
+fib:concepte-contacte a fib:ConcepteAcademic ;
+    skos:altLabel "adreça"@ca,
+        "contacte"@ca,
+        "contacto"@ca,
+        "email de secretaria"@ca,
+        "on és la facultat"@ca,
+        "telèfon"@ca ;
+    skos:prefLabel "Contacte"@ca ;
+    skos:related fib:concepte-la-facultat,
+        fib:concepte-tramits ;
+    fib:patroUrl "contacte" ;
+    fib:pesIntencio "0.15"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/contacte"^^xsd:anyURI .
+
+fib:concepte-examens a fib:ConcepteAcademic ;
+    skos:altLabel "avaluació"@ca,
+        "evaluación"@ca,
+        "examen"@ca,
+        "examenes"@ca,
+        "exàmens"@ca,
+        "exámenes"@ca,
+        "finals"@ca,
+        "parcials"@ca,
+        "proves"@ca,
+        "recuperació"@ca ;
+    skos:prefLabel "Exàmens"@ca ;
+    skos:related fib:concepte-horaris,
+        fib:concepte-normativa-academica ;
+    fib:patroUrl "examens" ;
+    fib:pesIntencio "0.25"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/examens"^^xsd:anyURI .
+
+fib:concepte-horaris a fib:ConcepteAcademic ;
+    skos:altLabel "aules"@ca,
+        "hora de classe"@ca,
+        "horari"@ca,
+        "horari de classes"@ca,
+        "horario"@ca,
+        "horarios"@ca,
+        "horaris"@ca,
+        "quan tinc classe"@ca,
+        "quina hora"@ca ;
+    skos:prefLabel "Horaris"@ca ;
+    skos:related fib:concepte-calendari-academic,
+        fib:concepte-examens ;
+    fib:patroUrl "horaris" ;
+    fib:pesIntencio "0.25"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/horaris"^^xsd:anyURI .
+
+fib:concepte-mobilitat a fib:ConcepteAcademic ;
+    skos:altLabel "anar fora"@ca,
+        "doble titulació"@ca,
+        "erasmus"@ca,
+        "estada internacional"@ca,
+        "estudiar fora"@ca,
+        "exchange"@ca,
+        "incoming"@ca,
+        "intercanvi"@ca,
+        "mobilitat"@ca,
+        "movilidad"@ca,
+        "outgoing"@ca ;
+    skos:prefLabel "Mobilitat"@ca ;
+    skos:related fib:concepte-beques,
+        fib:concepte-tramits ;
+    fib:patroUrl "incoming",
+        "mobilitat",
+        "outgoing" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/mobilitat"^^xsd:anyURI .
+
+fib:concepte-pla-d-estudis a fib:ConcepteAcademic ;
+    skos:altLabel "crèdits del grau"@ca,
+        "curriculum"@ca,
+        "itinerari"@ca,
+        "pla d'estudis"@ca,
+        "pla destudis"@ca,
+        "plan de estudios"@ca ;
+    skos:prefLabel "Pla d'estudis"@ca ;
+    skos:related fib:concepte-assignatures,
+        fib:concepte-especialitats ;
+    fib:patroUrl "pla-destudis" ;
+    fib:pesIntencio "0.15"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis"^^xsd:anyURI .
+
+fib:concepte-treball-de-fi-de-grau a fib:ConcepteAcademic ;
+    skos:altLabel "TFG"@ca,
+        "projecte final de carrera"@ca,
+        "trabajo de fin de grado"@ca,
+        "treball de fi de grau"@ca,
+        "treball final de grau"@ca ;
+    skos:prefLabel "Treball de Fi de Grau"@ca ;
+    skos:related fib:concepte-matricula,
+        fib:concepte-normativa-academica ;
+    fib:patroUrl "treball-de-fi-de-grau" ;
+    fib:pesIntencio "0.25"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/treball-de-fi-de-grau"^^xsd:anyURI .
+
+fib:Titulacio a owl:Class ;
+    rdfs:label "Titulació"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
+fib:concepte-beques a fib:ConcepteAcademic ;
+    skos:altLabel "ajut"@ca,
+        "ajuts"@ca,
+        "ayudas"@ca,
+        "beca"@ca,
+        "becas"@ca,
+        "beques"@ca,
+        "scholarship"@ca ;
+    skos:prefLabel "Beques i ajuts"@ca ;
+    skos:related fib:concepte-matricula,
+        fib:concepte-mobilitat,
+        fib:concepte-tramits ;
+    fib:patroUrl "beques" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/beques-i-ajuts"^^xsd:anyURI .
+
+fib:EntitatAcademica a owl:Class ;
+    rdfs:label "Entitat acadèmica"@ca .
+
+fib:Master a owl:Class ;
+    rdfs:label "Màster"@ca ;
+    rdfs:subClassOf fib:Titulacio .
+
+fib:concepte-normativa-academica a fib:ConcepteAcademic ;
+    skos:altLabel "convocatòria"@ca,
+        "convocatòries"@ca,
+        "normativa"@ca,
+        "normativa acadèmica"@ca,
+        "normativa académica"@ca,
+        "normatives"@ca,
+        "permanència"@ca,
+        "presentar-se a una assignatura"@ca,
+        "reglament"@ca,
+        "rendiment mínim"@ca ;
+    skos:prefLabel "Normativa acadèmica"@ca ;
+    skos:related fib:concepte-examens,
+        fib:concepte-matricula,
+        fib:concepte-tramits,
+        fib:concepte-treball-de-fi-de-grau ;
+    fib:patroUrl "normativa" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/normativa-academica"^^xsd:anyURI .
+
+fib:Grau a owl:Class ;
+    rdfs:label "Grau"@ca ;
+    rdfs:subClassOf fib:Titulacio .
+
+fib:concepte-tramits a fib:ConcepteAcademic ;
+    skos:altLabel "certificat"@ca,
+        "convalidació"@ca,
+        "gestions"@ca,
+        "instància"@ca,
+        "reconeixement de crèdits"@ca,
+        "secretaria"@ca,
+        "sol·licitud"@ca,
+        "tramit"@ca,
+        "tramits"@ca,
+        "tràmit"@ca,
+        "tràmits"@ca,
+        "trámite"@ca,
+        "trámites"@ca ;
+    skos:prefLabel "Tràmits"@ca ;
+    skos:related fib:concepte-beques,
+        fib:concepte-contacte,
+        fib:concepte-matricula,
+        fib:concepte-mobilitat,
+        fib:concepte-normativa-academica ;
+    fib:patroUrl "secretaria",
+        "tramits" ;
+    fib:pesIntencio "0.18"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits"^^xsd:anyURI .
+
+fib:Especialitat a owl:Class ;
+    rdfs:label "Especialitat"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
+fib:concepte-matricula a fib:ConcepteAcademic ;
+    skos:altLabel "apuntar-me"@ca,
+        "apuntar-se"@ca,
+        "automatrícula"@ca,
+        "donar-se d'alta"@ca,
+        "enrollment"@ca,
+        "inscripció"@ca,
+        "inscripción"@ca,
+        "m'apunto"@ca,
+        "matriculació"@ca,
+        "matriculación"@ca,
+        "matricular-se"@ca,
+        "matricularse"@ca,
+        "matrícula"@ca ;
+    skos:prefLabel "Matrícula"@ca ;
+    skos:related fib:concepte-beques,
+        fib:concepte-calendari-academic,
+        fib:concepte-normativa-academica,
+        fib:concepte-nota-de-tall,
+        fib:concepte-places-lliures,
+        fib:concepte-tramits,
+        fib:concepte-treball-de-fi-de-grau ;
+    fib:patroUrl "matricula" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/matricula"^^xsd:anyURI .
+
+fib:especialitat-sistemes-dinformacio a fib:Especialitat ;
+    skos:altLabel "information systems"@ca,
+        "sistemas de información"@ca,
+        "sistemes d'informació"@ca ;
+    skos:prefLabel "Sistemes d'Informació"@ca ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats/sistemes-dinformacio"^^xsd:anyURI .
+
+fib:especialitat-tecnologies-de-la-informacio a fib:Especialitat ;
+    skos:altLabel "information technologies"@ca,
+        "tecnologies de la informació"@ca,
+        "tecnologías de la información"@ca ;
+    skos:prefLabel "Tecnologies de la Informació"@ca ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats/tecnologies-de-la-informacio"^^xsd:anyURI .
+
+fib:especialitat-enginyeria-del-software a fib:Especialitat ;
+    skos:altLabel "enginyeria del software"@ca,
+        "especialitat de software"@ca,
+        "ingeniería del software"@ca,
+        "software engineering"@ca ;
+    skos:prefLabel "Enginyeria del Software"@ca ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats/enginyeria-del-software"^^xsd:anyURI .
+
+fib:especialitat-computacio a fib:Especialitat ;
+    skos:altLabel "computacion"@ca,
+        "computació"@ca,
+        "computing"@ca ;
+    skos:prefLabel "Computació"@ca ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats/computacio"^^xsd:anyURI .
+
+fib:especialitat-enginyeria-de-computadors a fib:Especialitat ;
+    skos:altLabel "computer engineering"@ca,
+        "enginyeria de computadors"@ca,
+        "ingeniería de computadores"@ca ;
+    skos:prefLabel "Enginyeria de Computadors"@ca ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats/enginyeria-de-computadors"^^xsd:anyURI .
+
+fib:ConcepteAcademic a owl:Class ;
+    rdfs:label "Concepte acadèmic"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
+fib:grau-grau-en-enginyeria-informatica a fib:Grau ;
+    skos:altLabel "GEI"@ca,
+        "enginyeria informàtica"@ca,
+        "grau d'informàtica"@ca,
+        "informatics engineering"@ca,
+        "ingeniería informática"@ca ;
+    skos:prefLabel "Grau en Enginyeria Informàtica"@ca ;
+    fib:codi "GEI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica"^^xsd:anyURI ;
+    fib:teEspecialitat fib:especialitat-computacio,
+        fib:especialitat-enginyeria-de-computadors,
+        fib:especialitat-enginyeria-del-software,
+        fib:especialitat-sistemes-dinformacio,
+        fib:especialitat-tecnologies-de-la-informacio .
+
+fib:Assignatura a owl:Class ;
+    rdfs:label "Assignatura"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
