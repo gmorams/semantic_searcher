@@ -1,0 +1,50 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    image: semanticfib-api:latest
+    container_name: semanticfib-api
+    environment:
+      # El LLM por defecto apunta al servicio ollama (perfil opcional). Para usar
+      # OpenAI, deja OLLAMA_HOST vacío y pasa OPENAI_API_KEY.
+      OLLAMA_HOST: "http://ollama:11434"
+      OLLAMA_MODEL: "${OLLAMA_MODEL:-llama3.2}"
+      LLM_MODEL: "${LLM_MODEL:-gpt-4o-mini}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      EMBEDDING_MODEL: "${EMBEDDING_MODEL:-paraphrase-multilingual-MiniLM-L12-v2}"
+      CHROMA_PERSIST_DIR: "/app/chroma_db"
+      CORS_ORIGINS: "${CORS_ORIGINS:-*}"
+      RETRIEVAL_MODE: "${RETRIEVAL_MODE:-hybrid}"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chroma_db:/app/chroma_db
+      - ./ontology:/app/ontology
+      - ./scraped_data:/app/scraped_data
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: semanticfib-web:latest
+    container_name: semanticfib-web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: semanticfib-ollama
+    profiles: ["ollama"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

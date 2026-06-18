@@ -4,7 +4,7 @@ import settings
 
 
 class VectorStore(metaclass=SingletonMeta):
-    """Emmagatzematge vectorial basat en ChromaDB (substitueix ElasticSearch per al PoC)."""
+    """Almacen vectorial sobre ChromaDB."""
 
     def __init__(self):
         self.client = chromadb.PersistentClient(path=settings.CHROMA_PERSIST_DIR)
@@ -14,8 +14,7 @@ class VectorStore(metaclass=SingletonMeta):
         )
 
     def add_documents(self, ids, documents, embeddings, metadatas=None):
-        """Afegeix documents amb els seus embeddings a la col-leccio."""
-        # ChromaDB requires list of lists for embeddings
+        # ChromaDB necesita los embeddings como lista de listas
         emb_list = [e if isinstance(e, list) else e.tolist() for e in embeddings]
         self.collection.add(
             ids=ids,
@@ -25,7 +24,7 @@ class VectorStore(metaclass=SingletonMeta):
         )
 
     def upsert_documents(self, ids, documents, embeddings, metadatas=None):
-        """Afegeix o actualitza documents (idempotent, sense errors per IDs duplicats)."""
+        """Insert o update idempotente."""
         emb_list = [e if isinstance(e, list) else e.tolist() for e in embeddings]
         self.collection.upsert(
             ids=ids,
@@ -35,7 +34,6 @@ class VectorStore(metaclass=SingletonMeta):
         )
 
     def search(self, query_embedding, n_results=5):
-        """Cerca els n documents mes similars per embedding."""
         emb = query_embedding if isinstance(query_embedding, list) else query_embedding.tolist()
         return self.collection.query(
             query_embeddings=[emb],
@@ -44,11 +42,10 @@ class VectorStore(metaclass=SingletonMeta):
         )
 
     def count(self):
-        """Retorna el nombre de documents indexats."""
         return self.collection.count()
 
     def reset(self):
-        """Esborra tota la col-leccio i la recrea."""
+        """Borra y recrea la coleccion."""
         self.client.delete_collection("fib_documents")
         self.collection = self.client.get_or_create_collection(
             name="fib_documents",

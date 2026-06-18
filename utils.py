@@ -3,7 +3,7 @@ import functools
 
 
 class SingletonMeta(type):
-    """Metaclasse Singleton per assegurar una sola instància per classe."""
+    """Singleton: una unica instancia por clase."""
     _instances = {}
 
     def __call__(cls, *args, **kwargs):
@@ -13,7 +13,7 @@ class SingletonMeta(type):
 
 
 def measure_time(func):
-    """Decorator que mesura i imprimeix el temps d'execució d'una funció."""
+    """Mide el tiempo de ejecucion de la funcion decorada."""
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         start = time.time()

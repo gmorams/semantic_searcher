@@ -1,37 +1,40 @@
-"""Vinculacio d'entitats (entity linking) guiada per l'ontologia.
-
-Detecta a la consulta codis d'assignatura (XC, PRO1, EDA...), sigles de
-titulacions (GEI, GCED, MIRI...) i les resol a la seva pagina web canonica,
-definida com a instancia de l'ontologia (fib:recursCanonic).
-
-Regles de matching (per evitar falsos positius amb paraules normals):
-  - Codis amb digits (PRO1, M1, AC2):    insensible a majuscules.
-  - Codis de 1-2 lletres (A, G, XC, BD): nomes si apareixen en majuscules.
-  - Codis de 3+ lletres (EDA, PROP):     insensible a majuscules, excepte
-    els que coincideixen amb paraules reals (CAP, PES, PAR, MAI, SI...),
-    que requereixen majuscules.
+"""
+Entity linking guiado por la ontología: detecta códigos de asignatura y siglas
+de titulación en la consulta y los resuelve a su página canónica.
 """
 
 import re
 
 from ontology.fib_ontology import get_ontology
 
-# Codis/sigles que tambe son paraules en catala/castella: nomes en majuscules
+# Códigos/siglas que también son palabras comunes: solo cuentan si van en mayúsculas
 AMBIGUOUS_CODES = {"CAP", "PES", "PAR", "MAI", "BIO", "SOA", "IES", "EDO", "ROB"}
 
 
-def _token_matches(code, query):
-    """Comprova si el codi apareix com a token independent a la consulta."""
+def _token_matches(code, query, *, strict_boundary=False):
+    """¿El código aparece como token independiente en la consulta?
+
+    Con strict_boundary=True no contamos como match si el código está pegado a
+    un guion u otro alfanumérico — así MDS dentro de BSG-MDS no se confunde
+    con la sigla del máster.
+    """
     has_digit = any(ch.isdigit() for ch in code)
-    if has_digit or (len(code) >= 3 and code.upper() not in AMBIGUOUS_CODES):
-        pattern = re.compile(r"\b" + re.escape(code) + r"\b", re.IGNORECASE)
+    if strict_boundary:
+        # ningún alfanumérico ni guion delante o detrás
+        left = r"(?<![-\w])"
+        right = r"(?![-\w])"
     else:
-        pattern = re.compile(r"\b" + re.escape(code) + r"\b")  # exacte (majuscules)
+        left = right = r"\b"
+
+    if has_digit or (len(code) >= 3 and code.upper() not in AMBIGUOUS_CODES):
+        pattern = re.compile(left + re.escape(code) + right, re.IGNORECASE)
+    else:
+        pattern = re.compile(left + re.escape(code) + right)  # match exacto (mayúsculas)
     return bool(pattern.search(query))
 
 
 def extract_entities(query):
-    """Retorna [(etiqueta, url)] de les entitats detectades a la consulta."""
+    """[(etiqueta, url)] de las entidades detectadas."""
     ontology = get_ontology()
     entities = []
     seen = set()
@@ -42,8 +45,10 @@ def extract_entities(query):
             label = course["label"] if course["label"] != code else code
             entities.append((f"{code} ({label})" if label != code else code, course["url"]))
 
+    # Las siglas de titulación van con matching estricto: son cortas y a menudo
+    # aparecen embebidas en códigos de asignatura (MDS dentro de BSG-MDS).
     for acronym, degree in ontology.acronym_index().items():
-        if _token_matches(acronym, query) and degree["url"] not in seen:
+        if _token_matches(acronym, query, strict_boundary=True) and degree["url"] not in seen:
             seen.add(degree["url"])
             entities.append((f"{acronym} ({degree['label']})", degree["url"]))
 

@@ -1,13 +1,10 @@
-"""EXP.3: cerca hibrida amb fusio Reciprocal Rank Fusion (RRF).
+"""
+Búsqueda híbrida con fusión Reciprocal Rank Fusion (RRF).
 
-Fusiona les llistes rankejades de tres estrategies complementaries:
-  - BM25 (precisio lexica: codis, noms exactes),
-  - vectorial pura (cobertura semantica),
-  - controlada per ontologia (coneixement de domini).
-
-La fusio es fa a nivell de pagina (URL normalitzada):
+Combina BM25 (precisión léxica), vectorial puro (cobertura semántica) y
+controlado por ontología (conocimiento de dominio) a nivel de página:
     score(url) = sum_s  w_s / (k + rank_s(url))
-amb k=60 (valor estandard de la literatura) i pesos configurables a settings.
+con k=60 — valor estándar de la literatura — y pesos en settings.
 """
 
 from collections import defaultdict

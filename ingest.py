@@ -1,21 +1,5 @@
 """
-Script d'indexacio: carrega documents (scraping web + PDFs) i els emmagatzema a ChromaDB.
-
-Millores respecte a la versio inicial:
-  - Deduplicacio de documents amb contingut identic (la web de la FIB repeteix
-    la mateixa pagina sota URLs diferents per a cada titulacio).
-  - Chunking sensible a frases/paragrafs (RecursiveCharacterTextSplitter)
-    en lloc de tallar per caracters.
-  - IDs deterministes per (url, index de chunk, hash del text): sense col-lisions.
-  - `upsert` en lloc de `add`: re-indexar es idempotent i cap batch es perd.
-  - Es preserven les pagines canoniques de l'ontologia encara que tinguin poc
-    text (horaris, examens...), perque son objectius de cerca essencials.
-  - L'embedding inclou el titol i la seccio del document (context del chunk).
-
-Us:
-    python3 ingest.py --from-scrape          # Indexa les dades scrapejades
-    python3 ingest.py --from-scrape --reset  # Esborra BD i reindexa
-    python3 ingest.py fitxer.pdf             # Indexa un PDF concret
+Indexacion: carga documentos (scraping web + PDFs) y los almacena en ChromaDB.
 """
 
 import sys
@@ -34,7 +18,7 @@ import settings
 
 SCRAPED_DATA_FILE = os.path.join(os.path.dirname(__file__), "scraped_data", "fib_documents.json")
 
-# Patrons que indiquen contingut de menu/navegacio (no informacio real)
+# patrones que delatan contenido de menu/navegacion, no informacion util
 NAV_INDICATORS = [
     "Vols estudiar un grau?",
     "Accés als estudis",
@@ -43,7 +27,7 @@ NAV_INDICATORS = [
 
 
 def _is_nav_content(text):
-    """Detecta si un text es principalment un menu de navegacio."""
+    """True si el texto parece un menu de navegacion."""
     matches = sum(1 for pattern in NAV_INDICATORS if pattern in text)
     if matches >= 2:
         lines = [l.strip() for l in text.split("\n") if l.strip()]
@@ -54,17 +38,16 @@ def _is_nav_content(text):
 
 
 def _canonical_urls():
-    """URLs canoniques de l'ontologia: es preserven encara que siguin curtes."""
+    """URLs canonicas de la ontologia: se conservan aunque tengan poco texto."""
     try:
         from ontology.fib_ontology import get_ontology
         return {c["url"].rstrip("/") for c in get_ontology().concepts.values() if c["url"]}
-    except Exception as e:
-        print(f"[WARN] No s'ha pogut carregar l'ontologia: {e}")
+    except Exception:
         return set()
 
 
 def make_id(url, chunk_index, text):
-    """ID unic i deterministic per a un chunk (url + posicio + hash del text)."""
+    """ID determinista por (url, posicion, hash del texto)."""
     digest = hashlib.md5(text.encode()).hexdigest()[:12]
     url_hash = hashlib.md5(url.encode()).hexdigest()[:12]
     return f"{url_hash}-{chunk_index}-{digest}"
@@ -79,11 +62,10 @@ def get_splitter():
 
 
 def deduplicate_documents(documents, canonical=None):
-    """Elimina documents amb contingut identic.
+    """Fusiona documentos con contenido identico.
 
-    Si diverses URLs comparteixen contingut (p. ex. la pagina de places
-    lliures de cada titulacio es identica), es conserva preferentment la
-    URL canonica de l'ontologia; si cap ho es, la primera trobada.
+    La FIB sirve la misma pagina bajo varias URLs (una por titulacion);
+    si una de ellas esta en la ontologia, la usamos como representante.
     """
     canonical = canonical or set()
     seen = {}
@@ -98,7 +80,7 @@ def deduplicate_documents(documents, canonical=None):
             kept = seen[digest]
             kept_url = (kept.get("url") or "").rstrip("/")
             if url in canonical and kept_url not in canonical:
-                # La nova URL es canonica: passa a ser la representant
+                # la nueva URL es canonica: pasa a ser la representante
                 kept["duplicate_urls"].append(kept.get("url", ""))
                 kept["url"] = doc.get("url", "")
                 kept["title"] = doc.get("title", kept.get("title", ""))
@@ -113,7 +95,7 @@ def deduplicate_documents(documents, canonical=None):
 
 
 def ingest_scraped_data(reset=False):
-    """Indexa les dades scrapejades de fib.upc.edu a ChromaDB."""
+    """Indexa en ChromaDB las paginas previamente scrapeadas de fib.upc.edu."""
     if not os.path.exists(SCRAPED_DATA_FILE):
         print(f"ERROR: No es troben dades scrapejades a {SCRAPED_DATA_FILE}")
         print("Executa primer: python3 scraper.py")
@@ -124,28 +106,14 @@ def ingest_scraped_data(reset=False):
 
     canonical = _canonical_urls()
 
-    print(f"{'='*60}")
-    print(f"  INDEXACIO DE DADES SCRAPEJADES - FIB")
-    print(f"{'='*60}")
-    print(f"  Font:        {SCRAPED_DATA_FILE}")
-    print(f"  Documents:   {len(documents)}")
-    print(f"  Chunk size:  {settings.CHUNK_SIZE} (overlap {settings.CHUNK_OVERLAP})")
-    print(f"  Min. length: {settings.MIN_CHUNK_LENGTH} (excepte pagines canoniques)")
-    print(f"  ChromaDB:    {settings.CHROMA_PERSIST_DIR}")
-    print(f"{'='*60}\n")
-
     store = VectorStore()
     if reset:
-        print("Esborrant base de dades anterior...")
         store.reset()
 
-    # 1. Deduplicacio (prioritzant URLs canoniques de l'ontologia)
+    # 1. deduplicacion (priorizando URLs canonicas de la ontologia)
     deduped = deduplicate_documents(documents, canonical=canonical)
-    n_dups = len(documents) - len(deduped)
-    print(f"1. Deduplicacio: {len(deduped)} documents unics ({n_dups} duplicats fusionats)")
 
-    # 2. Chunking
-    print("2. Generant chunks (split per paragrafs/frases)...")
+    # 2. chunking
     splitter = get_splitter()
     all_chunks = []
     skipped_short = 0
@@ -170,7 +138,7 @@ def ingest_scraped_data(reset=False):
             chunk = chunk.strip()
             if len(chunk) < min_len:
                 continue
-            # Descarta chunks sense contingut alfabetic real
+            # descartamos chunks sin apenas contenido alfabetico
             alpha = sum(1 for ch in chunk if ch.isalpha())
             if alpha < len(chunk) * 0.5:
                 continue
@@ -182,22 +150,18 @@ def ingest_scraped_data(reset=False):
                 "section": section,
             })
 
-    # Deduplicacio de chunks (seccions repetides dins una mateixa pagina)
+    # deduplicacion final de chunks (secciones repetidas dentro de la misma pagina)
     unique_chunks = {}
     for c in all_chunks:
         if c["id"] not in unique_chunks:
             unique_chunks[c["id"]] = c
     all_chunks = list(unique_chunks.values())
 
-    print(f"   -> {len(all_chunks)} chunks unics generats "
-          f"({skipped_short} documents massa curts descartats)\n")
-
     if not all_chunks:
         print("ERROR: No s'han generat chunks")
         sys.exit(1)
 
-    # 3. Embeddings i indexacio
-    print("3. Generant embeddings i indexant a ChromaDB (upsert)...")
+    # 3. embeddings + upsert en ChromaDB
     embedder = Embedder()
     batch_size = 32
     total = len(all_chunks)
@@ -206,7 +170,7 @@ def ingest_scraped_data(reset=False):
         batch = all_chunks[i:i + batch_size]
         ids = [c["id"] for c in batch]
         texts = [c["text"] for c in batch]
-        # El text que s'embedeix inclou titol i seccio (context del chunk)
+        # incluimos titulo y seccion en el texto que se embebe (contexto del chunk)
         embed_texts = [
             " | ".join(p for p in [c["title"], c["section"]] if p) + "\n" + c["text"]
             if (c["title"] or c["section"]) else c["text"]
@@ -226,10 +190,6 @@ def ingest_scraped_data(reset=False):
             metadatas=metadatas,
         )
 
-        done = min(i + batch_size, total)
-        if done % 512 < batch_size or done == total:
-            print(f"   -> Indexats {done}/{total} chunks")
-
     print(f"\n{'='*60}")
     print(f"  INDEXACIO COMPLETADA!")
     print(f"  Total chunks a ChromaDB: {store.count()}")
@@ -239,18 +199,16 @@ def ingest_scraped_data(reset=False):
 
 
 def ingest_pdf(pdf_path, reset=False):
-    """Indexa un fitxer PDF a ChromaDB."""
+    """Indexa un PDF concreto en ChromaDB."""
     if not os.path.exists(pdf_path):
         print(f"ERROR: No es troba el fitxer {pdf_path}")
         sys.exit(1)
 
-    print(f"Indexant PDF: {pdf_path}")
     store = VectorStore()
     if reset:
         store.reset()
 
     chunks = load_and_chunk_pdf(pdf_path, settings.CHUNK_SIZE, settings.CHUNK_OVERLAP)
-    print(f"  -> {len(chunks)} chunks generats")
 
     embedder = Embedder()
     batch_size = 32
@@ -263,7 +221,6 @@ def ingest_pdf(pdf_path, reset=False):
         metadatas = [{"title": c["title"], "source": c["source"], "section": c.get("section", "")} for c in batch]
         embeddings = embedder.embed_batch(texts)
         store.upsert_documents(ids=ids, documents=texts, embeddings=[e.tolist() for e in embeddings], metadatas=metadatas)
-        print(f"  -> Indexats {min(i+batch_size, total)}/{total}")
 
     print(f"\nTotal a ChromaDB: {store.count()}")
 

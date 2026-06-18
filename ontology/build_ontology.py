@@ -1,17 +1,9 @@
 """
-Construccio de l'ontologia formal del domini FIB en RDF/OWL.
+Construcción de la ontología formal del dominio FIB en RDF/OWL.
 
-Genera `ontology/fib_ontology.ttl` (serialitzacio Turtle) amb:
-  - TBox: classes (Titulacio, Grau, Master, Assignatura, Especialitat,
-    ConcepteAcademic) i propietats (pertanyA, teEspecialitat,
-    dinsEspecialitat, recursCanonic, codi, pesIntencio, patroUrl).
-  - ABox: instancies poblades de forma semiautomatica a partir de les dades
-    scrapejades (`scraped_data/fib_documents.json`): 4 graus, 4 masters,
-    5 especialitats, ~90 assignatures amb nom oficial, i ~18 conceptes
-    academics amb etiquetes multilingues (SKOS) i recurs web canonic.
-
-Us:
-    python3 ontology/build_ontology.py
+Genera `ontology/fib_ontology.ttl` poblando TBox (clases y propiedades) y ABox
+(titulaciones, especialidades, asignaturas y conceptos académicos) a partir de
+los datos scrapeados.
 """
 
 import json
@@ -29,9 +21,7 @@ FIB = Namespace("https://semanticfib.fib.upc.edu/ontology#")
 WEB = "https://www.fib.upc.edu"
 GEI_BASE = f"{WEB}/ca/graus/grau-en-enginyeria-informatica"
 
-# ============================================================================
-# ABox declarativa: titulacions, especialitats i conceptes academics
-# ============================================================================
+# ABox declarativa: titulaciones, especialidades y conceptos
 
 GRAUS = {
     "GEI": {
@@ -66,7 +56,8 @@ MASTERS = {
     },
     "MDS": {
         "label": "Màster en Ciència de Dades",
-        "alt": ["MDS", "màster en ciència de dades", "máster en ciencia de datos"],
+        "alt": ["MDS", "màster en ciència de dades", "máster en ciencia de datos",
+                "ciència de dades", "ciencia de datos", "data science"],
         "url": f"{WEB}/ca/masters/master-en-ciencia-de-dades",
     },
     "MAI": {
@@ -111,7 +102,7 @@ ESPECIALITATS = {
     },
 }
 
-# Assignatures del GEI agrupades (mateixa font que el scraper)
+# Asignaturas del GEI agrupadas (misma fuente que el scraper)
 ASSIGNATURES_PER_GRUP = {
     None: ["F", "FM", "IC", "PRO1", "EC", "M1", "M2", "PRO2",
            "BD", "CI", "EDA", "PE", "SO", "AC", "EEE", "IES", "PROP", "XC", "IDI", "PAR"],
@@ -126,8 +117,8 @@ ASSIGNATURES_PER_GRUP = {
                   "LDPE", "PAE", "ROB", "SLDS", "TGA", "VC", "VJ"],
 }
 
-# Conceptes academics: etiqueta, sinonims multilingues, recurs canonic,
-# pes per al reranking, slugs d'URL per a boosts, i conceptes relacionats.
+# Conceptos académicos: etiqueta, sinónimos multilingües, recurso canónico,
+# peso de reranking, slugs de URL para boosts y conceptos relacionados.
 CONCEPTES = {
     "matricula": {
         "label": "Matrícula",
@@ -199,10 +190,11 @@ CONCEPTES = {
         "label": "Mobilitat",
         "alt": ["mobilitat", "movilidad", "erasmus", "intercanvi", "exchange",
                 "estada internacional", "estudiar fora", "anar fora", "outgoing",
-                "incoming", "doble titulació"],
+                "incoming", "marxar a l'estranger"],
         "url": f"{WEB}/ca/mobilitat",
         "weight": 0.20, "slugs": ["mobilitat", "outgoing", "incoming"],
-        "related": ["tràmits", "beques i ajuts"],
+        "related": ["tràmits", "beques i ajuts", "dobles titulacions",
+                    "programes de mobilitat"],
     },
     "pla d'estudis": {
         "label": "Pla d'estudis",
@@ -284,6 +276,248 @@ CONCEPTES = {
         "weight": 0.10, "slugs": ["assignatures"],
         "related": ["pla d'estudis", "professorat"],
     },
+
+    # Páginas de aterrizaje específicas que antes caían bajo conceptos demasiado
+    # genéricos (mobilitat, tramits, la facultat...). Cada una con su URL canónica,
+    # clase ontológica propia y, cuando aplica, concepto padre (subconcepteDe).
+
+    # Mobilitat: subpáginas
+    "dobles titulacions": {
+        "label": "Dobles titulacions",
+        "alt": ["doble titulació", "dobles titulacions", "doble titulacio",
+                "doble titulación", "dobles titulaciones", "doble grau",
+                "doble màster", "double degree", "titulació doble",
+                "fer dues titulacions", "centres de doble titulació",
+                "universitats de doble titulació"],
+        "url": f"{WEB}/ca/mobilitat/dobles-titulacions",
+        "weight": 0.35, "slugs": ["dobles-titulacions"],
+        "class": "ProgramaMobilitat", "parent": "mobilitat",
+        "related": ["mobilitat"],
+    },
+    "programes de mobilitat": {
+        "label": "Programes de mobilitat",
+        "alt": ["programes de mobilitat", "programa de mobilitat",
+                "programes d'intercanvi", "programa d'intercanvi",
+                "programas de movilidad", "exchange programs", "sicue",
+                "vulcanus", "unitech", "aliances internacionals"],
+        "url": f"{WEB}/ca/mobilitat/aliances-internacionals/programes-de-mobilitat",
+        "weight": 0.28,
+        "slugs": ["programes-de-mobilitat", "aliances-internacionals"],
+        "class": "ProgramaMobilitat", "parent": "mobilitat",
+        "related": ["mobilitat", "dobles titulacions"],
+    },
+    "universitats partner": {
+        "label": "Universitats partner",
+        "alt": ["universitats partner", "universitats sòcies",
+                "universitats de destinació", "partner universities",
+                "quines universitats", "on puc anar d'erasmus",
+                "destinacions de mobilitat", "universidades de destino"],
+        "url": f"{WEB}/ca/mobilitat/aliances-internacionals/universitats-partner",
+        "weight": 0.26, "slugs": ["universitats-partner"],
+        "class": "ProgramaMobilitat", "parent": "mobilitat",
+        "related": ["mobilitat", "programes de mobilitat"],
+    },
+
+    # Recerca
+    "recerca": {
+        "label": "Recerca",
+        "alt": ["recerca", "investigació", "investigación", "research"],
+        "url": f"{WEB}/ca/recerca",
+        "weight": 0.18, "slugs": ["recerca"],
+        "related": ["departaments", "grups de recerca"],
+    },
+    "departaments": {
+        "label": "Departaments",
+        "alt": ["departament", "departaments", "departamento", "departamentos",
+                "department", "quins departaments"],
+        "url": f"{WEB}/ca/recerca/departaments",
+        "weight": 0.24, "slugs": ["departaments"],
+        "class": "UnitatRecerca", "parent": "recerca",
+        "related": ["recerca"],
+    },
+    "grups de recerca": {
+        "label": "Grups de recerca",
+        "alt": ["grup de recerca", "grups de recerca", "grupo de investigación",
+                "grups d'investigació", "research group", "research groups"],
+        "url": f"{WEB}/ca/recerca/grups-de-recerca",
+        "weight": 0.24, "slugs": ["grups-de-recerca"],
+        "class": "UnitatRecerca", "parent": "recerca",
+        "related": ["recerca"],
+    },
+    "centres de recerca": {
+        "label": "Centres de recerca",
+        "alt": ["centre de recerca", "centres de recerca",
+                "centro de investigación", "research center"],
+        "url": f"{WEB}/ca/recerca/centres-de-recerca",
+        "weight": 0.24, "slugs": ["centres-de-recerca"],
+        "class": "UnitatRecerca", "parent": "recerca",
+        "related": ["recerca"],
+    },
+    "inlab": {
+        "label": "inLab FIB",
+        "alt": ["inlab", "inlab fib", "laboratori d'innovació"],
+        "url": f"{WEB}/ca/recerca/inlab-fib",
+        "weight": 0.24, "slugs": ["inlab-fib"],
+        "class": "UnitatRecerca", "parent": "recerca",
+        "related": ["recerca"],
+    },
+
+    # Espacios físicos
+    "biblioteca": {
+        "label": "Biblioteca",
+        "alt": ["biblioteca", "biblioteca rector gabriel ferraté", "library",
+                "sala d'estudi", "on puc estudiar"],
+        "url": f"{WEB}/ca/la-fib/espais/biblioteca-rector-gabriel-ferrate",
+        "weight": 0.26, "slugs": ["biblioteca"],
+        "class": "EspaiFisic", "parent": "la facultat",
+        "related": ["la facultat"],
+    },
+    "laboratoris": {
+        "label": "Laboratoris d'informàtica",
+        "alt": ["laboratori", "laboratoris", "laboratorios",
+                "laboratoris d'informàtica", "labs", "aules de laboratori"],
+        "url": f"{WEB}/ca/la-fib/espais/laboratoris-dinformatica",
+        "weight": 0.22, "slugs": ["laboratoris-dinformatica", "laboratoris"],
+        "class": "EspaiFisic", "parent": "la facultat",
+        "related": ["la facultat"],
+    },
+    "aules": {
+        "label": "Aules docents",
+        "alt": ["aules docents", "aula docent", "on són les aules",
+                "ubicació de les aules"],
+        "url": f"{WEB}/ca/la-fib/espais/aules-docents",
+        "weight": 0.20, "slugs": ["aules-docents"],
+        "class": "EspaiFisic", "parent": "la facultat",
+        "related": ["la facultat", "horaris"],
+    },
+
+    # Vida universitaria, gobierno e información institucional
+    "associacions": {
+        "label": "Associacions d'estudiants",
+        "alt": ["associació", "associacions", "asociaciones",
+                "associacions d'estudiants", "vida universitària",
+                "delegació d'estudiants"],
+        "url": f"{WEB}/ca/la-fib/vida-universitaria/associacions",
+        "weight": 0.22, "slugs": ["associacions"],
+        "class": "ServeiFIB", "parent": "la facultat",
+        "related": ["la facultat"],
+    },
+    "govern": {
+        "label": "Govern de la FIB",
+        "alt": ["govern", "equip de govern", "equip directiu",
+                "junta de facultat", "gobierno", "deganat", "degà",
+                "qui dirigeix la fib"],
+        "url": f"{WEB}/ca/la-fib/la-facultat/govern",
+        "weight": 0.20, "slugs": ["govern"],
+        "class": "OrganGovern", "parent": "la facultat",
+        "related": ["la facultat"],
+    },
+    "xifres": {
+        "label": "La facultat en xifres",
+        "alt": ["xifres", "la facultat en xifres", "estadístiques",
+                "dades estadístiques", "cifras", "datos estadísticos"],
+        "url": f"{WEB}/ca/la-fib/la-facultat/la-facultat-en-xifres",
+        "weight": 0.20, "slugs": ["la-facultat-en-xifres"],
+        "class": "ServeiFIB", "parent": "la facultat",
+        "related": ["la facultat"],
+    },
+    "actes academics": {
+        "label": "Actes acadèmics",
+        "alt": ["acte acadèmic", "actes acadèmics", "graduació",
+                "cerimònia de graduació", "acto académico"],
+        "url": f"{WEB}/ca/la-fib/la-facultat/actes-academics",
+        "weight": 0.18, "slugs": ["actes-academics"],
+        "class": "ServeiFIB", "parent": "la facultat",
+        "related": ["la facultat"],
+    },
+
+    # Trámites específicos (subconcepteDe "tramits")
+    "cita previa": {
+        "label": "Cita prèvia",
+        "alt": ["cita prèvia", "cita previa", "demanar cita",
+                "demanar hora", "appointment", "atenció presencial"],
+        "url": f"{WEB}/ca/que-necessites/cita-previa",
+        "weight": 0.24, "slugs": ["cita-previa"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits", "contacte"],
+    },
+    "bustia": {
+        "label": "Bústia FIB",
+        "alt": ["bústia", "bustia", "queixa", "queixes", "suggeriment",
+                "reclamació", "quejas", "bústia de queixes"],
+        "url": f"{WEB}/ca/que-necessites/bustia-fib",
+        "weight": 0.20, "slugs": ["bustia-fib"],
+        "class": "ServeiFIB", "parent": "tramits",
+        "related": ["tràmits"],
+    },
+    "reconeixement de credits": {
+        "label": "Reconeixement de crèdits",
+        "alt": ["reconeixement de crèdits", "reconeixement d'assignatures",
+                "reconocimiento de créditos", "convalidar assignatures",
+                "convalidació d'assignatures"],
+        "url": f"{WEB}/ca/que-necessites/tramits/reconeixement-dassignatures",
+        "weight": 0.26, "slugs": ["reconeixement"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits"],
+    },
+    "canvi de mencio": {
+        "label": "Canvi de menció",
+        "alt": ["canvi de menció", "canviar d'especialitat",
+                "canvi d'especialitat", "cambio de mención",
+                "canviar de menció"],
+        "url": f"{WEB}/ca/que-necessites/tramits/canvi-de-mencio-gei",
+        "weight": 0.26, "slugs": ["canvi-de-mencio"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits", "especialitats"],
+    },
+    "trasllat expedient": {
+        "label": "Trasllat d'expedient",
+        "alt": ["trasllat d'expedient", "trasllat", "traslado de expediente",
+                "canviar d'universitat"],
+        "url": f"{WEB}/ca/que-necessites/tramits/trasllat-dun-expedient",
+        "weight": 0.26, "slugs": ["trasllat"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits"],
+    },
+    "simultaneitat estudis": {
+        "label": "Simultaneïtat d'estudis",
+        "alt": ["simultaneïtat", "simultaneitat d'estudis",
+                "estudiar dues carreres", "simultaneidad de estudios",
+                "cursar dos graus alhora"],
+        "url": f"{WEB}/ca/que-necessites/tramits/simultaneitat-destudis",
+        "weight": 0.26, "slugs": ["simultaneitat"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits"],
+    },
+    "certificats": {
+        "label": "Certificats acadèmics",
+        "alt": ["certificat", "certificats", "certificació acadèmica",
+                "certificado académico", "demanar un certificat"],
+        "url": f"{WEB}/ca/que-necessites/tramits/certificacions-academiques",
+        "weight": 0.24, "slugs": ["certificacions"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits"],
+    },
+    "titol": {
+        "label": "Sol·licitud del títol",
+        "alt": ["recollir el títol", "demanar el títol", "expedició del títol",
+                "obtenir el títol", "recollida del títol",
+                "suplement europeu al títol"],
+        "url": f"{WEB}/ca/que-necessites/tramits/recollida-del-titol",
+        "weight": 0.24, "slugs": ["recollida-del-titol"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits"],
+    },
+    "baixa matricula": {
+        "label": "Renúncia de matrícula",
+        "alt": ["renúncia de matrícula", "donar-se de baixa",
+                "anul·lar la matrícula", "baixa acadèmica",
+                "treure assignatures de la matrícula"],
+        "url": f"{WEB}/ca/que-necessites/tramits/renuncia-la-matricula",
+        "weight": 0.24, "slugs": ["renuncia"],
+        "class": "Tramit", "parent": "tramits",
+        "related": ["tràmits", "matrícula"],
+    },
 }
 
 
@@ -294,21 +528,63 @@ def _slugify(text):
     return "".join(c if c.isalnum() else "-" for c in text.lower()).strip("-")
 
 
+SLUG_TO_ACRONYM = {
+    "grau-en-enginyeria-informatica": "GEI",
+    "grau-en-ciencia-i-enginyeria-de-dades": "GCED",
+    "grau-en-intelligencia-artificial": "GIA",
+    "grau-en-bioinformatica": "GBIO",
+    "master-en-enginyeria-informatica": "MEI",
+    "master-en-ciencia-de-dades": "MDS",
+    "master-en-intelligencia-artificial": "MAI",
+    "master-en-innovacio-i-recerca-en-informatica": "MIRI",
+}
+
+
 def _load_course_names():
-    """Extreu el nom oficial de cada assignatura de les dades scrapejades."""
-    names = {}
+    """Nombre oficial de cada asignatura desde los datos scrapeados."""
+    return {c["code"]: c["name"] for c in _load_courses_from_scrape().values()}
+
+
+def _load_courses_from_scrape():
+    """code -> {name, url, program_slug, program_acronym, program_type}."""
+    courses = {}
     if not os.path.exists(SCRAPED_FILE):
-        return names
+        return courses
     with open(SCRAPED_FILE, "r", encoding="utf-8") as f:
         documents = json.load(f)
     for doc in documents:
         url = doc.get("url", "")
-        if "/pla-destudis/assignatures/" in url:
-            code = url.rstrip("/").split("/")[-1]
-            title = (doc.get("title") or "").split(" - ")[0].strip()
-            if code and title and code not in names:
-                names[code] = title
-    return names
+        if "/pla-destudis/assignatures/" not in url:
+            continue
+        code = url.rstrip("/").split("/")[-1]
+        if not code or code == "assignatures":
+            continue
+
+        program_slug = None
+        program_type = None
+        if "/graus/" in url:
+            program_slug = url.split("/graus/")[1].split("/")[0]
+            program_type = "Grau"
+        elif "/masters/" in url:
+            program_slug = url.split("/masters/")[1].split("/")[0]
+            program_type = "Master"
+        else:
+            continue
+
+        title = (doc.get("title") or "").split(" - ")[0].strip()
+        canonical_url = url.split("#")[0].rstrip("/")
+        entry = {
+            "code": code,
+            "name": title or code,
+            "url": canonical_url,
+            "program_slug": program_slug,
+            "program_acronym": SLUG_TO_ACRONYM.get(program_slug, program_slug),
+            "program_type": program_type,
+        }
+        # En caso de duplicado preferimos la URL más larga/específica
+        if code not in courses or len(entry["url"]) >= len(courses[code]["url"]):
+            courses[code] = entry
+    return courses
 
 
 def build_graph():
@@ -317,9 +593,7 @@ def build_graph():
     g.bind("skos", SKOS)
     g.bind("owl", OWL)
 
-    # ------------------------------------------------------------------
-    # TBox: classes
-    # ------------------------------------------------------------------
+    # TBox: clases
     classes = {
         "EntitatAcademica": ("Entitat acadèmica", None),
         "Titulacio": ("Titulació", "EntitatAcademica"),
@@ -328,6 +602,13 @@ def build_graph():
         "Assignatura": ("Assignatura", "EntitatAcademica"),
         "Especialitat": ("Especialitat", "EntitatAcademica"),
         "ConcepteAcademic": ("Concepte acadèmic", "EntitatAcademica"),
+        # Clases nuevas para modelar con más precisión el dominio
+        "Tramit": ("Tràmit", "ConcepteAcademic"),
+        "ProgramaMobilitat": ("Programa de mobilitat", "ConcepteAcademic"),
+        "UnitatRecerca": ("Unitat de recerca", "EntitatAcademica"),
+        "EspaiFisic": ("Espai físic", "EntitatAcademica"),
+        "ServeiFIB": ("Servei de la FIB", "EntitatAcademica"),
+        "OrganGovern": ("Òrgan de govern", "EntitatAcademica"),
     }
     for name, (label, parent) in classes.items():
         cls = FIB[name]
@@ -336,13 +617,13 @@ def build_graph():
         if parent:
             g.add((cls, RDFS.subClassOf, FIB[parent]))
 
-    # ------------------------------------------------------------------
-    # TBox: propietats
-    # ------------------------------------------------------------------
+    # TBox: propiedades
     object_props = {
         "pertanyA": ("pertany a", "Assignatura", "Titulacio"),
         "teEspecialitat": ("té especialitat", "Grau", "Especialitat"),
         "dinsEspecialitat": ("dins l'especialitat", "Assignatura", "Especialitat"),
+        # Jerarquía entre conceptos: p.ej. "dobles titulacions" subconcepteDe "mobilitat"
+        "subconcepteDe": ("subconcepte de", "ConcepteAcademic", "ConcepteAcademic"),
     }
     for name, (label, dom, rng) in object_props.items():
         p = FIB[name]
@@ -363,9 +644,7 @@ def build_graph():
         g.add((p, RDFS.label, Literal(label, lang="ca")))
         g.add((p, RDFS.range, rng))
 
-    # ------------------------------------------------------------------
-    # ABox: titulacions
-    # ------------------------------------------------------------------
+    # ABox: titulaciones
     for acronym, data in GRAUS.items():
         uri = FIB[f"grau-{_slugify(data['label'])}"]
         g.add((uri, RDF.type, FIB.Grau))
@@ -384,9 +663,7 @@ def build_graph():
         for alt in data["alt"]:
             g.add((uri, SKOS.altLabel, Literal(alt, lang="ca")))
 
-    # ------------------------------------------------------------------
-    # ABox: especialitats del GEI
-    # ------------------------------------------------------------------
+    # ABox: especialidades del GEI
     gei_uri = FIB[f"grau-{_slugify(GRAUS['GEI']['label'])}"]
     esp_uris = {}
     for slug, data in ESPECIALITATS.items():
@@ -399,33 +676,65 @@ def build_graph():
         for alt in data["alt"]:
             g.add((uri, SKOS.altLabel, Literal(alt, lang="ca")))
 
-    # ------------------------------------------------------------------
-    # ABox: assignatures (poblades amb noms reals del scraping)
-    # ------------------------------------------------------------------
+    # ABox: asignaturas del GEI (lista estática + relación con especialidad)
     course_names = _load_course_names()
+    scraped_courses = _load_courses_from_scrape()
+    gei_codes = set()
     for group, codes in ASSIGNATURES_PER_GRUP.items():
         for code in codes:
+            gei_codes.add(code)
             uri = FIB[f"assignatura-{code}"]
             g.add((uri, RDF.type, FIB.Assignatura))
             g.add((uri, FIB.codi, Literal(code)))
             g.add((uri, FIB.pertanyA, gei_uri))
-            name = course_names.get(code)
-            g.add((uri, SKOS.prefLabel, Literal(name or code, lang="ca")))
-            if name:
+            name = course_names.get(code) or scraped_courses.get(code, {}).get("name") or code
+            g.add((uri, SKOS.prefLabel, Literal(name, lang="ca")))
+            if name != code:
                 g.add((uri, SKOS.altLabel, Literal(code)))
-            url = f"{GEI_BASE}/pla-destudis/assignatures/{code}"
+            url = scraped_courses.get(code, {}).get("url") or f"{GEI_BASE}/pla-destudis/assignatures/{code}"
             g.add((uri, FIB.recursCanonic, Literal(url, datatype=XSD.anyURI)))
             if group in esp_uris:
                 g.add((uri, FIB.dinsEspecialitat, esp_uris[group]))
 
-    # ------------------------------------------------------------------
-    # ABox: conceptes academics
-    # ------------------------------------------------------------------
-    concept_uris = {}
+    # ABox: asignaturas del resto de titulaciones (desde el scraping)
+    titulacio_uris = {}
+    for acronym, data in GRAUS.items():
+        titulacio_uris[acronym] = FIB[f"grau-{_slugify(data['label'])}"]
+    for acronym, data in MASTERS.items():
+        titulacio_uris[acronym] = FIB[f"master-{_slugify(data['label'])}"]
+
+    n_extra = 0
+    for code, info in sorted(scraped_courses.items()):
+        if code in gei_codes:
+            continue
+        tit_uri = titulacio_uris.get(info["program_acronym"])
+        if tit_uri is None:
+            continue
+        uri = FIB[f"assignatura-{code}"]
+        g.add((uri, RDF.type, FIB.Assignatura))
+        g.add((uri, FIB.codi, Literal(code)))
+        g.add((uri, FIB.pertanyA, tit_uri))
+        name = info["name"] or code
+        g.add((uri, SKOS.prefLabel, Literal(name, lang="ca")))
+        if name != code:
+            g.add((uri, SKOS.altLabel, Literal(code)))
+        g.add((uri, FIB.recursCanonic, Literal(info["url"], datatype=XSD.anyURI)))
+        n_extra += 1
+
+    # ABox: conceptos académicos
+    concept_uris = {}        # label.lower() -> uri (para skos:related)
+    concept_uris_by_key = {}  # clave del diccionario -> uri (para subconcepteDe)
     for key, data in CONCEPTES.items():
         uri = FIB[f"concepte-{_slugify(key)}"]
         concept_uris[data["label"].lower()] = uri
-        g.add((uri, RDF.type, FIB.ConcepteAcademic))
+        concept_uris_by_key[key] = uri
+        # Cada concepto se tipa con su clase específica (Tramit, ProgramaMobilitat,
+        # EspaiFisic...) y, además, como ConcepteAcademic para mantener
+        # compatibilidad con el código existente.
+        concept_class = data.get("class", "ConcepteAcademic")
+        g.add((uri, RDF.type, FIB[concept_class]))
+        if concept_class != "ConcepteAcademic":
+            g.add((uri, RDF.type, FIB.ConcepteAcademic))
         g.add((uri, SKOS.prefLabel, Literal(data["label"], lang="ca")))
         g.add((uri, FIB.recursCanonic, Literal(data["url"], datatype=XSD.anyURI)))
         g.add((uri, FIB.pesIntencio, Literal(data["weight"], datatype=XSD.float)))
@@ -434,14 +743,19 @@ def build_graph():
         for slug in data["slugs"]:
             g.add((uri, FIB.patroUrl, Literal(slug)))
 
-    # Relacions skos:related entre conceptes
+    # skos:related y jerarquía subconcepteDe entre conceptos
     for key, data in CONCEPTES.items():
-        uri = FIB[f"concepte-{_slugify(key)}"]
+        uri = concept_uris_by_key[key]
         for rel_label in data.get("related", []):
             rel_uri = concept_uris.get(rel_label.lower())
             if rel_uri is not None:
                 g.add((uri, SKOS.related, rel_uri))
                 g.add((rel_uri, SKOS.related, uri))
+        parent_key = data.get("parent")
+        if parent_key:
+            parent_uri = concept_uris_by_key.get(parent_key)
+            if parent_uri is not None:
+                g.add((uri, FIB.subconcepteDe, parent_uri))
 
     return g
 
@@ -451,10 +765,12 @@ def main():
     g.serialize(destination=OUTPUT_TTL, format="turtle")
     n_classes = len(list(g.subjects(RDF.type, OWL.Class)))
     n_instances = len(set(g.subjects(FIB.recursCanonic, None)))
+    n_assign = len(list(g.subjects(RDF.type, FIB.Assignatura)))
     print(f"Ontologia generada: {OUTPUT_TTL}")
-    print(f"  Triples:    {len(g)}")
-    print(f"  Classes:    {n_classes}")
-    print(f"  Instancies: {n_instances}")
+    print(f"  Triples:      {len(g)}")
+    print(f"  Classes:      {n_classes}")
+    print(f"  Instancies:   {n_instances}")
+    print(f"  Assignatures: {n_assign}")
 
 
 if __name__ == "__main__":

@@ -1,20 +1,7 @@
-"""EXP.2b: cerca guiada per ontologia amb reranking controlat.
-
-A diferencia de l'expansio naive, aquest retriever:
-  1. Recupera un conjunt ampli de candidats (consulta original + enriquida).
-  2. Injecta les pagines canoniques dels conceptes/entitats detectats
-     (importants per a pagines amb poc text estatic: horaris, examens...).
-  3. Re-rankeja amb boosts transparents derivats de l'ontologia:
-       - coincidencia exacta amb el recurs canonic d'una entitat enllacada,
-       - coincidencia amb el recurs canonic d'un concepte detectat
-         (pes fib:pesIntencio definit a l'ontologia),
-       - presencia del patro d'URL (fib:patroUrl) al source/titol/seccio,
-       - scoping per titulacio (boost al subarbre del grau detectat,
-         penalitzacio a la resta de titulacions).
-
-Cap regla esta hardcodejada al retriever: tots els recursos, pesos i patrons
-provenen del graf RDF, de manera que ampliar la cobertura es editar
-l'ontologia, no el codi.
+"""
+Búsqueda guiada por la ontología con reranking controlado: recupera un conjunto
+amplio de candidatos, inyecta páginas canónicas de los conceptos/entidades
+detectados y aplica boosts transparentes derivados del grafo RDF.
 """
 
 from db.vector_store import VectorStore
@@ -24,11 +11,11 @@ from retrieval.base import BaseRetriever, format_chroma_results, make_item, norm
 from retrieval.entity_linker import extract_entities
 import settings
 
-ENTITY_BOOST = 0.45        # coincidencia exacta amb pagina d'entitat enllacada
-SLUG_FACTOR = 0.5          # fraccio del pes del concepte per a matches parcials
-DEGREE_BOOST = 0.15        # subarbre de la titulacio detectada
-DEGREE_PENALTY = -0.12     # pagines d'altres titulacions
-TITLE_FACTOR = 0.25        # fraccio addicional si el titol conte el patro
+ENTITY_BOOST = 0.45        # coincidencia exacta con la página de la entidad enlazada
+SLUG_FACTOR = 0.5          # fracción del peso del concepto para matches parciales
+DEGREE_BOOST = 0.15        # subárbol de la titulación detectada
+DEGREE_PENALTY = -0.12     # páginas de otras titulaciones
+TITLE_FACTOR = 0.25        # extra si el patrón aparece también en el título
 
 
 class ControlledOntologyRetriever(BaseRetriever):
@@ -47,7 +34,7 @@ class ControlledOntologyRetriever(BaseRetriever):
         enriched_query = self.ontology.enrich_query(query)
         entities = extract_entities(query)
 
-        # 1. Conjunt ampli de candidats: consulta original + enriquida
+        # 1. Conjunto amplio de candidatos: consulta original + enriquecida
         candidates = {}
         query_embedding = self.embedder.embed(query)
         searches = [(query_embedding, "dense")]
@@ -58,7 +45,7 @@ class ControlledOntologyRetriever(BaseRetriever):
             for item in format_chroma_results(raw, label):
                 self._add_candidate(candidates, item)
 
-        # 2. Injeccio de pagines canoniques (entitats + conceptes detectats)
+        # 2. Inyección de páginas canónicas (entidades + conceptos detectados)
         canonical_urls = [url for _, url in entities]
         for url, _, _ in self.ontology.intent_resources(query):
             if url not in canonical_urls:
@@ -66,7 +53,7 @@ class ControlledOntologyRetriever(BaseRetriever):
         for item in self._fetch_canonical_docs(canonical_urls, query_embedding):
             self._add_candidate(candidates, item)
 
-        # 3. Reranking controlat
+        # 3. Reranking controlado
         reranked = [self._rerank(query, entities, item) for item in candidates.values()]
         reranked.sort(key=lambda item: item["score"], reverse=True)
         for rank, item in enumerate(reranked[:final_k], start=1):
@@ -80,18 +67,16 @@ class ControlledOntologyRetriever(BaseRetriever):
             "results": reranked[:final_k],
         }
 
-    # ------------------------------------------------------------------
-
     def _add_candidate(self, candidates, item):
         key = (normalize_url(item["source"]), item["content"][:120])
         if key not in candidates or item["similarity"] > candidates[key]["similarity"]:
             candidates[key] = item
 
     def _fetch_canonical_docs(self, urls, query_embedding):
-        """Recupera de ChromaDB els chunks de les pagines canoniques.
+        """Recupera de ChromaDB los chunks de las páginas canónicas.
 
-        La similitud assignada es la similitud cosinus REAL entre la consulta
-        i l'embedding emmagatzemat de cada chunk (cap valor inventat).
+        La similitud asignada es la coseno real entre la consulta y el embedding
+        almacenado de cada chunk — nunca un valor inventado.
         """
         import numpy as np
 
@@ -130,19 +115,19 @@ class ControlledOntologyRetriever(BaseRetriever):
         haystack = normalize(f"{item['title']} {item['section']} {item['source']}")
         title_norm = normalize(item["title"])
 
-        # (a) Entity linking: coincidencia exacta amb la pagina de l'entitat
+        # (a) Entity linking: coincidencia exacta con la página de la entidad
         for label, url in entities:
             if source_norm == normalize_url(url):
                 score += ENTITY_BOOST
                 boosts.append(f"entitat:{label}")
 
-        # (b) Recurs canonic dels conceptes detectats (pes de l'ontologia)
+        # (b) Recurso canónico de los conceptos detectados (peso de la ontología)
         for url, weight, label in self.ontology.intent_resources(query):
             if source_norm == normalize_url(url):
                 score += weight
                 boosts.append(f"concepte:{label}")
 
-        # (c) Patrons d'URL (fib:patroUrl) com a match parcial
+        # (c) Patrones de URL (fib:patroUrl) como match parcial
         for slug, weight, label in self.ontology.boost_rules(query):
             slug_norm = normalize(slug)
             if slug_norm in haystack:
@@ -152,7 +137,7 @@ class ControlledOntologyRetriever(BaseRetriever):
                     score += weight * TITLE_FACTOR
                     boosts.append(f"titol:{label}")
 
-        # (d) Scoping per titulacio: derivat de les instancies fib:Grau/Master
+        # (d) Scoping por titulación (derivado de las instancias fib:Grau/Master)
         matched_degrees = self.ontology.matched_degrees(query)
         if len(matched_degrees) == 1:
             degree = matched_degrees[0]

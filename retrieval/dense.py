@@ -1,4 +1,4 @@
-"""Baseline 1: cerca vectorial pura (embeddings + similitud cosinus)."""
+"""Baseline vectorial: embeddings + similitud coseno."""
 
 from db.vector_store import VectorStore
 from processing.embedder import Embedder

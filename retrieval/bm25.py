@@ -1,8 +1,4 @@
-"""Baseline 2: cerca lexica BM25 (Okapi BM25 sobre els chunks indexats).
-
-El corpus es carrega una sola vegada des de ChromaDB i es tokenitza amb
-normalitzacio (minuscules, sense accents) i stopwords ca/es minimes.
-"""
+"""Baseline léxico: Okapi BM25 sobre los chunks indexados en ChromaDB."""
 
 import re
 
@@ -15,12 +11,12 @@ from utils import SingletonMeta
 import settings
 
 STOPWORDS = {
-    # catala
+    # catalán
     "el", "la", "els", "les", "un", "una", "uns", "unes", "de", "del", "dels",
     "a", "al", "als", "i", "o", "en", "per", "amb", "que", "es", "som", "son",
     "com", "quins", "quines", "quin", "quina", "on", "quan", "qui", "hi", "ha",
     "puc", "vull", "fer", "te", "tinc", "meu", "meva", "aquest", "aquesta",
-    # castella
+    # castellano
     "los", "las", "y", "u", "se", "su", "para", "con", "por", "donde", "cuando",
     "cual", "cuales", "quiero", "puedo", "hay", "este", "esta", "mi", "tengo",
 }
@@ -45,7 +41,7 @@ class BM25Retriever(BaseRetriever, metaclass=SingletonMeta):
         self.metadatas = data.get("metadatas") or []
         tokenized = []
         for doc, meta in zip(self.documents, self.metadatas):
-            # El titol i la seccio tambe aporten senyal lexica
+            # El título y la sección también aportan señal léxica
             text = f"{meta.get('title', '')} {meta.get('section', '')} {doc}"
             tokenized.append(self._tokenize(text))
         self.bm25 = BM25Okapi(tokenized) if tokenized else None
@@ -63,7 +59,7 @@ class BM25Retriever(BaseRetriever, metaclass=SingletonMeta):
                 item = make_item(
                     self.documents[idx],
                     self.metadatas[idx],
-                    scores[idx] / max_score,  # normalitzat a [0,1] per a la UI
+                    scores[idx] / max_score,  # normalizado a [0,1] para la UI
                     "bm25",
                     rank,
                 )

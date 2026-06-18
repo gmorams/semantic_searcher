@@ -1,19 +1,8 @@
 """
-API de consulta sobre l'ontologia formal del domini FIB (RDF/OWL).
+API de consulta sobre la ontología formal del dominio FIB (RDF/OWL).
 
-L'ontologia es construeix amb `build_ontology.py` i es persisteix a
-`fib_ontology.ttl`. Aquest modul la carrega amb rdflib i exposa les
-operacions que utilitza el pipeline de cerca:
-
-  - match_concepts(query):   deteccio de conceptes per matching normalitzat
-                             (sense accents, word boundaries) sobre les
-                             etiquetes SKOS (prefLabel + altLabel).
-  - enrich_query(query):     expansio de la consulta amb sinonims i conceptes
-                             relacionats (via SPARQL sobre skos:related).
-  - intent_resources(query): recursos web canonics associats als conceptes
-                             detectats, amb el seu pes d'intencio (per al
-                             reranking controlat).
-  - get_ontology_context():  context estructurat per al prompt del LLM.
+Carga `fib_ontology.ttl` con rdflib y expone matching de conceptos, expansión
+de consulta, recursos canónicos y contexto para el prompt del LLM.
 """
 
 import os
@@ -30,14 +19,14 @@ TTL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fib_ontolog
 
 
 def normalize(text):
-    """Minuscules + sense accents/diacritics (apostrofs i punts volats fora)."""
+    """minúsculas, sin acentos y sin apóstrofos/puntos volados."""
     text = unicodedata.normalize("NFKD", text or "")
     text = "".join(c for c in text if not unicodedata.combining(c))
     return text.lower().replace("·", "").replace("'", " ").replace("’", " ")
 
 
 class FIBOntology(metaclass=SingletonMeta):
-    """Wrapper de l'ontologia RDF amb indexs de matching en memoria."""
+    """Wrapper de la ontología RDF con índices de matching en memoria."""
 
     def __init__(self):
         if not os.path.exists(TTL_PATH):
@@ -52,17 +41,17 @@ class FIBOntology(metaclass=SingletonMeta):
 
         self._build_indexes()
 
-    # ------------------------------------------------------------------
-    # Indexs
-    # ------------------------------------------------------------------
-
     def _build_indexes(self):
-        """Construeix indexs en memoria a partir del graf RDF."""
-        self.concepts = {}      # uri -> dict del concepte/instancia
-        self._term_index = []   # (terme normalitzat, regex, uri)
+        self.concepts = {}      # uri -> dict del concepto/instancia
+        self._term_index = []   # (término normalizado, regex, uri)
 
         for uri in set(self.graph.subjects(FIB.recursCanonic, None)):
             rdf_types = set(self.graph.objects(uri, RDF.type))
+            # OJO: los literales "Assignatura", "Grau", "Màster" y "Especialitat"
+            # los consumen el entity linker y el scoping del retriever — no se
+            # pueden renombrar. Las clases nuevas (Tràmit, Programa de mobilitat,
+            # Espai físic...) se exponen con su nombre pero a efectos de
+            # matching/inyección se comportan como "Concepte acadèmic".
             if FIB.Assignatura in rdf_types:
                 ctype = "Assignatura"
             elif FIB.Grau in rdf_types:
@@ -71,6 +60,18 @@ class FIBOntology(metaclass=SingletonMeta):
                 ctype = "Màster"
             elif FIB.Especialitat in rdf_types:
                 ctype = "Especialitat"
+            elif FIB.Tramit in rdf_types:
+                ctype = "Tràmit"
+            elif FIB.ProgramaMobilitat in rdf_types:
+                ctype = "Programa de mobilitat"
+            elif FIB.UnitatRecerca in rdf_types:
+                ctype = "Unitat de recerca"
+            elif FIB.EspaiFisic in rdf_types:
+                ctype = "Espai físic"
+            elif FIB.OrganGovern in rdf_types:
+                ctype = "Òrgan de govern"
+            elif FIB.ServeiFIB in rdf_types:
+                ctype = "Servei de la FIB"
             else:
                 ctype = "Concepte acadèmic"
 
@@ -93,9 +94,9 @@ class FIBOntology(metaclass=SingletonMeta):
                 "code": code,
             }
 
-            # Les assignatures: els CODIS es resolen al entity linker (matching
-            # sensible a majuscules); aqui nomes s'indexa el nom oficial complet
-            # ("Bases de Dades", "Xarxes de Computadors"...).
+            # Asignaturas: los códigos los resuelve el entity linker (matching
+            # sensible a mayúsculas). Aquí solo indexamos el nombre oficial
+            # completo ("Bases de Dades", "Xarxes de Computadors"...).
             if ctype == "Assignatura":
                 if pref and pref != code:
                     name_norm = normalize(pref)
@@ -106,7 +107,7 @@ class FIBOntology(metaclass=SingletonMeta):
 
             for term in [pref] + alts:
                 term_norm = normalize(term)
-                # Sigles curtes (GEI, MAI...) tambe van al entity linker
+                # Siglas cortas (GEI, MAI...) también pasan por el entity linker
                 if len(term_norm) < 4 and term_norm.isalpha() and term.isupper():
                     continue
                 if len(term_norm) < 3:
@@ -114,15 +115,11 @@ class FIBOntology(metaclass=SingletonMeta):
                 pattern = re.compile(r"\b" + re.escape(term_norm) + r"\b")
                 self._term_index.append((term_norm, pattern, uri))
 
-        # Termes mes llargs primer: si matcha "treball de fi de grau" no cal "grau"
+        # Términos largos primero: si matchea "treball de fi de grau" no hace falta "grau"
         self._term_index.sort(key=lambda t: -len(t[0]))
 
-    # ------------------------------------------------------------------
-    # Matching de conceptes
-    # ------------------------------------------------------------------
-
     def match_concepts(self, query):
-        """Retorna els conceptes de l'ontologia detectats a la consulta."""
+        """Conceptos de la ontología detectados en la consulta."""
         query_norm = normalize(query)
         matched = {}
         covered = set()
@@ -131,7 +128,7 @@ class FIBOntology(metaclass=SingletonMeta):
             if not m:
                 continue
             span = set(range(m.start(), m.end()))
-            # Evitar que un terme contingut dins un altre ja matchat compti
+            # Si un término ya cubierto contiene a otro, descartamos el contenido
             if span & covered:
                 continue
             covered |= span
@@ -141,12 +138,10 @@ class FIBOntology(metaclass=SingletonMeta):
                 matched[uri] = concept
         return list(matched.values())
 
-    # ------------------------------------------------------------------
-    # Expansio de consulta (SPARQL sobre skos:related)
-    # ------------------------------------------------------------------
+    # Expansión de consulta (SPARQL sobre skos:related)
 
     def expansion_terms(self, query, max_terms=8):
-        """Sinonims + etiquetes de conceptes relacionats per expandir la query."""
+        """Sinónimos + etiquetas de conceptos relacionados."""
         query_norm = normalize(query)
         terms = []
 
@@ -169,18 +164,15 @@ class FIBOntology(metaclass=SingletonMeta):
         return terms[:max_terms]
 
     def enrich_query(self, query):
-        """Consulta original + termes d'expansio ontologica."""
         terms = self.expansion_terms(query)
         if terms:
             return f"{query} {' '.join(terms)}"
         return query
 
-    # ------------------------------------------------------------------
-    # Recursos i regles per al retriever controlat
-    # ------------------------------------------------------------------
+    # Recursos y reglas para el retriever controlado
 
     def intent_resources(self, query):
-        """[(url, pes, etiqueta)] dels recursos canonics dels conceptes detectats."""
+        """[(url, peso, etiqueta)] de los recursos canónicos detectados."""
         resources = []
         seen = set()
         for concept in self.match_concepts(query):
@@ -191,7 +183,7 @@ class FIBOntology(metaclass=SingletonMeta):
         return resources
 
     def boost_rules(self, query):
-        """[(slug, pes, etiqueta)] per a boosts parcials per pattern d'URL."""
+        """[(slug, peso, etiqueta)] para boosts parciales por patrón de URL."""
         rules = []
         for concept in self.match_concepts(query):
             for slug in concept["slugs"]:
@@ -199,29 +191,27 @@ class FIBOntology(metaclass=SingletonMeta):
         return rules
 
     def matched_degrees(self, query):
-        """Titulacions (graus/masters) detectades, per a l'scoping del reranking."""
+        """Titulaciones detectadas (para el scoping del reranking)."""
         return [c for c in self.match_concepts(query) if c["type"] in ("Grau", "Màster")]
 
     def degree_urls(self):
-        """URLs base de totes les titulacions (per a penalitzacions de scoping)."""
+        """URLs base de todas las titulaciones (para penalizaciones de scoping)."""
         return {c["url"]: c for c in self.concepts.values() if c["type"] in ("Grau", "Màster")}
 
     def course_index(self):
-        """codi -> dades de l'assignatura (per al entity linker)."""
+        """codi -> datos de la asignatura (para el entity linker)."""
         return {c["code"]: c for c in self.concepts.values()
                 if c["type"] == "Assignatura" and c["code"]}
 
     def acronym_index(self):
-        """sigla -> dades de la titulacio (per al entity linker)."""
+        """sigla -> datos de la titulación (para el entity linker)."""
         return {c["code"]: c for c in self.concepts.values()
                 if c["type"] in ("Grau", "Màster") and c["code"]}
 
-    # ------------------------------------------------------------------
-    # Context per al prompt del LLM
-    # ------------------------------------------------------------------
+    # Contexto para el prompt del LLM
 
     def ontology_context(self, query):
-        """Text estructurat amb el coneixement ontologic rellevant per al LLM."""
+        """Texto estructurado con el conocimiento ontológico relevante."""
         parts = []
         for concept in self.match_concepts(query):
             parts.append(f"Concepte: {concept['label']} ({concept['type']})")
@@ -229,6 +219,12 @@ class FIBOntology(metaclass=SingletonMeta):
                 parts.append(f"  Sinonims: {', '.join(concept['synonyms'][:5])}")
             if concept["url"]:
                 parts.append(f"  Pagina oficial: {concept['url']}")
+
+            parent = next(self.graph.objects(concept["uri"], FIB.subconcepteDe), None)
+            if parent is not None:
+                plabel = next(self.graph.objects(parent, SKOS.prefLabel), None)
+                if plabel is not None:
+                    parts.append(f"  Forma part de: {plabel}")
 
             sparql = """
                 SELECT DISTINCT ?relLabel WHERE {
@@ -242,9 +238,7 @@ class FIBOntology(metaclass=SingletonMeta):
                 parts.append(f"  Relacionats: {', '.join(related)}")
         return "\n".join(parts)
 
-    # ------------------------------------------------------------------
-    # Estadistiques i exploracio (UI)
-    # ------------------------------------------------------------------
+    # Estadísticas y exploración (UI)
 
     def stats(self):
         n_classes = len(list(self.graph.subjects(RDF.type, OWL.Class)))
@@ -280,9 +274,7 @@ class FIBOntology(metaclass=SingletonMeta):
         return None
 
 
-# ============================================================================
-# Funcions de modul (compatibilitat amb el codi existent)
-# ============================================================================
+# Funciones de módulo (compatibilidad con el código existente)
 
 def get_ontology():
     return FIBOntology()

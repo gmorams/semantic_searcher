@@ -1,15 +1,4 @@
-"""Interficie comuna per a totes les estrategies de cerca.
-
-Cada retriever implementa `search(query, top_k)` i retorna un dict amb:
-    query            consulta original
-    enriched_query   consulta despres de l'expansio (si aplica)
-    ontology_context context ontologic per al prompt (si aplica)
-    entities         entitats enllacades [(etiqueta, url)] (si aplica)
-    results          llista de resultats normalitzats
-
-Cada resultat te: rank, title, section, source, content, preview,
-similarity, score, retrieval_source i boosts (llista d'etiquetes).
-"""
+"""Interfaz común de los retrievers: cada uno implementa `search(query, top_k)`."""
 
 
 def make_item(doc, meta, score, retrieval_source, rank=0):
@@ -28,7 +17,7 @@ def make_item(doc, meta, score, retrieval_source, rank=0):
 
 
 def format_chroma_results(results, retrieval_source):
-    """Converteix la resposta de ChromaDB al format de resultats comu."""
+    """Convierte la respuesta de ChromaDB al formato común."""
     if not results or not results.get("documents") or not results["documents"][0]:
         return []
     items = []
@@ -43,7 +32,7 @@ def format_chroma_results(results, retrieval_source):
 
 
 def normalize_url(url):
-    """Normalitza una URL per a comparacions (sense fragment ni barra final)."""
+    # sin fragmento, sin query, sin barra final
     return (url or "").split("#")[0].split("?")[0].rstrip("/")
 
 

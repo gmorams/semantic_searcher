@@ -5,20 +5,13 @@ import os
 
 
 def load_and_chunk_pdf(pdf_path: str, chunk_size: int = 800, chunk_overlap: int = 200) -> List[Dict]:
-    """
-    Carrega un PDF, extreu el text, el divideix en seccions intel-ligents
-    (basades en titols/headings) i retorna chunks amb metadades.
-    """
+    """Carga un PDF, lo divide por secciones y devuelve chunks con metadatos."""
     doc = fitz.open(pdf_path)
     filename = os.path.basename(pdf_path)
 
-    # Extreure titol principal
     title = _extract_title(doc)
-
-    # Extreure text complet amb deteccio de seccions
     sections = _extract_sections(doc)
 
-    # Generar chunks a partir de les seccions
     chunks = []
     chunk_id = 0
 
@@ -27,7 +20,7 @@ def load_and_chunk_pdf(pdf_path: str, chunk_size: int = 800, chunk_overlap: int 
         if not section_text or len(section_text) < 50:
             continue
 
-        # Si la seccio es prou petita, un sol chunk
+        # seccion pequeña -> un solo chunk
         if len(section_text) <= chunk_size:
             chunks.append({
                 "id": f"{filename}_{chunk_id}",
@@ -39,7 +32,7 @@ def load_and_chunk_pdf(pdf_path: str, chunk_size: int = 800, chunk_overlap: int 
             })
             chunk_id += 1
         else:
-            # Dividir seccions grans en chunks amb overlap
+            # secciones grandes: trocear con solapamiento
             start = 0
             while start < len(section_text):
                 end = start + chunk_size
@@ -62,7 +55,7 @@ def load_and_chunk_pdf(pdf_path: str, chunk_size: int = 800, chunk_overlap: int 
 
 
 def _extract_title(doc) -> str:
-    """Extreu el titol del PDF basat en la mida de font mes gran de la primera pagina."""
+    """Titulo del PDF: la fuente mas grande de la primera pagina."""
     for page in doc:
         blocks = page.get_text("dict")["blocks"]
         spans = []
@@ -78,27 +71,24 @@ def _extract_title(doc) -> str:
             title_parts = [t for s, t in spans if abs(s - max_size) < 1.0]
             if title_parts:
                 return " ".join(title_parts)
-        break  # Nomes primera pagina
+        break  # solo primera pagina
     return "Document"
 
 
 def _extract_sections(doc) -> List[Dict]:
-    """Extreu seccions del PDF detectant titols per mida de font."""
+    """Detecta secciones por titulos numerados."""
     full_text = ""
     for page in doc:
         full_text += page.get_text() + "\n"
 
-    # Detectar seccions amb regex (titols numerats, majuscules, etc.)
     section_pattern = r'(?P<title>\n\d+\.[\d.]*\s+[A-ZÀ-ÿ][^\n]{3,})\n'
     matches = list(re.finditer(section_pattern, full_text))
 
     if not matches:
-        # Fallback: retornar tot el text com una sola seccio
         return [{"heading": "", "text": full_text}]
 
     sections = []
 
-    # Text abans de la primera seccio
     pre_text = full_text[:matches[0].start()].strip()
     if pre_text and len(pre_text) > 100:
         sections.append({"heading": "Introducció", "text": pre_text})

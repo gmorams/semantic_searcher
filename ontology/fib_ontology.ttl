@@ -12,6 +12,13 @@ fib:assignatura-A a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/A"^^xsd:anyURI .
 
+fib:assignatura-A3DM-MIRI a fib:Assignatura ;
+    skos:altLabel "A3DM-MIRI" ;
+    skos:prefLabel "Modelat Avançat en 3d"@ca ;
+    fib:codi "A3DM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/A3DM-MIRI"^^xsd:anyURI .
+
 fib:assignatura-AA a fib:Assignatura ;
     skos:altLabel "AA" ;
     skos:prefLabel "Ampliació d'Algorísmia"@ca ;
@@ -20,6 +27,34 @@ fib:assignatura-AA a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AA"^^xsd:anyURI .
 
+fib:assignatura-AA1-GCED a fib:Assignatura ;
+    skos:altLabel "AA1-GCED" ;
+    skos:prefLabel "Aprenentatge Automàtic I"@ca ;
+    fib:codi "AA1-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AA1-GCED"^^xsd:anyURI .
+
+fib:assignatura-AA2-GCED a fib:Assignatura ;
+    skos:altLabel "AA2-GCED" ;
+    skos:prefLabel "Aprenentatge Automàtic II"@ca ;
+    fib:codi "AA2-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AA2-GCED"^^xsd:anyURI .
+
+fib:assignatura-AAV-MAI a fib:Assignatura ;
+    skos:altLabel "AAV-MAI" ;
+    skos:prefLabel "Visió Artificial Avançada"@ca ;
+    fib:codi "AAV-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AAV-MAI"^^xsd:anyURI .
+
+fib:assignatura-AB-BBI a fib:Assignatura ;
+    skos:altLabel "AB-BBI" ;
+    skos:prefLabel "Algorismes en Biologia"@ca ;
+    fib:codi "AB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/AB-BBI"^^xsd:anyURI .
+
 fib:assignatura-ABD a fib:Assignatura ;
     skos:altLabel "ABD" ;
     skos:prefLabel "Administració de Bases de Dades"@ca ;
@@ -27,6 +62,13 @@ fib:assignatura-ABD a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ABD"^^xsd:anyURI .
+
+fib:assignatura-ABIA-GIA a fib:Assignatura ;
+    skos:altLabel "ABIA-GIA" ;
+    skos:prefLabel "Algorismes Bàsics per la Intel·ligència Artificial"@ca ;
+    fib:codi "ABIA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/ABIA-GIA"^^xsd:anyURI .
 
 fib:assignatura-AC a fib:Assignatura ;
     skos:altLabel "AC" ;
@@ -43,6 +85,20 @@ fib:assignatura-AC2 a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AC2"^^xsd:anyURI .
 
+fib:assignatura-AC2-GCED a fib:Assignatura ;
+    skos:altLabel "AC2-GCED" ;
+    skos:prefLabel "Àlgebra i Càlcul Avançats"@ca ;
+    fib:codi "AC2-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AC2-GCED"^^xsd:anyURI .
+
+fib:assignatura-ACAP-MEI a fib:Assignatura ;
+    skos:altLabel "ACAP-MEI" ;
+    skos:prefLabel "Arquitectura de Computadors d'Altes Prestacions"@ca ;
+    fib:codi "ACAP-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/ACAP-MEI"^^xsd:anyURI .
+
 fib:assignatura-AD a fib:Assignatura ;
     skos:altLabel "AD" ;
     skos:prefLabel "Aplicacions Distribuïdes"@ca ;
@@ -50,6 +106,13 @@ fib:assignatura-AD a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AD"^^xsd:anyURI .
+
+fib:assignatura-AD-GCED a fib:Assignatura ;
+    skos:altLabel "AD-GCED" ;
+    skos:prefLabel "Anàlisi de Dades"@ca ;
+    fib:codi "AD-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AD-GCED"^^xsd:anyURI .
 
 fib:assignatura-ADEI a fib:Assignatura ;
     skos:altLabel "ADEI" ;
@@ -59,6 +122,195 @@ fib:assignatura-ADEI a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ADEI"^^xsd:anyURI .
 
+fib:assignatura-ADM-MIRI a fib:Assignatura ;
+    skos:altLabel "ADM-MIRI" ;
+    skos:prefLabel "Algorísmia per a Mineria de Dades"@ca ;
+    fib:codi "ADM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ADM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-ADS-BBI a fib:Assignatura ;
+    skos:altLabel "ADS-BBI" ;
+    skos:prefLabel "Algorismes i Estructures de Dades"@ca ;
+    fib:codi "ADS-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/ADS-BBI"^^xsd:anyURI .
+
+fib:assignatura-ADS-MIRI a fib:Assignatura ;
+    skos:altLabel "ADS-MIRI" ;
+    skos:prefLabel "Estructures de Dades Avançades"@ca ;
+    fib:codi "ADS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ADS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-ADSDB-MDS a fib:Assignatura ;
+    skos:altLabel "ADSDB-MDS" ;
+    skos:prefLabel "Algorismes, Estructures de Dades i Bases de Dades"@ca ;
+    fib:codi "ADSDB-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/ADSDB-MDS"^^xsd:anyURI .
+
+fib:assignatura-ADSDB-MIRI a fib:Assignatura ;
+    skos:altLabel "ADSDB-MIRI" ;
+    skos:prefLabel "Algorismes, Estructures de Dades i Bases de Dades"@ca ;
+    fib:codi "ADSDB-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ADSDB-MIRI"^^xsd:anyURI .
+
+fib:assignatura-AESIA-GIA a fib:Assignatura ;
+    skos:altLabel "AESIA-GIA" ;
+    skos:prefLabel "Aspectes Ètics i Socials de la Intel·ligència Artificial"@ca ;
+    fib:codi "AESIA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/AESIA-GIA"^^xsd:anyURI .
+
+fib:assignatura-AGT-MIRI a fib:Assignatura ;
+    skos:altLabel "AGT-MIRI" ;
+    skos:prefLabel "Teoria de Jocs Algorísmica"@ca ;
+    fib:codi "AGT-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/AGT-MIRI"^^xsd:anyURI .
+
+fib:assignatura-AHCT-MAI a fib:Assignatura ;
+    skos:altLabel "AHCT-MAI" ;
+    skos:prefLabel "Tecnologies d'Assistència i Salut"@ca ;
+    fib:codi "AHCT-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AHCT-MAI"^^xsd:anyURI .
+
+fib:assignatura-AHLT-MAI a fib:Assignatura ;
+    skos:altLabel "AHLT-MAI" ;
+    skos:prefLabel "Tecnologies Avançades del Llenguatge Humà"@ca ;
+    fib:codi "AHLT-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AHLT-MAI"^^xsd:anyURI .
+
+fib:assignatura-AIHC-MAI a fib:Assignatura ;
+    skos:altLabel "AIHC-MAI" ;
+    skos:prefLabel "Intel·ligència Artificial a l'Assistència Sanitària"@ca ;
+    fib:codi "AIHC-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AIHC-MAI"^^xsd:anyURI .
+
+fib:assignatura-AIS-MAI a fib:Assignatura ;
+    skos:altLabel "AIS-MAI" ;
+    skos:prefLabel "Seminari d'Intel·ligència Artificial"@ca ;
+    fib:codi "AIS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AIS-MAI"^^xsd:anyURI .
+
+fib:assignatura-ALG-BBI a fib:Assignatura ;
+    skos:altLabel "ALG-BBI" ;
+    skos:prefLabel "Àlgebra"@ca ;
+    fib:codi "ALG-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/ALG-BBI"^^xsd:anyURI .
+
+fib:assignatura-ALG-GCED a fib:Assignatura ;
+    skos:altLabel "ALG-GCED" ;
+    skos:prefLabel "Àlgebra"@ca ;
+    fib:codi "ALG-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/ALG-GCED"^^xsd:anyURI .
+
+fib:assignatura-ALG-GIA a fib:Assignatura ;
+    skos:altLabel "ALG-GIA" ;
+    skos:prefLabel "Àlgebra"@ca ;
+    fib:codi "ALG-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/ALG-GIA"^^xsd:anyURI .
+
+fib:assignatura-AM-MIRI a fib:Assignatura ;
+    skos:altLabel "AM-MIRI" ;
+    skos:prefLabel "Modelatge Avançat"@ca ;
+    fib:codi "AM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/AM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-AMA-MDS a fib:Assignatura ;
+    skos:altLabel "AMA-MDS" ;
+    skos:prefLabel "Anàlisi Multivariant Avançat"@ca ;
+    fib:codi "AMA-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/AMA-MDS"^^xsd:anyURI .
+
+fib:assignatura-AML-MDS a fib:Assignatura ;
+    skos:altLabel "AML-MDS" ;
+    skos:prefLabel "Aprenentatge Automàtic Avançat"@ca ;
+    fib:codi "AML-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/AML-MDS"^^xsd:anyURI .
+
+fib:assignatura-AMLT-MAI a fib:Assignatura ;
+    skos:altLabel "AMLT-MAI" ;
+    skos:prefLabel "Tècniques Avançades d'Aprenentatge Automàtic"@ca ;
+    fib:codi "AMLT-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AMLT-MAI"^^xsd:anyURI .
+
+fib:assignatura-AMMM-MIRI a fib:Assignatura ;
+    skos:altLabel "AMMM-MIRI" ;
+    skos:prefLabel "Mètodes Algorísmics per a Models Matemàtics"@ca ;
+    fib:codi "AMMM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/AMMM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-ANLP-MAI a fib:Assignatura ;
+    skos:altLabel "ANLP-MAI" ;
+    skos:prefLabel "Processament del Llenguatge Natural Avançat"@ca ;
+    fib:codi "ANLP-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/ANLP-MAI"^^xsd:anyURI .
+
+fib:assignatura-ANLP-MIRI a fib:Assignatura ;
+    skos:altLabel "ANLP-MIRI" ;
+    skos:prefLabel "Processament Avançat del Llenguatge Natural"@ca ;
+    fib:codi "ANLP-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ANLP-MIRI"^^xsd:anyURI .
+
+fib:assignatura-AP1-BBI a fib:Assignatura ;
+    skos:altLabel "AP1-BBI" ;
+    skos:prefLabel "Programació Aplicada I"@ca ;
+    fib:codi "AP1-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/AP1-BBI"^^xsd:anyURI .
+
+fib:assignatura-AP1-GCED a fib:Assignatura ;
+    skos:altLabel "AP1-GCED" ;
+    skos:prefLabel "Algorísmia i Programació I"@ca ;
+    fib:codi "AP1-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AP1-GCED"^^xsd:anyURI .
+
+fib:assignatura-AP2-BBI a fib:Assignatura ;
+    skos:altLabel "AP2-BBI" ;
+    skos:prefLabel "Programació Aplicada II"@ca ;
+    fib:codi "AP2-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/AP2-BBI"^^xsd:anyURI .
+
+fib:assignatura-AP2-GCED a fib:Assignatura ;
+    skos:altLabel "AP2-GCED" ;
+    skos:prefLabel "Algorísmia i Programació II"@ca ;
+    fib:codi "AP2-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AP2-GCED"^^xsd:anyURI .
+
+fib:assignatura-AP3-BBI a fib:Assignatura ;
+    skos:altLabel "AP3-BBI" ;
+    skos:prefLabel "Programació Aplicada III"@ca ;
+    fib:codi "AP3-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/AP3-BBI"^^xsd:anyURI .
+
+fib:assignatura-AP3-GCED a fib:Assignatura ;
+    skos:altLabel "AP3-GCED" ;
+    skos:prefLabel "Algorísmia i Programació III"@ca ;
+    fib:codi "AP3-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/AP3-GCED"^^xsd:anyURI .
+
 fib:assignatura-APA a fib:Assignatura ;
     skos:altLabel "APA" ;
     skos:prefLabel "Aprenentatge Automàtic"@ca ;
@@ -67,12 +319,47 @@ fib:assignatura-APA a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/APA"^^xsd:anyURI .
 
+fib:assignatura-APA-MIRI a fib:Assignatura ;
+    skos:altLabel "APA-MIRI" ;
+    skos:prefLabel "Arquitectura Avançada del Processador"@ca ;
+    fib:codi "APA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/APA-MIRI"^^xsd:anyURI .
+
 fib:assignatura-APC a fib:Assignatura ;
     skos:altLabel "APC" ;
     skos:prefLabel "Arquitectura del PC"@ca ;
     fib:codi "APC" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/APC"^^xsd:anyURI .
+
+fib:assignatura-APRNS-GIA a fib:Assignatura ;
+    skos:altLabel "APRNS-GIA" ;
+    skos:prefLabel "Aprenentatge per Reforç i No Supervisat"@ca ;
+    fib:codi "APRNS-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/APRNS-GIA"^^xsd:anyURI .
+
+fib:assignatura-APSS a fib:Assignatura ;
+    skos:altLabel "APSS" ;
+    skos:prefLabel "Habilitats Acadèmiques i Professionals d'Expressió Oral en Anglès"@ca ;
+    fib:codi "APSS" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/APSS"^^xsd:anyURI .
+
+fib:assignatura-ARA-GIA a fib:Assignatura ;
+    skos:altLabel "ARA-GIA" ;
+    skos:prefLabel "Aprenentatge per Reforçament Avançat"@ca ;
+    fib:codi "ARA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/ARA-GIA"^^xsd:anyURI .
+
+fib:assignatura-ARCA-MEI a fib:Assignatura ;
+    skos:altLabel "ARCA-MEI" ;
+    skos:prefLabel "Animació Realista de Cossos Articulats"@ca ;
+    fib:codi "ARCA-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/ARCA-MEI"^^xsd:anyURI .
 
 fib:assignatura-AS a fib:Assignatura ;
     skos:altLabel "AS" ;
@@ -81,6 +368,34 @@ fib:assignatura-AS a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/AS"^^xsd:anyURI .
+
+fib:assignatura-ASDP a fib:Assignatura ;
+    skos:altLabel "ASDP" ;
+    skos:prefLabel "Habilitats Acadèmiques Pel Desenvolupament de Projectes en Anglès"@ca ;
+    fib:codi "ASDP" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ASDP"^^xsd:anyURI .
+
+fib:assignatura-ASE-MIRI a fib:Assignatura ;
+    skos:altLabel "ASE-MIRI" ;
+    skos:prefLabel "Enginyeria del Software Avançada"@ca ;
+    fib:codi "ASE-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ASE-MIRI"^^xsd:anyURI .
+
+fib:assignatura-ASM-MDS a fib:Assignatura ;
+    skos:altLabel "ASM-MDS" ;
+    skos:prefLabel "Modelització Estadística Avançada"@ca ;
+    fib:codi "ASM-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/ASM-MDS"^^xsd:anyURI .
+
+fib:assignatura-ASM-MIRI a fib:Assignatura ;
+    skos:altLabel "ASM-MIRI" ;
+    skos:prefLabel "Modelat Estadístic Avançat"@ca ;
+    fib:codi "ASM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ASM-MIRI"^^xsd:anyURI .
 
 fib:assignatura-ASMI a fib:Assignatura ;
     skos:altLabel "ASMI" ;
@@ -105,6 +420,34 @@ fib:assignatura-ASW a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ASW"^^xsd:anyURI .
 
+fib:assignatura-ATCI-MAI a fib:Assignatura ;
+    skos:altLabel "ATCI-MAI" ;
+    skos:prefLabel "Conceptes Avançats en Intel·ligència Computacional"@ca ;
+    fib:codi "ATCI-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/ATCI-MAI"^^xsd:anyURI .
+
+fib:assignatura-AVLSI-MIRI a fib:Assignatura ;
+    skos:altLabel "AVLSI-MIRI" ;
+    skos:prefLabel "Algorismes per a VLSI"@ca ;
+    fib:codi "AVLSI-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/AVLSI-MIRI"^^xsd:anyURI .
+
+fib:assignatura-AVPR-MAI a fib:Assignatura ;
+    skos:altLabel "AVPR-MAI" ;
+    skos:prefLabel "Visió Artificial i Reconeixement de Patrons"@ca ;
+    fib:codi "AVPR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/AVPR-MAI"^^xsd:anyURI .
+
+fib:assignatura-BC-BBI a fib:Assignatura ;
+    skos:altLabel "BC-BBI" ;
+    skos:prefLabel "Bioquímica"@ca ;
+    fib:codi "BC-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/BC-BBI"^^xsd:anyURI .
+
 fib:assignatura-BD a fib:Assignatura ;
     skos:altLabel "BD" ;
     skos:prefLabel "Bases de Dades"@ca ;
@@ -112,12 +455,103 @@ fib:assignatura-BD a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/BD"^^xsd:anyURI .
 
+fib:assignatura-BD-GCED a fib:Assignatura ;
+    skos:altLabel "BD-GCED" ;
+    skos:prefLabel "Bases de Dades"@ca ;
+    fib:codi "BD-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/BD-GCED"^^xsd:anyURI .
+
+fib:assignatura-BDA-BBI a fib:Assignatura ;
+    skos:altLabel "BDA-BBI" ;
+    skos:prefLabel "Bioestadística i Anàlisi de Dades"@ca ;
+    fib:codi "BDA-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/BDA-BBI"^^xsd:anyURI .
+
+fib:assignatura-BDA-GCED a fib:Assignatura ;
+    skos:altLabel "BDA-GCED" ;
+    skos:prefLabel "Bases de Dades Avançades"@ca ;
+    fib:codi "BDA-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/BDA-GCED"^^xsd:anyURI .
+
+fib:assignatura-BDA-GIA a fib:Assignatura ;
+    skos:altLabel "BDA-GIA" ;
+    skos:prefLabel "Bases de Dades Avançades"@ca ;
+    fib:codi "BDA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/BDA-GIA"^^xsd:anyURI .
+
+fib:assignatura-BDA-MAI a fib:Assignatura ;
+    skos:altLabel "BDA-MAI" ;
+    skos:prefLabel "Anàlisi de Dades Massives"@ca ;
+    fib:codi "BDA-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/BDA-MAI"^^xsd:anyURI .
+
+fib:assignatura-BDM-MDS a fib:Assignatura ;
+    skos:altLabel "BDM-MDS" ;
+    skos:prefLabel "Administració de Dades Massives"@ca ;
+    fib:codi "BDM-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/BDM-MDS"^^xsd:anyURI .
+
+fib:assignatura-BDM-MIRI a fib:Assignatura ;
+    skos:altLabel "BDM-MIRI" ;
+    skos:prefLabel "Big Data Management"@ca ;
+    fib:codi "BDM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/BDM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-BIP-MIRI a fib:Assignatura ;
+    skos:altLabel "BIP-MIRI" ;
+    skos:prefLabel "Projecte d'Intel·ligència Empresarial"@ca ;
+    fib:codi "BIP-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/BIP-MIRI"^^xsd:anyURI .
+
+fib:assignatura-BP-BBI a fib:Assignatura ;
+    skos:altLabel "BP-BBI" ;
+    skos:prefLabel "Biofísica"@ca ;
+    fib:codi "BP-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/BP-BBI"^^xsd:anyURI .
+
+fib:assignatura-BSG-MDS a fib:Assignatura ;
+    skos:altLabel "BSG-MDS" ;
+    skos:prefLabel "Bioinformàtica i Genètica Estadística"@ca ;
+    fib:codi "BSG-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/BSG-MDS"^^xsd:anyURI .
+
+fib:assignatura-BSG-MIRI a fib:Assignatura ;
+    skos:altLabel "BSG-MIRI" ;
+    skos:prefLabel "Bioinformàtica i Genètica Estadística"@ca ;
+    fib:codi "BSG-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/BSG-MIRI"^^xsd:anyURI .
+
 fib:assignatura-C a fib:Assignatura ;
     skos:altLabel "C" ;
     skos:prefLabel "Criptografia"@ca ;
     fib:codi "C" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/C"^^xsd:anyURI .
+
+fib:assignatura-CA-MIRI a fib:Assignatura ;
+    skos:altLabel "CA-MIRI" ;
+    skos:prefLabel "Animació per Computador"@ca ;
+    fib:codi "CA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-CAI-GCED a fib:Assignatura ;
+    skos:altLabel "CAI-GCED" ;
+    skos:prefLabel "Cerca i Anàlisi de la Informació"@ca ;
+    fib:codi "CAI-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/CAI-GCED"^^xsd:anyURI .
 
 fib:assignatura-CAIM a fib:Assignatura ;
     skos:altLabel "CAIM" ;
@@ -127,6 +561,34 @@ fib:assignatura-CAIM a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CAIM"^^xsd:anyURI .
 
+fib:assignatura-CAL-BBI a fib:Assignatura ;
+    skos:altLabel "CAL-BBI" ;
+    skos:prefLabel "Càlcul"@ca ;
+    fib:codi "CAL-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/CAL-BBI"^^xsd:anyURI .
+
+fib:assignatura-CAL-GCED a fib:Assignatura ;
+    skos:altLabel "CAL-GCED" ;
+    skos:prefLabel "Càlcul"@ca ;
+    fib:codi "CAL-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/CAL-GCED"^^xsd:anyURI .
+
+fib:assignatura-CAL-GIA a fib:Assignatura ;
+    skos:altLabel "CAL-GIA" ;
+    skos:prefLabel "Càlcul"@ca ;
+    fib:codi "CAL-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/CAL-GIA"^^xsd:anyURI .
+
+fib:assignatura-CAOS-BBI a fib:Assignatura ;
+    skos:altLabel "CAOS-BBI" ;
+    skos:prefLabel "Arquitectura de Computadors i Sistemes Operatius"@ca ;
+    fib:codi "CAOS-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/CAOS-BBI"^^xsd:anyURI .
+
 fib:assignatura-CAP a fib:Assignatura ;
     skos:altLabel "CAP" ;
     skos:prefLabel "Conceptes Avançats de Programació"@ca ;
@@ -134,6 +596,13 @@ fib:assignatura-CAP a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CAP"^^xsd:anyURI .
+
+fib:assignatura-CAP-GIA a fib:Assignatura ;
+    skos:altLabel "CAP-GIA" ;
+    skos:prefLabel "Computació d'Altes Prestacions"@ca ;
+    fib:codi "CAP-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/CAP-GIA"^^xsd:anyURI .
 
 fib:assignatura-CASO a fib:Assignatura ;
     skos:altLabel "CASO" ;
@@ -143,6 +612,13 @@ fib:assignatura-CASO a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CASO"^^xsd:anyURI .
 
+fib:assignatura-CB-BBI a fib:Assignatura ;
+    skos:altLabel "CB-BBI" ;
+    skos:prefLabel "Biologia Cel·lular"@ca ;
+    fib:codi "CB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/CB-BBI"^^xsd:anyURI .
+
 fib:assignatura-CBDE a fib:Assignatura ;
     skos:altLabel "CBDE" ;
     skos:prefLabel "Conceptes per a Bases de Dades Especialitzades"@ca ;
@@ -150,6 +626,27 @@ fib:assignatura-CBDE a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CBDE"^^xsd:anyURI .
+
+fib:assignatura-CC-MEI a fib:Assignatura ;
+    skos:altLabel "CC-MEI" ;
+    skos:prefLabel "Cloud Computing"@ca ;
+    fib:codi "CC-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/CC-MEI"^^xsd:anyURI .
+
+fib:assignatura-CC-MIRI a fib:Assignatura ;
+    skos:altLabel "CC-MIRI" ;
+    skos:prefLabel "Complexitat Computacional"@ca ;
+    fib:codi "CC-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CC-MIRI"^^xsd:anyURI .
+
+fib:assignatura-CCBDA-MIRI a fib:Assignatura ;
+    skos:altLabel "CCBDA-MIRI" ;
+    skos:prefLabel "Computació al Núvol i Anàlisi de Dades Massives"@ca ;
+    fib:codi "CCBDA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CCBDA-MIRI"^^xsd:anyURI .
 
 fib:assignatura-CCQ a fib:Assignatura ;
     skos:altLabel "CCQ" ;
@@ -165,12 +662,40 @@ fib:assignatura-CDI a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CDI"^^xsd:anyURI .
 
+fib:assignatura-CG-BBI a fib:Assignatura ;
+    skos:altLabel "CG-BBI" ;
+    skos:prefLabel "Genòmica Computacional"@ca ;
+    fib:codi "CG-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/CG-BBI"^^xsd:anyURI .
+
+fib:assignatura-CHPC-MIRI a fib:Assignatura ;
+    skos:altLabel "CHPC-MIRI" ;
+    skos:prefLabel "Compiladors per Computadors d'Altes Prestacions"@ca ;
+    fib:codi "CHPC-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CHPC-MIRI"^^xsd:anyURI .
+
 fib:assignatura-CI a fib:Assignatura ;
     skos:altLabel "CI" ;
     skos:prefLabel "Interfícies de Computadors"@ca ;
     fib:codi "CI" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CI"^^xsd:anyURI .
+
+fib:assignatura-CI-MAI a fib:Assignatura ;
+    skos:altLabel "CI-MAI" ;
+    skos:prefLabel "Intel·ligència Computacional"@ca ;
+    fib:codi "CI-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/CI-MAI"^^xsd:anyURI .
+
+fib:assignatura-CIR-MAI a fib:Assignatura ;
+    skos:altLabel "CIR-MAI" ;
+    skos:prefLabel "Interacció Cognitiva amb Robots"@ca ;
+    fib:codi "CIR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/CIR-MAI"^^xsd:anyURI .
 
 fib:assignatura-CL a fib:Assignatura ;
     skos:altLabel "CL" ;
@@ -180,6 +705,13 @@ fib:assignatura-CL a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CL"^^xsd:anyURI .
 
+fib:assignatura-CLC-MIRI a fib:Assignatura ;
+    skos:altLabel "CLC-MIRI" ;
+    skos:prefLabel "Cloud Computing"@ca ;
+    fib:codi "CLC-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CLC-MIRI"^^xsd:anyURI .
+
 fib:assignatura-CN a fib:Assignatura ;
     skos:altLabel "CN" ;
     skos:prefLabel "Computació Numèrica"@ca ;
@@ -187,6 +719,41 @@ fib:assignatura-CN a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-computacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CN"^^xsd:anyURI .
+
+fib:assignatura-CN-MAI a fib:Assignatura ;
+    skos:altLabel "CN-MAI" ;
+    skos:prefLabel "Xarxes Complexes"@ca ;
+    fib:codi "CN-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/CN-MAI"^^xsd:anyURI .
+
+fib:assignatura-CN-MIRI a fib:Assignatura ;
+    skos:altLabel "CN-MIRI" ;
+    skos:prefLabel "Xarxes de Computadors"@ca ;
+    fib:codi "CN-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CN-MIRI"^^xsd:anyURI .
+
+fib:assignatura-CNANM-MIRI a fib:Assignatura ;
+    skos:altLabel "CNANM-MIRI" ;
+    skos:prefLabel "Arquitectura de Xarxes de Computadors i Gestió de Xarxes"@ca ;
+    fib:codi "CNANM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CNANM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-COM-GCED a fib:Assignatura ;
+    skos:altLabel "COM-GCED" ;
+    skos:prefLabel "Computadors"@ca ;
+    fib:codi "COM-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/COM-GCED"^^xsd:anyURI .
+
+fib:assignatura-COR-MAI a fib:Assignatura ;
+    skos:altLabel "COR-MAI" ;
+    skos:prefLabel "Robòtica Cognitiva"@ca ;
+    fib:codi "COR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/COR-MAI"^^xsd:anyURI .
 
 fib:assignatura-CPD a fib:Assignatura ;
     skos:altLabel "CPD" ;
@@ -196,6 +763,41 @@ fib:assignatura-CPD a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CPD"^^xsd:anyURI .
 
+fib:assignatura-CPDS-MIRI a fib:Assignatura ;
+    skos:altLabel "CPDS-MIRI" ;
+    skos:prefLabel "Concurrència, Paral·lelisme i Sistemes Distribuïts"@ca ;
+    fib:codi "CPDS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CPDS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-CPP-MAI a fib:Assignatura ;
+    skos:altLabel "CPP-MAI" ;
+    skos:prefLabel "Resolució de Problemes i Programació amb Restriccions"@ca ;
+    fib:codi "CPP-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/CPP-MAI"^^xsd:anyURI .
+
+fib:assignatura-CPS-MIRI a fib:Assignatura ;
+    skos:altLabel "CPS-MIRI" ;
+    skos:prefLabel "Resolució de Problemes Combinatoris"@ca ;
+    fib:codi "CPS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CPS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-CR-MAI a fib:Assignatura ;
+    skos:altLabel "CR-MAI" ;
+    skos:prefLabel "Robòtica Cooperativa"@ca ;
+    fib:codi "CR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/CR-MAI"^^xsd:anyURI .
+
+fib:assignatura-CRA-GIA a fib:Assignatura ;
+    skos:altLabel "CRA-GIA" ;
+    skos:prefLabel "Coneixement i Raonament Automàtic"@ca ;
+    fib:codi "CRA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/CRA-GIA"^^xsd:anyURI .
+
 fib:assignatura-CSI a fib:Assignatura ;
     skos:altLabel "CSI" ;
     skos:prefLabel "Conceptes de Sistemes d'Informació"@ca ;
@@ -203,6 +805,48 @@ fib:assignatura-CSI a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/CSI"^^xsd:anyURI .
+
+fib:assignatura-CSI-MEI a fib:Assignatura ;
+    skos:altLabel "CSI-MEI" ;
+    skos:prefLabel "Computació i Sistemes Intel·ligents"@ca ;
+    fib:codi "CSI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/CSI-MEI"^^xsd:anyURI .
+
+fib:assignatura-CSN-MIRI a fib:Assignatura ;
+    skos:altLabel "CSN-MIRI" ;
+    skos:prefLabel "Xarxes Socials i Complexes"@ca ;
+    fib:codi "CSN-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/CSN-MIRI"^^xsd:anyURI .
+
+fib:assignatura-CV-MAI a fib:Assignatura ;
+    skos:altLabel "CV-MAI" ;
+    skos:prefLabel "Visió per Computador"@ca ;
+    fib:codi "CV-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/CV-MAI"^^xsd:anyURI .
+
+fib:assignatura-DAKD-MDS a fib:Assignatura ;
+    skos:altLabel "DAKD-MDS" ;
+    skos:prefLabel "Anàlisi de Dades i Descobriment del Coneixement"@ca ;
+    fib:codi "DAKD-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/DAKD-MDS"^^xsd:anyURI .
+
+fib:assignatura-DAKD-MIRI a fib:Assignatura ;
+    skos:altLabel "DAKD-MIRI" ;
+    skos:prefLabel "Anàlisi de Dades i Descobriment de Coneixement"@ca ;
+    fib:codi "DAKD-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/DAKD-MIRI"^^xsd:anyURI .
+
+fib:assignatura-DB-BBI a fib:Assignatura ;
+    skos:altLabel "DB-BBI" ;
+    skos:prefLabel "Bases de Dades"@ca ;
+    fib:codi "DB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/DB-BBI"^^xsd:anyURI .
 
 fib:assignatura-DBD a fib:Assignatura ;
     skos:altLabel "DBD" ;
@@ -219,6 +863,55 @@ fib:assignatura-DCS a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/DCS"^^xsd:anyURI .
 
+fib:assignatura-DEDS-MDS a fib:Assignatura ;
+    skos:altLabel "DEDS-MDS" ;
+    skos:prefLabel "Debats Sobre Ètica de la Ciència de Dades"@ca ;
+    fib:codi "DEDS-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/DEDS-MDS"^^xsd:anyURI .
+
+fib:assignatura-DEWS-MIRI a fib:Assignatura ;
+    skos:altLabel "DEWS-MIRI" ;
+    skos:prefLabel "Disseny i Avaluació de Sistemes Basats en la Web"@ca ;
+    fib:codi "DEWS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/DEWS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-DGSI-MEI a fib:Assignatura ;
+    skos:altLabel "DGSI-MEI" ;
+    skos:prefLabel "Desenvolupament i Gestió de Sistemes d'Informació"@ca ;
+    fib:codi "DGSI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/DGSI-MEI"^^xsd:anyURI .
+
+fib:assignatura-DL-MAI a fib:Assignatura ;
+    skos:altLabel "DL-MAI" ;
+    skos:prefLabel "Aprenentatge Profund"@ca ;
+    fib:codi "DL-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/DL-MAI"^^xsd:anyURI .
+
+fib:assignatura-DLMIA-MAI a fib:Assignatura ;
+    skos:altLabel "DLMIA-MAI" ;
+    skos:prefLabel "Aprenentatge Profund per a l'Anàlisi d'Imatge Mèdica"@ca ;
+    fib:codi "DLMIA-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/DLMIA-MAI"^^xsd:anyURI .
+
+fib:assignatura-DMO-BBI a fib:Assignatura ;
+    skos:altLabel "DMO-BBI" ;
+    skos:prefLabel "Matemàtica Discreta i Optimització"@ca ;
+    fib:codi "DMO-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/DMO-BBI"^^xsd:anyURI .
+
+fib:assignatura-DS-MIRI a fib:Assignatura ;
+    skos:altLabel "DS-MIRI" ;
+    skos:prefLabel "Sistemes Descentralitzats"@ca ;
+    fib:codi "DS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/DS-MIRI"^^xsd:anyURI .
+
 fib:assignatura-DSBM a fib:Assignatura ;
     skos:altLabel "DSBM" ;
     skos:prefLabel "Disseny de Sistemes Basats en Microcomputadors"@ca ;
@@ -234,6 +927,48 @@ fib:assignatura-DSI a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/DSI"^^xsd:anyURI .
+
+fib:assignatura-DSIGE-MEI a fib:Assignatura ;
+    skos:altLabel "DSIGE-MEI" ;
+    skos:prefLabel "Desenvolupament de Software per a la Informació Geogràfica i Espacial"@ca ;
+    fib:codi "DSIGE-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/DSIGE-MEI"^^xsd:anyURI .
+
+fib:assignatura-DV-BBI a fib:Assignatura ;
+    skos:altLabel "DV-BBI" ;
+    skos:prefLabel "Visualització de Dades"@ca ;
+    fib:codi "DV-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/DV-BBI"^^xsd:anyURI .
+
+fib:assignatura-DW-MDS a fib:Assignatura ;
+    skos:altLabel "DW-MDS" ;
+    skos:prefLabel "Data Warehousing"@ca ;
+    fib:codi "DW-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/DW-MDS"^^xsd:anyURI .
+
+fib:assignatura-DW-MIRI a fib:Assignatura ;
+    skos:altLabel "DW-MIRI" ;
+    skos:prefLabel "Data Warehousing"@ca ;
+    fib:codi "DW-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/DW-MIRI"^^xsd:anyURI .
+
+fib:assignatura-EA-MIRI a fib:Assignatura ;
+    skos:altLabel "EA-MIRI" ;
+    skos:prefLabel "Elements d'Animació"@ca ;
+    fib:codi "EA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/EA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-EB-MIRI a fib:Assignatura ;
+    skos:altLabel "EB-MIRI" ;
+    skos:prefLabel "E-Business"@ca ;
+    fib:codi "EB-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/EB-MIRI"^^xsd:anyURI .
 
 fib:assignatura-EC a fib:Assignatura ;
     skos:altLabel "EC" ;
@@ -279,6 +1014,13 @@ fib:assignatura-EET a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/EET"^^xsd:anyURI .
 
+fib:assignatura-EI-GCED a fib:Assignatura ;
+    skos:altLabel "EI-GCED" ;
+    skos:prefLabel "Emprenedoria i Innovació"@ca ;
+    fib:codi "EI-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/EI-GCED"^^xsd:anyURI .
+
 fib:assignatura-ER a fib:Assignatura ;
     skos:altLabel "ER" ;
     skos:prefLabel "Enginyeria de Requisits"@ca ;
@@ -294,12 +1036,61 @@ fib:assignatura-F a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/F"^^xsd:anyURI .
 
+fib:assignatura-FC-GIA a fib:Assignatura ;
+    skos:altLabel "FC-GIA" ;
+    skos:prefLabel "Fonaments dels Computadors"@ca ;
+    fib:codi "FC-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/FC-GIA"^^xsd:anyURI .
+
+fib:assignatura-FDM a fib:Assignatura ;
+    skos:altLabel "FDM" ;
+    skos:prefLabel "Física dels Dispositius de Memòria"@ca ;
+    fib:codi "FDM" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/FDM"^^xsd:anyURI .
+
+fib:assignatura-FINE-MIRI a fib:Assignatura ;
+    skos:altLabel "FINE-MIRI" ;
+    skos:prefLabel "Xarxes d'Internet del Futur"@ca ;
+    fib:codi "FINE-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/FINE-MIRI"^^xsd:anyURI .
+
 fib:assignatura-FM a fib:Assignatura ;
     skos:altLabel "FM" ;
     skos:prefLabel "Fonaments Matemàtics"@ca ;
     fib:codi "FM" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/FM"^^xsd:anyURI .
+
+fib:assignatura-FM-GIA a fib:Assignatura ;
+    skos:altLabel "FM-GIA" ;
+    skos:prefLabel "Fonaments Matemàtics"@ca ;
+    fib:codi "FM-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/FM-GIA"^^xsd:anyURI .
+
+fib:assignatura-FOMAR a fib:Assignatura ;
+    skos:altLabel "FOMAR" ;
+    skos:prefLabel "Física Orientada a la Modelització i l'Animació Realista"@ca ;
+    fib:codi "FOMAR" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/FOMAR"^^xsd:anyURI .
+
+fib:assignatura-FPEI-MEI a fib:Assignatura ;
+    skos:altLabel "FPEI-MEI" ;
+    skos:prefLabel "Finançament per Projectes Empresarials Innovadors"@ca ;
+    fib:codi "FPEI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/FPEI-MEI"^^xsd:anyURI .
+
+fib:assignatura-FRR-MIRI a fib:Assignatura ;
+    skos:altLabel "FRR-MIRI" ;
+    skos:prefLabel "Representació Realista d'Alta Velocitat"@ca ;
+    fib:codi "FRR-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/FRR-MIRI"^^xsd:anyURI .
 
 fib:assignatura-G a fib:Assignatura ;
     skos:altLabel "G" ;
@@ -323,6 +1114,27 @@ fib:assignatura-GEOC a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/GEOC"^^xsd:anyURI .
 
+fib:assignatura-GG-BBI a fib:Assignatura ;
+    skos:altLabel "GG-BBI" ;
+    skos:prefLabel "Genètica i Genòmica"@ca ;
+    fib:codi "GG-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/GG-BBI"^^xsd:anyURI .
+
+fib:assignatura-GP-MIRI a fib:Assignatura ;
+    skos:altLabel "GP-MIRI" ;
+    skos:prefLabel "Processament Geomètric"@ca ;
+    fib:codi "GP-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/GP-MIRI"^^xsd:anyURI .
+
+fib:assignatura-GPR-MIRI a fib:Assignatura ;
+    skos:altLabel "GPR-MIRI" ;
+    skos:prefLabel "Processat en Geometria"@ca ;
+    fib:codi "GPR-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/GPR-MIRI"^^xsd:anyURI .
+
 fib:assignatura-GPS a fib:Assignatura ;
     skos:altLabel "GPS" ;
     skos:prefLabel "Gestió de Projectes de Software"@ca ;
@@ -330,6 +1142,76 @@ fib:assignatura-GPS a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-del-software ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/GPS"^^xsd:anyURI .
+
+fib:assignatura-GTCG-MIRI a fib:Assignatura ;
+    skos:altLabel "GTCG-MIRI" ;
+    skos:prefLabel "Eines Geomètriques per a Gràfics per Computador"@ca ;
+    fib:codi "GTCG-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/GTCG-MIRI"^^xsd:anyURI .
+
+fib:assignatura-HCI-MAI a fib:Assignatura ;
+    skos:altLabel "HCI-MAI" ;
+    skos:prefLabel "Interacció Persona-Màquina"@ca ;
+    fib:codi "HCI-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/HCI-MAI"^^xsd:anyURI .
+
+fib:assignatura-HLE-MAI a fib:Assignatura ;
+    skos:altLabel "HLE-MAI" ;
+    skos:prefLabel "Enginyeria del Llenguatge Humà"@ca ;
+    fib:codi "HLE-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/HLE-MAI"^^xsd:anyURI .
+
+fib:assignatura-HPC-BBI a fib:Assignatura ;
+    skos:altLabel "HPC-BBI" ;
+    skos:prefLabel "Computació d'Alt Rendiment"@ca ;
+    fib:codi "HPC-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/HPC-BBI"^^xsd:anyURI .
+
+fib:assignatura-HPC4AI-MEI a fib:Assignatura ;
+    skos:altLabel "HPC4AI-MEI" ;
+    skos:prefLabel "Computació d'Altes Prestacions per a la Intel·ligència Artificial"@ca ;
+    fib:codi "HPC4AI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/HPC4AI-MEI"^^xsd:anyURI .
+
+fib:assignatura-I2P-MIRI a fib:Assignatura ;
+    skos:altLabel "I2P-MIRI" ;
+    skos:prefLabel "Projecte d'Innovació Interdisciplinari"@ca ;
+    fib:codi "I2P-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/I2P-MIRI"^^xsd:anyURI .
+
+fib:assignatura-I2R-BBI a fib:Assignatura ;
+    skos:altLabel "I2R-BBI" ;
+    skos:prefLabel "Introducció a la Recerca"@ca ;
+    fib:codi "I2R-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/I2R-BBI"^^xsd:anyURI .
+
+fib:assignatura-I2R-GIA a fib:Assignatura ;
+    skos:altLabel "I2R-GIA" ;
+    skos:prefLabel "Introducció a la Recerca"@ca ;
+    fib:codi "I2R-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/I2R-GIA"^^xsd:anyURI .
+
+fib:assignatura-I2R3 a fib:Assignatura ;
+    skos:altLabel "I2R3" ;
+    skos:prefLabel "Introducció a la Recerca"@ca ;
+    fib:codi "I2R3" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/I2R3"^^xsd:anyURI .
+
+fib:assignatura-I2R6 a fib:Assignatura ;
+    skos:altLabel "I2R6" ;
+    skos:prefLabel "Introducció a la Recerca"@ca ;
+    fib:codi "I2R6" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/I2R6"^^xsd:anyURI .
 
 fib:assignatura-IA a fib:Assignatura ;
     skos:altLabel "IA" ;
@@ -339,12 +1221,68 @@ fib:assignatura-IA a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IA"^^xsd:anyURI .
 
+fib:assignatura-IA-MEI a fib:Assignatura ;
+    skos:altLabel "IA-MEI" ;
+    skos:prefLabel "Interfícies i Accessibilitat"@ca ;
+    fib:codi "IA-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/IA-MEI"^^xsd:anyURI .
+
+fib:assignatura-IAA-GIA a fib:Assignatura ;
+    skos:altLabel "IAA-GIA" ;
+    skos:prefLabel "Introducció a l'Aprenentatge Automàtic"@ca ;
+    fib:codi "IAA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/IAA-GIA"^^xsd:anyURI .
+
+fib:assignatura-IAS-MIRI a fib:Assignatura ;
+    skos:altLabel "IAS-MIRI" ;
+    skos:prefLabel "Aplicacions i Seguretat en Internet"@ca ;
+    fib:codi "IAS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/IAS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-IB-BBI a fib:Assignatura ;
+    skos:altLabel "IB-BBI" ;
+    skos:prefLabel "Introducció a la Bioinformàtica"@ca ;
+    fib:codi "IB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/IB-BBI"^^xsd:anyURI .
+
+fib:assignatura-IBD-GIA a fib:Assignatura ;
+    skos:altLabel "IBD-GIA" ;
+    skos:prefLabel "Introducció a Les Bases de Dades"@ca ;
+    fib:codi "IBD-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/IBD-GIA"^^xsd:anyURI .
+
 fib:assignatura-IC a fib:Assignatura ;
     skos:altLabel "IC" ;
     skos:prefLabel "Introducció als Computadors"@ca ;
     fib:codi "IC" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IC"^^xsd:anyURI .
+
+fib:assignatura-ID-MEI a fib:Assignatura ;
+    skos:altLabel "ID-MEI" ;
+    skos:prefLabel "Identitat Digital"@ca ;
+    fib:codi "ID-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/ID-MEI"^^xsd:anyURI .
+
+fib:assignatura-IDAAB-MAI a fib:Assignatura ;
+    skos:altLabel "IDAAB-MAI" ;
+    skos:prefLabel "Aplicacions Intel·ligents d'Anàlisi de Dades a la Indústria"@ca ;
+    fib:codi "IDAAB-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/IDAAB-MAI"^^xsd:anyURI .
+
+fib:assignatura-IDADM-MAI a fib:Assignatura ;
+    skos:altLabel "IDADM-MAI" ;
+    skos:prefLabel "Anàlisi i Mineria de Dades Intel·ligent"@ca ;
+    fib:codi "IDADM-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/IDADM-MAI"^^xsd:anyURI .
 
 fib:assignatura-IDI a fib:Assignatura ;
     skos:altLabel "IDI" ;
@@ -353,12 +1291,47 @@ fib:assignatura-IDI a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IDI"^^xsd:anyURI .
 
+fib:assignatura-IDSS-MAI a fib:Assignatura ;
+    skos:altLabel "IDSS-MAI" ;
+    skos:prefLabel "Sistemes Intel·ligents de Suport a la Decisió"@ca ;
+    fib:codi "IDSS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/IDSS-MAI"^^xsd:anyURI .
+
+fib:assignatura-IE-GIA a fib:Assignatura ;
+    skos:altLabel "IE-GIA" ;
+    skos:prefLabel "Introducció a l'Estadística"@ca ;
+    fib:codi "IE-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/IE-GIA"^^xsd:anyURI .
+
 fib:assignatura-IES a fib:Assignatura ;
     skos:altLabel "IES" ;
     skos:prefLabel "Introducció a l'Enginyeria del Software"@ca ;
     fib:codi "IES" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IES"^^xsd:anyURI .
+
+fib:assignatura-IESI-MEI a fib:Assignatura ;
+    skos:altLabel "IESI-MEI" ;
+    skos:prefLabel "Integració Empresarial de Sistemes d'Informació"@ca ;
+    fib:codi "IESI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/IESI-MEI"^^xsd:anyURI .
+
+fib:assignatura-IHLT-MAI a fib:Assignatura ;
+    skos:altLabel "IHLT-MAI" ;
+    skos:prefLabel "Introducció a la Tecnologia del Llenguatge Humà"@ca ;
+    fib:codi "IHLT-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/IHLT-MAI"^^xsd:anyURI .
+
+fib:assignatura-IKPD-MEI a fib:Assignatura ;
+    skos:altLabel "IKPD-MEI" ;
+    skos:prefLabel "Incorporació del Know-How en el Procés de Decisió"@ca ;
+    fib:codi "IKPD-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/IKPD-MEI"^^xsd:anyURI .
 
 fib:assignatura-IM a fib:Assignatura ;
     skos:altLabel "IM" ;
@@ -368,6 +1341,27 @@ fib:assignatura-IM a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IM"^^xsd:anyURI .
 
+fib:assignatura-IMAS-MAI a fib:Assignatura ;
+    skos:altLabel "IMAS-MAI" ;
+    skos:prefLabel "Introducció als Sistemes Multiagents"@ca ;
+    fib:codi "IMAS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/IMAS-MAI"^^xsd:anyURI .
+
+fib:assignatura-IML-MAI a fib:Assignatura ;
+    skos:altLabel "IML-MAI" ;
+    skos:prefLabel "Introducció a l'Aprenentatge Automàtic"@ca ;
+    fib:codi "IML-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/IML-MAI"^^xsd:anyURI .
+
+fib:assignatura-INM-MIRI a fib:Assignatura ;
+    skos:altLabel "INM-MIRI" ;
+    skos:prefLabel "Introducció al Modelatge de Xarxes"@ca ;
+    fib:codi "INM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/INM-MIRI"^^xsd:anyURI .
+
 fib:assignatura-IO a fib:Assignatura ;
     skos:altLabel "IO" ;
     skos:prefLabel "Investigació Operativa"@ca ;
@@ -375,6 +1369,90 @@ fib:assignatura-IO a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-computacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/IO"^^xsd:anyURI .
+
+fib:assignatura-IP-BBI a fib:Assignatura ;
+    skos:altLabel "IP-BBI" ;
+    skos:prefLabel "Projecte d'Innovació"@ca ;
+    fib:codi "IP-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/IP-BBI"^^xsd:anyURI .
+
+fib:assignatura-IPA-GCED a fib:Assignatura ;
+    skos:altLabel "IPA-GCED" ;
+    skos:prefLabel "Introducció al Processament Audiovisual"@ca ;
+    fib:codi "IPA-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/IPA-GCED"^^xsd:anyURI .
+
+fib:assignatura-IR-GIA a fib:Assignatura ;
+    skos:altLabel "IR-GIA" ;
+    skos:prefLabel "Introducció a la Robòtica"@ca ;
+    fib:codi "IR-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/IR-GIA"^^xsd:anyURI .
+
+fib:assignatura-IR-MIRI a fib:Assignatura ;
+    skos:altLabel "IR-MIRI" ;
+    skos:prefLabel "Recuperació de la Informació"@ca ;
+    fib:codi "IR-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/IR-MIRI"^^xsd:anyURI .
+
+fib:assignatura-IRRS-MDS a fib:Assignatura ;
+    skos:altLabel "IRRS-MDS" ;
+    skos:prefLabel "Recuperació de la Informació i Sistemes Recomanadors"@ca ;
+    fib:codi "IRRS-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/IRRS-MDS"^^xsd:anyURI .
+
+fib:assignatura-ISDCM-MEI a fib:Assignatura ;
+    skos:altLabel "ISDCM-MEI" ;
+    skos:prefLabel "Internet, Seguretat i Distribució de Continguts Multimèdia"@ca ;
+    fib:codi "ISDCM-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/ISDCM-MEI"^^xsd:anyURI .
+
+fib:assignatura-ISP-MAI a fib:Assignatura ;
+    skos:altLabel "ISP-MAI" ;
+    skos:prefLabel "Projecte d'un Sistema Intel·ligent"@ca ;
+    fib:codi "ISP-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/ISP-MAI"^^xsd:anyURI .
+
+fib:assignatura-IT-MEI a fib:Assignatura ;
+    skos:altLabel "IT-MEI" ;
+    skos:prefLabel "Internet de Les Coses"@ca ;
+    fib:codi "IT-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/IT-MEI"^^xsd:anyURI .
+
+fib:assignatura-JC-MEI a fib:Assignatura ;
+    skos:altLabel "JC-MEI" ;
+    skos:prefLabel "Jocs per Computador"@ca ;
+    fib:codi "JC-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/JC-MEI"^^xsd:anyURI .
+
+fib:assignatura-KMLMM-MIRI a fib:Assignatura ;
+    skos:altLabel "KMLMM-MIRI" ;
+    skos:prefLabel "Aprenentatge Automàtic Basat en Kernel i Modelat Multivariant"@ca ;
+    fib:codi "KMLMM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/KMLMM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-KRE-MAI a fib:Assignatura ;
+    skos:altLabel "KRE-MAI" ;
+    skos:prefLabel "Representació i Enginyeria del Coneixement"@ca ;
+    fib:codi "KRE-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/KRE-MAI"^^xsd:anyURI .
+
+fib:assignatura-LAI-MAI a fib:Assignatura ;
+    skos:altLabel "LAI-MAI" ;
+    skos:prefLabel "Lògica per a la Intel·ligència Artificial"@ca ;
+    fib:codi "LAI-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/LAI-MAI"^^xsd:anyURI .
 
 fib:assignatura-LDPE a fib:Assignatura ;
     skos:altLabel "LDPE" ;
@@ -390,6 +1468,13 @@ fib:assignatura-LI a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-computacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/LI"^^xsd:anyURI .
+
+fib:assignatura-LMD-GCED a fib:Assignatura ;
+    skos:altLabel "LMD-GCED" ;
+    skos:prefLabel "Lògica i Matemàtica Discreta"@ca ;
+    fib:codi "LMD-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/LMD-GCED"^^xsd:anyURI .
 
 fib:assignatura-LP a fib:Assignatura ;
     skos:altLabel "LP" ;
@@ -413,6 +1498,41 @@ fib:assignatura-M2 a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/M2"^^xsd:anyURI .
 
+fib:assignatura-MA-MIRI a fib:Assignatura ;
+    skos:altLabel "MA-MIRI" ;
+    skos:prefLabel "Arquitectura de Multiprocessadors"@ca ;
+    fib:codi "MA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/MA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-MASD-MAI a fib:Assignatura ;
+    skos:altLabel "MASD-MAI" ;
+    skos:prefLabel "Disseny de Sistemes Multiagents"@ca ;
+    fib:codi "MASD-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MASD-MAI"^^xsd:anyURI .
+
+fib:assignatura-MB-BBI a fib:Assignatura ;
+    skos:altLabel "MB-BBI" ;
+    skos:prefLabel "Biologia Molecular"@ca ;
+    fib:codi "MB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/MB-BBI"^^xsd:anyURI .
+
+fib:assignatura-MBM-MAI a fib:Assignatura ;
+    skos:altLabel "MBM-MAI" ;
+    skos:prefLabel "Ments, Cervells i Màquines"@ca ;
+    fib:codi "MBM-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MBM-MAI"^^xsd:anyURI .
+
+fib:assignatura-MCDSS-MAI a fib:Assignatura ;
+    skos:altLabel "MCDSS-MAI" ;
+    skos:prefLabel "Sistemes de Suport a la Decisió Multicriteri"@ca ;
+    fib:codi "MCDSS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MCDSS-MAI"^^xsd:anyURI .
+
 fib:assignatura-MD a fib:Assignatura ;
     skos:altLabel "MD" ;
     skos:prefLabel "Mineria de Dades"@ca ;
@@ -420,6 +1540,41 @@ fib:assignatura-MD a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/MD"^^xsd:anyURI .
+
+fib:assignatura-ME-GIA a fib:Assignatura ;
+    skos:altLabel "ME-GIA" ;
+    skos:prefLabel "Modelització Estadística"@ca ;
+    fib:codi "ME-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/ME-GIA"^^xsd:anyURI .
+
+fib:assignatura-MEEGQ-MEI a fib:Assignatura ;
+    skos:altLabel "MEEGQ-MEI" ;
+    skos:prefLabel "El Model d'Excel·lència EFQM i Gestió de la Qualitat"@ca ;
+    fib:codi "MEEGQ-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/MEEGQ-MEI"^^xsd:anyURI .
+
+fib:assignatura-MEL-MAI a fib:Assignatura ;
+    skos:altLabel "MEL-MAI" ;
+    skos:prefLabel "Memory and Experience-Based Learning"@ca ;
+    fib:codi "MEL-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MEL-MAI"^^xsd:anyURI .
+
+fib:assignatura-MGL-GIA a fib:Assignatura ;
+    skos:altLabel "MGL-GIA" ;
+    skos:prefLabel "Models Grans de Llenguatge"@ca ;
+    fib:codi "MGL-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/MGL-GIA"^^xsd:anyURI .
+
+fib:assignatura-MGTN-MIRI a fib:Assignatura ;
+    skos:altLabel "MGTN-MIRI" ;
+    skos:prefLabel "Mecanismes i Teoria de Jocs en Xarxes"@ca ;
+    fib:codi "MGTN-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/MGTN-MIRI"^^xsd:anyURI .
 
 fib:assignatura-MI a fib:Assignatura ;
     skos:altLabel "MI" ;
@@ -429,6 +1584,41 @@ fib:assignatura-MI a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/MI"^^xsd:anyURI .
 
+fib:assignatura-ML-BBI a fib:Assignatura ;
+    skos:altLabel "ML-BBI" ;
+    skos:prefLabel "Aprenentatge Automàtic"@ca ;
+    fib:codi "ML-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/ML-BBI"^^xsd:anyURI .
+
+fib:assignatura-ML-MDS a fib:Assignatura ;
+    skos:altLabel "ML-MDS" ;
+    skos:prefLabel "Machine Learning"@ca ;
+    fib:codi "ML-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/ML-MDS"^^xsd:anyURI .
+
+fib:assignatura-ML-MIRI a fib:Assignatura ;
+    skos:altLabel "ML-MIRI" ;
+    skos:prefLabel "Aprenentatge Automàtic"@ca ;
+    fib:codi "ML-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/ML-MIRI"^^xsd:anyURI .
+
+fib:assignatura-MLCG-MAI a fib:Assignatura ;
+    skos:altLabel "MLCG-MAI" ;
+    skos:prefLabel "Aprenentatge Automàtic als Gràfics per Computador"@ca ;
+    fib:codi "MLCG-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MLCG-MAI"^^xsd:anyURI .
+
+fib:assignatura-MLOPS-MDS a fib:Assignatura ;
+    skos:altLabel "MLOPS-MDS" ;
+    skos:prefLabel "Sistemes d'Aprenentatge Automàtic en Producció"@ca ;
+    fib:codi "MLOPS-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/MLOPS-MDS"^^xsd:anyURI .
+
 fib:assignatura-MP a fib:Assignatura ;
     skos:altLabel "MP" ;
     skos:prefLabel "Multiprocessadors"@ca ;
@@ -436,6 +1626,62 @@ fib:assignatura-MP a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/MP"^^xsd:anyURI .
+
+fib:assignatura-MRS-MAI a fib:Assignatura ;
+    skos:altLabel "MRS-MAI" ;
+    skos:prefLabel "Sistemes Multi-Robot"@ca ;
+    fib:codi "MRS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MRS-MAI"^^xsd:anyURI .
+
+fib:assignatura-MSDOP-MAI a fib:Assignatura ;
+    skos:altLabel "MSDOP-MAI" ;
+    skos:prefLabel "Modelatge i Resolució de Problemes d'Optimització Discrets"@ca ;
+    fib:codi "MSDOP-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/MSDOP-MAI"^^xsd:anyURI .
+
+fib:assignatura-MSS-GIA a fib:Assignatura ;
+    skos:altLabel "MSS-GIA" ;
+    skos:prefLabel "Modelització i Simulació de Sistemes"@ca ;
+    fib:codi "MSS-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/MSS-GIA"^^xsd:anyURI .
+
+fib:assignatura-MUD-MDS a fib:Assignatura ;
+    skos:altLabel "MUD-MDS" ;
+    skos:prefLabel "Mineria de Dades No Estructurades"@ca ;
+    fib:codi "MUD-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/MUD-MDS"^^xsd:anyURI .
+
+fib:assignatura-MVA-MDS a fib:Assignatura ;
+    skos:altLabel "MVA-MDS" ;
+    skos:prefLabel "Anàlisi Multivariant"@ca ;
+    fib:codi "MVA-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/MVA-MDS"^^xsd:anyURI .
+
+fib:assignatura-MVA-MIRI a fib:Assignatura ;
+    skos:altLabel "MVA-MIRI" ;
+    skos:prefLabel "Anàlisi Multivariant"@ca ;
+    fib:codi "MVA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/MVA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-NCD-MIRI a fib:Assignatura ;
+    skos:altLabel "NCD-MIRI" ;
+    skos:prefLabel "Disseny de Circuits Nanoelectrònics"@ca ;
+    fib:codi "NCD-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/NCD-MIRI"^^xsd:anyURI .
+
+fib:assignatura-NDVW-MAI a fib:Assignatura ;
+    skos:altLabel "NDVW-MAI" ;
+    skos:prefLabel "Mons Virtuals Normatius i Dinàmics"@ca ;
+    fib:codi "NDVW-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/NDVW-MAI"^^xsd:anyURI .
 
 fib:assignatura-NE a fib:Assignatura ;
     skos:altLabel "NE" ;
@@ -445,12 +1691,117 @@ fib:assignatura-NE a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/NE"^^xsd:anyURI .
 
+fib:assignatura-NSB-BBI a fib:Assignatura ;
+    skos:altLabel "NSB-BBI" ;
+    skos:prefLabel "Biologia de Sistemes i Xarxes"@ca ;
+    fib:codi "NSB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/NSB-BBI"^^xsd:anyURI .
+
+fib:assignatura-NTR-MAI a fib:Assignatura ;
+    skos:altLabel "NTR-MAI" ;
+    skos:prefLabel "Noves Tendències en Robòtica"@ca ;
+    fib:codi "NTR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/NTR-MAI"^^xsd:anyURI .
+
+fib:assignatura-OD-MIRI a fib:Assignatura ;
+    skos:altLabel "OD-MIRI" ;
+    skos:prefLabel "Open Data"@ca ;
+    fib:codi "OD-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/OD-MIRI"^^xsd:anyURI .
+
+fib:assignatura-OM-GCED a fib:Assignatura ;
+    skos:altLabel "OM-GCED" ;
+    skos:prefLabel "Optimització Matemàtica"@ca ;
+    fib:codi "OM-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/OM-GCED"^^xsd:anyURI .
+
+fib:assignatura-OPT-GIA a fib:Assignatura ;
+    skos:altLabel "OPT-GIA" ;
+    skos:prefLabel "Optimització"@ca ;
+    fib:codi "OPT-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/OPT-GIA"^^xsd:anyURI .
+
+fib:assignatura-OR-MAI a fib:Assignatura ;
+    skos:altLabel "OR-MAI" ;
+    skos:prefLabel "Reconeixement d'Objectes"@ca ;
+    fib:codi "OR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/OR-MAI"^^xsd:anyURI .
+
+fib:assignatura-OS-MIRI a fib:Assignatura ;
+    skos:altLabel "OS-MIRI" ;
+    skos:prefLabel "Sistemes Operatius"@ca ;
+    fib:codi "OS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/OS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-OT-BBI a fib:Assignatura ;
+    skos:altLabel "OT-BBI" ;
+    skos:prefLabel "Tècniques Òmiques"@ca ;
+    fib:codi "OT-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/OT-BBI"^^xsd:anyURI .
+
+fib:assignatura-OTDM-MDS a fib:Assignatura ;
+    skos:altLabel "OTDM-MDS" ;
+    skos:prefLabel "Tècniques d'Optimització per a la Mineria de Dades"@ca ;
+    fib:codi "OTDM-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/OTDM-MDS"^^xsd:anyURI .
+
+fib:assignatura-OTDM-MIRI a fib:Assignatura ;
+    skos:altLabel "OTDM-MIRI" ;
+    skos:prefLabel "Tècniques d'Optimització per a la Mineria de Dades"@ca ;
+    fib:codi "OTDM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/OTDM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-PA-MIRI a fib:Assignatura ;
+    skos:altLabel "PA-MIRI" ;
+    skos:prefLabel "Arquitectura del Processador"@ca ;
+    fib:codi "PA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/PA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-PA1-GIA a fib:Assignatura ;
+    skos:altLabel "PA1-GIA" ;
+    skos:prefLabel "Programació i Algorísmia I"@ca ;
+    fib:codi "PA1-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PA1-GIA"^^xsd:anyURI .
+
+fib:assignatura-PA2-GIA a fib:Assignatura ;
+    skos:altLabel "PA2-GIA" ;
+    skos:prefLabel "Programació i Algorísmia II"@ca ;
+    fib:codi "PA2-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PA2-GIA"^^xsd:anyURI .
+
+fib:assignatura-PAA-GIA a fib:Assignatura ;
+    skos:altLabel "PAA-GIA" ;
+    skos:prefLabel "Programació i Algorísmia Avançada"@ca ;
+    fib:codi "PAA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PAA-GIA"^^xsd:anyURI .
+
 fib:assignatura-PAE a fib:Assignatura ;
     skos:altLabel "PAE" ;
     skos:prefLabel "Projecte Aplicat d'Enginyeria"@ca ;
     fib:codi "PAE" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PAE"^^xsd:anyURI .
+
+fib:assignatura-PAID-GIA a fib:Assignatura ;
+    skos:altLabel "PAID-GIA" ;
+    skos:prefLabel "Processos d'Anàlisi Intel·ligent de Dades"@ca ;
+    fib:codi "PAID-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PAID-GIA"^^xsd:anyURI .
 
 fib:assignatura-PAP a fib:Assignatura ;
     skos:altLabel "PAP" ;
@@ -467,6 +1818,13 @@ fib:assignatura-PAR a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PAR"^^xsd:anyURI .
 
+fib:assignatura-PAR-MAI a fib:Assignatura ;
+    skos:altLabel "PAR-MAI" ;
+    skos:prefLabel "Planificació i Raonament Aproximat"@ca ;
+    fib:codi "PAR-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/PAR-MAI"^^xsd:anyURI .
+
 fib:assignatura-PCA a fib:Assignatura ;
     skos:altLabel "PCA" ;
     skos:prefLabel "Programació Conscient de l'Arquitectura"@ca ;
@@ -474,6 +1832,20 @@ fib:assignatura-PCA a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PCA"^^xsd:anyURI .
+
+fib:assignatura-PCG-BBI a fib:Assignatura ;
+    skos:altLabel "PCG-BBI" ;
+    skos:prefLabel "Filogenòmica i Genòmica Comparativa"@ca ;
+    fib:codi "PCG-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/PCG-BBI"^^xsd:anyURI .
+
+fib:assignatura-PD-MIRI a fib:Assignatura ;
+    skos:altLabel "PD-MIRI" ;
+    skos:prefLabel "Disseny del Processador"@ca ;
+    fib:codi "PD-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/PD-MIRI"^^xsd:anyURI .
 
 fib:assignatura-PDS a fib:Assignatura ;
     skos:altLabel "PDS" ;
@@ -490,6 +1862,13 @@ fib:assignatura-PE a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PE"^^xsd:anyURI .
 
+fib:assignatura-PE-GCED a fib:Assignatura ;
+    skos:altLabel "PE-GCED" ;
+    skos:prefLabel "Projectes d'Enginyeria"@ca ;
+    fib:codi "PE-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/PE-GCED"^^xsd:anyURI .
+
 fib:assignatura-PEC a fib:Assignatura ;
     skos:altLabel "PEC" ;
     skos:prefLabel "Projecte d'Enginyeria de Computadors"@ca ;
@@ -497,6 +1876,13 @@ fib:assignatura-PEC a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PEC"^^xsd:anyURI .
+
+fib:assignatura-PEGTI-MEI a fib:Assignatura ;
+    skos:altLabel "PEGTI-MEI" ;
+    skos:prefLabel "Pla Estratègic i Govern de Les Tecnologies de la Informació"@ca ;
+    fib:codi "PEGTI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/PEGTI-MEI"^^xsd:anyURI .
 
 fib:assignatura-PES a fib:Assignatura ;
     skos:altLabel "PES" ;
@@ -506,6 +1892,20 @@ fib:assignatura-PES a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PES"^^xsd:anyURI .
 
+fib:assignatura-PGM-MAI a fib:Assignatura ;
+    skos:altLabel "PGM-MAI" ;
+    skos:prefLabel "Models Gràfics Probabilístics"@ca ;
+    fib:codi "PGM-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/PGM-MAI"^^xsd:anyURI .
+
+fib:assignatura-PGME-BBI a fib:Assignatura ;
+    skos:altLabel "PGME-BBI" ;
+    skos:prefLabel "Genètica de Poblacions i Evolució Molecular"@ca ;
+    fib:codi "PGME-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/PGME-BBI"^^xsd:anyURI .
+
 fib:assignatura-PI a fib:Assignatura ;
     skos:altLabel "PI" ;
     skos:prefLabel "Protocols d'Internet"@ca ;
@@ -513,6 +1913,97 @@ fib:assignatura-PI a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PI"^^xsd:anyURI .
+
+fib:assignatura-PIA-GIA a fib:Assignatura ;
+    skos:altLabel "PIA-GIA" ;
+    skos:prefLabel "Projecte Integrat d'Intel·ligència Artificial"@ca ;
+    fib:codi "PIA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PIA-GIA"^^xsd:anyURI .
+
+fib:assignatura-PIE1-GCED a fib:Assignatura ;
+    skos:altLabel "PIE1-GCED" ;
+    skos:prefLabel "Probabilitat i Estadística I"@ca ;
+    fib:codi "PIE1-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/PIE1-GCED"^^xsd:anyURI .
+
+fib:assignatura-PIE2-GCED a fib:Assignatura ;
+    skos:altLabel "PIE2-GCED" ;
+    skos:prefLabel "Probabilitat i Estadística II"@ca ;
+    fib:codi "PIE2-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/PIE2-GCED"^^xsd:anyURI .
+
+fib:assignatura-PIVA-GCED a fib:Assignatura ;
+    skos:altLabel "PIVA-GCED" ;
+    skos:prefLabel "Processament d'Imatge i Visió Artificial"@ca ;
+    fib:codi "PIVA-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/PIVA-GCED"^^xsd:anyURI .
+
+fib:assignatura-PLH-GIA a fib:Assignatura ;
+    skos:altLabel "PLH-GIA" ;
+    skos:prefLabel "Processament del Llenguatge Humà"@ca ;
+    fib:codi "PLH-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PLH-GIA"^^xsd:anyURI .
+
+fib:assignatura-PMAAD-GIA a fib:Assignatura ;
+    skos:altLabel "PMAAD-GIA" ;
+    skos:prefLabel "Preprocessament i Models Avançats d'Anàlisi de Dades"@ca ;
+    fib:codi "PMAAD-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PMAAD-GIA"^^xsd:anyURI .
+
+fib:assignatura-PMCDSS-MAI a fib:Assignatura ;
+    skos:altLabel "PMCDSS-MAI" ;
+    skos:prefLabel "Sistemes de Suport a la Decisió Muticriteri Personalitzada"@ca ;
+    fib:codi "PMCDSS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/PMCDSS-MAI"^^xsd:anyURI .
+
+fib:assignatura-PN-BBI a fib:Assignatura ;
+    skos:altLabel "PN-BBI" ;
+    skos:prefLabel "Fisiologia i Neurobiologia"@ca ;
+    fib:codi "PN-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/PN-BBI"^^xsd:anyURI .
+
+fib:assignatura-POC-BBI a fib:Assignatura ;
+    skos:altLabel "POC-BBI" ;
+    skos:prefLabel "Fisicoquímica i Química Orgànica"@ca ;
+    fib:codi "POC-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/POC-BBI"^^xsd:anyURI .
+
+fib:assignatura-PODS-MDS a fib:Assignatura ;
+    skos:altLabel "PODS-MDS" ;
+    skos:prefLabel "Ciència de Dades Orientada a Processos"@ca ;
+    fib:codi "PODS-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/PODS-MDS"^^xsd:anyURI .
+
+fib:assignatura-POE-GCED a fib:Assignatura ;
+    skos:altLabel "POE-GCED" ;
+    skos:prefLabel "Processament del Llenguatge Oral i Escrit"@ca ;
+    fib:codi "POE-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/POE-GCED"^^xsd:anyURI .
+
+fib:assignatura-PPAI-MAI a fib:Assignatura ;
+    skos:altLabel "PPAI-MAI" ;
+    skos:prefLabel "Pràctica Professional en Intel·ligència Artificial"@ca ;
+    fib:codi "PPAI-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/PPAI-MAI"^^xsd:anyURI .
+
+fib:assignatura-PPTM-MIRI a fib:Assignatura ;
+    skos:altLabel "PPTM-MIRI" ;
+    skos:prefLabel "Eines i Models de Programació Paral·lela"@ca ;
+    fib:codi "PPTM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/PPTM-MIRI"^^xsd:anyURI .
 
 fib:assignatura-PRO1 a fib:Assignatura ;
     skos:altLabel "PRO1" ;
@@ -535,6 +2026,20 @@ fib:assignatura-PROP a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PROP"^^xsd:anyURI .
 
+fib:assignatura-PSD-GCED a fib:Assignatura ;
+    skos:altLabel "PSD-GCED" ;
+    skos:prefLabel "Paral·lelisme i Sistemes Distribuïts"@ca ;
+    fib:codi "PSD-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/PSD-GCED"^^xsd:anyURI .
+
+fib:assignatura-PSD-GIA a fib:Assignatura ;
+    skos:altLabel "PSD-GIA" ;
+    skos:prefLabel "Paral·lelisme i Sistemes Distribuits"@ca ;
+    fib:codi "PSD-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/PSD-GIA"^^xsd:anyURI .
+
 fib:assignatura-PSI a fib:Assignatura ;
     skos:altLabel "PSI" ;
     skos:prefLabel "Projecte de Sistemes d'Informació"@ca ;
@@ -542,6 +2047,13 @@ fib:assignatura-PSI a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PSI"^^xsd:anyURI .
+
+fib:assignatura-PTDMA-MEI a fib:Assignatura ;
+    skos:altLabel "PTDMA-MEI" ;
+    skos:prefLabel "Programació de Telèfons i Dispositius Mòbils Autònoms"@ca ;
+    fib:codi "PTDMA-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/PTDMA-MEI"^^xsd:anyURI .
 
 fib:assignatura-PTI a fib:Assignatura ;
     skos:altLabel "PTI" ;
@@ -551,12 +2063,103 @@ fib:assignatura-PTI a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/PTI"^^xsd:anyURI .
 
+fib:assignatura-PV-MIRI a fib:Assignatura ;
+    skos:altLabel "PV-MIRI" ;
+    skos:prefLabel "Verificació de Processadors"@ca ;
+    fib:codi "PV-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/PV-MIRI"^^xsd:anyURI .
+
+fib:assignatura-RA-GIA a fib:Assignatura ;
+    skos:altLabel "RA-GIA" ;
+    skos:prefLabel "Robòtica Avançada"@ca ;
+    fib:codi "RA-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/RA-GIA"^^xsd:anyURI .
+
+fib:assignatura-RA-MIRI a fib:Assignatura ;
+    skos:altLabel "RA-MIRI" ;
+    skos:prefLabel "Algorismes Aleatoris"@ca ;
+    fib:codi "RA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/RA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-RAI-MAI a fib:Assignatura ;
+    skos:altLabel "RAI-MAI" ;
+    skos:prefLabel "Intel·ligència Artificial Responsable"@ca ;
+    fib:codi "RAI-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/RAI-MAI"^^xsd:anyURI .
+
+fib:assignatura-RES-MIRI a fib:Assignatura ;
+    skos:altLabel "RES-MIRI" ;
+    skos:prefLabel "Enginyeria de Requisits pels Serveis"@ca ;
+    fib:codi "RES-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/RES-MIRI"^^xsd:anyURI .
+
+fib:assignatura-RL-MAI a fib:Assignatura ;
+    skos:altLabel "RL-MAI" ;
+    skos:prefLabel "Aprenentatge per Reforç"@ca ;
+    fib:codi "RL-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/RL-MAI"^^xsd:anyURI .
+
 fib:assignatura-ROB a fib:Assignatura ;
     skos:altLabel "ROB" ;
     skos:prefLabel "Robòtica"@ca ;
     fib:codi "ROB" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/ROB"^^xsd:anyURI .
+
+fib:assignatura-RRMM-MIRI a fib:Assignatura ;
+    skos:altLabel "RRMM-MIRI" ;
+    skos:prefLabel "Representació en Temps Real de Models Massius"@ca ;
+    fib:codi "RRMM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/RRMM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SA-MIRI a fib:Assignatura ;
+    skos:altLabel "SA-MIRI" ;
+    skos:prefLabel "Arquitectura de Supercomputadors"@ca ;
+    fib:codi "SA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SANS-MIRI a fib:Assignatura ;
+    skos:altLabel "SANS-MIRI" ;
+    skos:prefLabel "Anàlisi Estadística de Xarxes i Sistemes"@ca ;
+    fib:codi "SANS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SANS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SB-BBI a fib:Assignatura ;
+    skos:altLabel "SB-BBI" ;
+    skos:prefLabel "Bioinformàtica Estructural"@ca ;
+    fib:codi "SB-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/SB-BBI"^^xsd:anyURI .
+
+fib:assignatura-SBC-GIA a fib:Assignatura ;
+    skos:altLabel "SBC-GIA" ;
+    skos:prefLabel "Sistemes Basats en el Coneixement"@ca ;
+    fib:codi "SBC-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/SBC-GIA"^^xsd:anyURI .
+
+fib:assignatura-SCA-MIRI a fib:Assignatura ;
+    skos:altLabel "SCA-MIRI" ;
+    skos:prefLabel "Supercomputació per Aplicacions Exigents"@ca ;
+    fib:codi "SCA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SCA-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SDM-MDS a fib:Assignatura ;
+    skos:altLabel "SDM-MDS" ;
+    skos:prefLabel "Gestió de Dades Semàntiques"@ca ;
+    fib:codi "SDM-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/SDM-MDS"^^xsd:anyURI .
 
 fib:assignatura-SDX a fib:Assignatura ;
     skos:altLabel "SDX" ;
@@ -566,6 +2169,41 @@ fib:assignatura-SDX a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SDX"^^xsd:anyURI .
 
+fib:assignatura-SEAIT-MIRI a fib:Assignatura ;
+    skos:altLabel "SEAIT-MIRI" ;
+    skos:prefLabel "Aspectes Socials i Ambientals de Les Tecnologies de la Informació"@ca ;
+    fib:codi "SEAIT-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SEAIT-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SECS-MEI a fib:Assignatura ;
+    skos:altLabel "SECS-MEI" ;
+    skos:prefLabel "Sostenibilitat, Economia i Compromís Social"@ca ;
+    fib:codi "SECS-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/SECS-MEI"^^xsd:anyURI .
+
+fib:assignatura-SEL-MAI a fib:Assignatura ;
+    skos:altLabel "SEL-MAI" ;
+    skos:prefLabel "Aprenentatge Supervisat i Experiencial"@ca ;
+    fib:codi "SEL-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/SEL-MAI"^^xsd:anyURI .
+
+fib:assignatura-SEU-MEI a fib:Assignatura ;
+    skos:altLabel "SEU-MEI" ;
+    skos:prefLabel "Sistemes Encastats i Ubicus"@ca ;
+    fib:codi "SEU-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/SEU-MEI"^^xsd:anyURI .
+
+fib:assignatura-SGI-MEI a fib:Assignatura ;
+    skos:altLabel "SGI-MEI" ;
+    skos:prefLabel "Sistemes Gràfics Interactius"@ca ;
+    fib:codi "SGI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/SGI-MEI"^^xsd:anyURI .
+
 fib:assignatura-SI a fib:Assignatura ;
     skos:altLabel "SI" ;
     skos:prefLabel "Seguretat Informàtica"@ca ;
@@ -573,6 +2211,13 @@ fib:assignatura-SI a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-tecnologies-de-la-informacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SI"^^xsd:anyURI .
+
+fib:assignatura-SIBIT-MIRI a fib:Assignatura ;
+    skos:altLabel "SIBIT-MIRI" ;
+    skos:prefLabel "Innovació en Els Serveis Basada en Les Tecnologies de la Informació"@ca ;
+    fib:codi "SIBIT-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SIBIT-MIRI"^^xsd:anyURI .
 
 fib:assignatura-SID a fib:Assignatura ;
     skos:altLabel "SID" ;
@@ -590,6 +2235,13 @@ fib:assignatura-SIM a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SIM"^^xsd:anyURI .
 
+fib:assignatura-SIM-MDS a fib:Assignatura ;
+    skos:altLabel "SIM-MDS" ;
+    skos:prefLabel "Inferència Estadística i Modelització"@ca ;
+    fib:codi "SIM-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/SIM-MDS"^^xsd:anyURI .
+
 fib:assignatura-SIO a fib:Assignatura ;
     skos:altLabel "SIO" ;
     skos:prefLabel "Sistemes d'Informació per a Les Organitzacions"@ca ;
@@ -598,12 +2250,68 @@ fib:assignatura-SIO a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SIO"^^xsd:anyURI .
 
+fib:assignatura-SIRI-MIRI a fib:Assignatura ;
+    skos:altLabel "SIRI-MIRI" ;
+    skos:prefLabel "Seminaris d'Innovació i Recerca en Informàtica"@ca ;
+    fib:codi "SIRI-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SIRI-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SIS-GCED a fib:Assignatura ;
+    skos:altLabel "SIS-GCED" ;
+    skos:prefLabel "Senyals i Sistemes"@ca ;
+    fib:codi "SIS-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/SIS-GCED"^^xsd:anyURI .
+
+fib:assignatura-SL-BBI a fib:Assignatura ;
+    skos:altLabel "SL-BBI" ;
+    skos:prefLabel "Aprenentatge Estadístic"@ca ;
+    fib:codi "SL-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/SL-BBI"^^xsd:anyURI .
+
 fib:assignatura-SLDS a fib:Assignatura ;
     skos:altLabel "SLDS" ;
     skos:prefLabel "Software Lliure i Desenvolupament Social"@ca ;
     fib:codi "SLDS" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SLDS"^^xsd:anyURI .
+
+fib:assignatura-SM-MIRI a fib:Assignatura ;
+    skos:altLabel "SM-MIRI" ;
+    skos:prefLabel "Gestió de Serveis"@ca ;
+    fib:codi "SM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SM-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SMDE-MIRI a fib:Assignatura ;
+    skos:altLabel "SMDE-MIRI" ;
+    skos:prefLabel "Modelatge Estadístic i Disseny d'Experiments"@ca ;
+    fib:codi "SMDE-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SMDE-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SMSP-BBI a fib:Assignatura ;
+    skos:altLabel "SMSP-BBI" ;
+    skos:prefLabel "Models Estadístics i Processos Estocàstics"@ca ;
+    fib:codi "SMSP-BBI" ;
+    fib:pertanyA fib:grau-grau-en-bioinformatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures/SMSP-BBI"^^xsd:anyURI .
+
+fib:assignatura-SNLP-MIRI a fib:Assignatura ;
+    skos:altLabel "SNLP-MIRI" ;
+    skos:prefLabel "Processament Estadístic del Llenguatge Natural"@ca ;
+    fib:codi "SNLP-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SNLP-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SNM-MIRI a fib:Assignatura ;
+    skos:altLabel "SNM-MIRI" ;
+    skos:prefLabel "Modelatge Estocàstic de Xarxes"@ca ;
+    fib:codi "SNM-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SNM-MIRI"^^xsd:anyURI .
 
 fib:assignatura-SO a fib:Assignatura ;
     skos:altLabel "SO" ;
@@ -628,6 +2336,13 @@ fib:assignatura-SOA a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SOA"^^xsd:anyURI .
 
+fib:assignatura-SOA-MIRI a fib:Assignatura ;
+    skos:altLabel "SOA-MIRI" ;
+    skos:prefLabel "Arquitectura Orientada als Serveis"@ca ;
+    fib:codi "SOA-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SOA-MIRI"^^xsd:anyURI .
+
 fib:assignatura-SOAD a fib:Assignatura ;
     skos:altLabel "SOAD" ;
     skos:prefLabel "Sistemes Operatius per a Aplicacions Distribuïdes"@ca ;
@@ -636,6 +2351,27 @@ fib:assignatura-SOAD a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/SOAD"^^xsd:anyURI .
 
+fib:assignatura-SOAS-MAI a fib:Assignatura ;
+    skos:altLabel "SOAS-MAI" ;
+    skos:prefLabel "Sistemes Multiagents Autoorganitzats"@ca ;
+    fib:codi "SOAS-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/SOAS-MAI"^^xsd:anyURI .
+
+fib:assignatura-SOBI-MIRI a fib:Assignatura ;
+    skos:altLabel "SOBI-MIRI" ;
+    skos:prefLabel "Bussiness Intelligence Orientada als Serveis"@ca ;
+    fib:codi "SOBI-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SOBI-MIRI"^^xsd:anyURI .
+
+fib:assignatura-SRGGE-MIRI a fib:Assignatura ;
+    skos:altLabel "SRGGE-MIRI" ;
+    skos:prefLabel "Renderització Escalable en Gràfics i Videojocs"@ca ;
+    fib:codi "SRGGE-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SRGGE-MIRI"^^xsd:anyURI .
+
 fib:assignatura-STR a fib:Assignatura ;
     skos:altLabel "STR" ;
     skos:prefLabel "Sistemes de Temps Real"@ca ;
@@ -643,6 +2379,27 @@ fib:assignatura-STR a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/STR"^^xsd:anyURI .
+
+fib:assignatura-SV-MIRI a fib:Assignatura ;
+    skos:altLabel "SV-MIRI" ;
+    skos:prefLabel "Visualització Científica"@ca ;
+    fib:codi "SV-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/SV-MIRI"^^xsd:anyURI .
+
+fib:assignatura-TAED1-GCED a fib:Assignatura ;
+    skos:altLabel "TAED1-GCED" ;
+    skos:prefLabel "Temes Avançats d'Enginyeria de Dades I"@ca ;
+    fib:codi "TAED1-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/TAED1-GCED"^^xsd:anyURI .
+
+fib:assignatura-TAED2-GCED a fib:Assignatura ;
+    skos:altLabel "TAED2-GCED" ;
+    skos:prefLabel "Temes Avançats d'Enginyeria de Dades II"@ca ;
+    fib:codi "TAED2-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/TAED2-GCED"^^xsd:anyURI .
 
 fib:assignatura-TC a fib:Assignatura ;
     skos:altLabel "TC" ;
@@ -660,12 +2417,61 @@ fib:assignatura-TCI a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TCI"^^xsd:anyURI .
 
+fib:assignatura-TEB-MEI a fib:Assignatura ;
+    skos:altLabel "TEB-MEI" ;
+    skos:prefLabel "Tècniques i Eines Bioinformàtiques"@ca ;
+    fib:codi "TEB-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/TEB-MEI"^^xsd:anyURI .
+
+fib:assignatura-TEOI-GCED a fib:Assignatura ;
+    skos:altLabel "TEOI-GCED" ;
+    skos:prefLabel "Teoria de la Informació"@ca ;
+    fib:codi "TEOI-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/TEOI-GCED"^^xsd:anyURI .
+
 fib:assignatura-TGA a fib:Assignatura ;
     skos:altLabel "TGA" ;
     skos:prefLabel "Targetes Gràfiques i Acceleradors"@ca ;
     fib:codi "TGA" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TGA"^^xsd:anyURI .
+
+fib:assignatura-TIA-MEI a fib:Assignatura ;
+    skos:altLabel "TIA-MEI" ;
+    skos:prefLabel "Tecnologies Informàtiques per a l'Automatització"@ca ;
+    fib:codi "TIA-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/TIA-MEI"^^xsd:anyURI .
+
+fib:assignatura-TMD-MEI a fib:Assignatura ;
+    skos:altLabel "TMD-MEI" ;
+    skos:prefLabel "Tècniques de Mineria de Dades"@ca ;
+    fib:codi "TMD-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/TMD-MEI"^^xsd:anyURI .
+
+fib:assignatura-TMIRI-MIRI a fib:Assignatura ;
+    skos:altLabel "TMIRI-MIRI" ;
+    skos:prefLabel "Tècniques i Metodologia de la Innovació i la Recerca en Informàtica"@ca ;
+    fib:codi "TMIRI-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/TMIRI-MIRI"^^xsd:anyURI .
+
+fib:assignatura-TOML-MIRI a fib:Assignatura ;
+    skos:altLabel "TOML-MIRI" ;
+    skos:prefLabel "Temes Sobre Optimització i Aprenentatge Automàtic"@ca ;
+    fib:codi "TOML-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/TOML-MIRI"^^xsd:anyURI .
+
+fib:assignatura-TVD-GIA a fib:Assignatura ;
+    skos:altLabel "TVD-GIA" ;
+    skos:prefLabel "Tractament de la Veu i el Diàleg"@ca ;
+    fib:codi "TVD-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/TVD-GIA"^^xsd:anyURI .
 
 fib:assignatura-TXC a fib:Assignatura ;
     skos:altLabel "TXC" ;
@@ -675,12 +2481,61 @@ fib:assignatura-TXC a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/TXC"^^xsd:anyURI .
 
+fib:assignatura-UL-MAI a fib:Assignatura ;
+    skos:altLabel "UL-MAI" ;
+    skos:prefLabel "Aprenentatge No Supervisat"@ca ;
+    fib:codi "UL-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/UL-MAI"^^xsd:anyURI .
+
+fib:assignatura-URL-MAI a fib:Assignatura ;
+    skos:altLabel "URL-MAI" ;
+    skos:prefLabel "Aprenentatge No Supervisat i per Reforçament"@ca ;
+    fib:codi "URL-MAI" ;
+    fib:pertanyA fib:master-master-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures/URL-MAI"^^xsd:anyURI .
+
+fib:assignatura-VAR-MIRI a fib:Assignatura ;
+    skos:altLabel "VAR-MIRI" ;
+    skos:prefLabel "Realitat Virtual i Augmentada"@ca ;
+    fib:codi "VAR-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/VAR-MIRI"^^xsd:anyURI .
+
+fib:assignatura-VBP-MIRI a fib:Assignatura ;
+    skos:altLabel "VBP-MIRI" ;
+    skos:prefLabel "Viabilitat de Projectes Empresarials"@ca ;
+    fib:codi "VBP-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/VBP-MIRI"^^xsd:anyURI .
+
 fib:assignatura-VC a fib:Assignatura ;
     skos:altLabel "VC" ;
     skos:prefLabel "Visió per Computador"@ca ;
     fib:codi "VC" ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VC"^^xsd:anyURI .
+
+fib:assignatura-VD-MDS a fib:Assignatura ;
+    skos:altLabel "VD-MDS" ;
+    skos:prefLabel "Visualització de Dades"@ca ;
+    fib:codi "VD-MDS" ;
+    fib:pertanyA fib:master-master-en-ciencia-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures/VD-MDS"^^xsd:anyURI .
+
+fib:assignatura-VD-MEI a fib:Assignatura ;
+    skos:altLabel "VD-MEI" ;
+    skos:prefLabel "Visualització de Dades"@ca ;
+    fib:codi "VD-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/VD-MEI"^^xsd:anyURI .
+
+fib:assignatura-VI-GCED a fib:Assignatura ;
+    skos:altLabel "VI-GCED" ;
+    skos:prefLabel "Visualització de la Informació"@ca ;
+    fib:codi "VI-GCED" ;
+    fib:pertanyA fib:grau-grau-en-ciencia-i-enginyeria-de-dades ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures/VI-GCED"^^xsd:anyURI .
 
 fib:assignatura-VJ a fib:Assignatura ;
     skos:altLabel "VJ" ;
@@ -690,12 +2545,18 @@ fib:assignatura-VJ a fib:Assignatura ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VJ"^^xsd:anyURI .
 
 fib:assignatura-VLSI a fib:Assignatura ;
-    skos:altLabel "VLSI" ;
     skos:prefLabel "VLSI"@ca ;
     fib:codi "VLSI" ;
     fib:dinsEspecialitat fib:especialitat-enginyeria-de-computadors ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VLSI"^^xsd:anyURI .
+
+fib:assignatura-VO-GIA a fib:Assignatura ;
+    skos:altLabel "VO-GIA" ;
+    skos:prefLabel "Visió per Ordinador"@ca ;
+    fib:codi "VO-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/VO-GIA"^^xsd:anyURI .
 
 fib:assignatura-VPE a fib:Assignatura ;
     skos:altLabel "VPE" ;
@@ -704,6 +2565,34 @@ fib:assignatura-VPE a fib:Assignatura ;
     fib:dinsEspecialitat fib:especialitat-sistemes-dinformacio ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/VPE"^^xsd:anyURI .
+
+fib:assignatura-VPEI-MEI a fib:Assignatura ;
+    skos:altLabel "VPEI-MEI" ;
+    skos:prefLabel "Viabilitat de Projectes Empresarials Innovadors"@ca ;
+    fib:codi "VPEI-MEI" ;
+    fib:pertanyA fib:master-master-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures/VPEI-MEI"^^xsd:anyURI .
+
+fib:assignatura-VV-MIRI a fib:Assignatura ;
+    skos:altLabel "VV-MIRI" ;
+    skos:prefLabel "Visualització del Volum"@ca ;
+    fib:codi "VV-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/VV-MIRI"^^xsd:anyURI .
+
+fib:assignatura-WS-MIRI a fib:Assignatura ;
+    skos:altLabel "WS-MIRI" ;
+    skos:prefLabel "Serveis Web"@ca ;
+    fib:codi "WS-MIRI" ;
+    fib:pertanyA fib:master-master-en-innovacio-i-recerca-en-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures/WS-MIRI"^^xsd:anyURI .
+
+fib:assignatura-WSE a fib:Assignatura ;
+    skos:altLabel "WSE" ;
+    skos:prefLabel "Habilitats d'Expressió Escrita en Anglès per a l'Enginyeria"@ca ;
+    fib:codi "WSE" ;
+    fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/WSE"^^xsd:anyURI .
 
 fib:assignatura-XC a fib:Assignatura ;
     skos:altLabel "XC" ;
@@ -720,70 +2609,106 @@ fib:assignatura-XC2 a fib:Assignatura ;
     fib:pertanyA fib:grau-grau-en-enginyeria-informatica ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/XC2"^^xsd:anyURI .
 
+fib:assignatura-XNDL-GIA a fib:Assignatura ;
+    skos:altLabel "XNDL-GIA" ;
+    skos:prefLabel "Xarxes Neuronals i Deep Learning"@ca ;
+    fib:codi "XNDL-GIA" ;
+    fib:pertanyA fib:grau-grau-en-intel-ligencia-artificial ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures/XNDL-GIA"^^xsd:anyURI .
+
 fib:codi a owl:DatatypeProperty ;
     rdfs:label "codi"@ca ;
     rdfs:range xsd:string .
+
+fib:concepte-actes-academics a fib:ConcepteAcademic,
+        fib:ServeiFIB ;
+    skos:altLabel "acte acadèmic"@ca,
+        "actes acadèmics"@ca,
+        "acto académico"@ca,
+        "cerimònia de graduació"@ca,
+        "graduació"@ca ;
+    skos:prefLabel "Actes acadèmics"@ca ;
+    fib:patroUrl "actes-academics" ;
+    fib:pesIntencio "0.18"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/la-facultat/actes-academics"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
+
+fib:concepte-associacions a fib:ConcepteAcademic,
+        fib:ServeiFIB ;
+    skos:altLabel "asociaciones"@ca,
+        "associacions"@ca,
+        "associacions d'estudiants"@ca,
+        "associació"@ca,
+        "delegació d'estudiants"@ca,
+        "vida universitària"@ca ;
+    skos:prefLabel "Associacions d'estudiants"@ca ;
+    fib:patroUrl "associacions" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/vida-universitaria/associacions"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
+
+fib:concepte-biblioteca a fib:ConcepteAcademic,
+        fib:EspaiFisic ;
+    skos:altLabel "biblioteca"@ca,
+        "biblioteca rector gabriel ferraté"@ca,
+        "library"@ca,
+        "on puc estudiar"@ca,
+        "sala d'estudi"@ca ;
+    skos:prefLabel "Biblioteca"@ca ;
+    fib:patroUrl "biblioteca" ;
+    fib:pesIntencio "0.26"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/espais/biblioteca-rector-gabriel-ferrate"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
+
+fib:concepte-govern a fib:ConcepteAcademic,
+        fib:OrganGovern ;
+    skos:altLabel "deganat"@ca,
+        "degà"@ca,
+        "equip de govern"@ca,
+        "equip directiu"@ca,
+        "gobierno"@ca,
+        "govern"@ca,
+        "junta de facultat"@ca,
+        "qui dirigeix la fib"@ca ;
+    skos:prefLabel "Govern de la FIB"@ca ;
+    fib:patroUrl "govern" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/la-facultat/govern"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
+
+fib:concepte-laboratoris a fib:ConcepteAcademic,
+        fib:EspaiFisic ;
+    skos:altLabel "aules de laboratori"@ca,
+        "laboratori"@ca,
+        "laboratorios"@ca,
+        "laboratoris"@ca,
+        "laboratoris d'informàtica"@ca,
+        "labs"@ca ;
+    skos:prefLabel "Laboratoris d'informàtica"@ca ;
+    fib:patroUrl "laboratoris",
+        "laboratoris-dinformatica" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/espais/laboratoris-dinformatica"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
+
+fib:concepte-xifres a fib:ConcepteAcademic,
+        fib:ServeiFIB ;
+    skos:altLabel "cifras"@ca,
+        "dades estadístiques"@ca,
+        "datos estadísticos"@ca,
+        "estadístiques"@ca,
+        "la facultat en xifres"@ca,
+        "xifres"@ca ;
+    skos:prefLabel "La facultat en xifres"@ca ;
+    fib:patroUrl "la-facultat-en-xifres" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/la-facultat/la-facultat-en-xifres"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
 
 fib:dinsEspecialitat a owl:ObjectProperty ;
     rdfs:label "dins l'especialitat"@ca ;
     rdfs:domain fib:Assignatura ;
     rdfs:range fib:Especialitat .
-
-fib:grau-grau-en-bioinformatica a fib:Grau ;
-    skos:altLabel "bioinformatics"@ca,
-        "bioinformàtica"@ca,
-        "bioinformática"@ca ;
-    skos:prefLabel "Grau en Bioinformàtica"@ca ;
-    fib:codi "GBIO" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica"^^xsd:anyURI .
-
-fib:grau-grau-en-ciencia-i-enginyeria-de-dades a fib:Grau ;
-    skos:altLabel "GCED"@ca,
-        "ciencia e ingeniería de datos"@ca,
-        "ciència i enginyeria de dades"@ca,
-        "data science and engineering"@ca ;
-    skos:prefLabel "Grau en Ciència i Enginyeria de Dades"@ca ;
-    fib:codi "GCED" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades"^^xsd:anyURI .
-
-fib:grau-grau-en-intel-ligencia-artificial a fib:Grau ;
-    skos:altLabel "GIA"@ca,
-        "grado en inteligencia artificial"@ca,
-        "grau en intel·ligència artificial"@ca ;
-    skos:prefLabel "Grau en Intel·ligència Artificial"@ca ;
-    fib:codi "GIA" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial"^^xsd:anyURI .
-
-fib:master-master-en-ciencia-de-dades a fib:Master ;
-    skos:altLabel "MDS"@ca,
-        "màster en ciència de dades"@ca,
-        "máster en ciencia de datos"@ca ;
-    skos:prefLabel "Màster en Ciència de Dades"@ca ;
-    fib:codi "MDS" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades"^^xsd:anyURI .
-
-fib:master-master-en-enginyeria-informatica a fib:Master ;
-    skos:altLabel "MEI"@ca,
-        "màster en enginyeria informàtica"@ca,
-        "máster en ingeniería informática"@ca ;
-    skos:prefLabel "Màster en Enginyeria Informàtica"@ca ;
-    fib:codi "MEI" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica"^^xsd:anyURI .
-
-fib:master-master-en-innovacio-i-recerca-en-informatica a fib:Master ;
-    skos:altLabel "MIRI"@ca,
-        "màster en innovació i recerca en informàtica"@ca ;
-    skos:prefLabel "Màster en Innovació i Recerca en Informàtica"@ca ;
-    fib:codi "MIRI" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica"^^xsd:anyURI .
-
-fib:master-master-en-intel-ligencia-artificial a fib:Master ;
-    skos:altLabel "MAI"@ca,
-        "màster en intel·ligència artificial"@ca,
-        "máster en inteligencia artificial"@ca ;
-    skos:prefLabel "Màster en Intel·ligència Artificial"@ca ;
-    fib:codi "MAI" ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial"^^xsd:anyURI .
 
 fib:patroUrl a owl:DatatypeProperty ;
     rdfs:label "patró d'URL per al reranking"@ca ;
@@ -802,10 +2727,32 @@ fib:recursCanonic a owl:DatatypeProperty ;
     rdfs:label "recurs web canònic"@ca ;
     rdfs:range xsd:anyURI .
 
+fib:subconcepteDe a owl:ObjectProperty ;
+    rdfs:label "subconcepte de"@ca ;
+    rdfs:domain fib:ConcepteAcademic ;
+    rdfs:range fib:ConcepteAcademic .
+
 fib:teEspecialitat a owl:ObjectProperty ;
     rdfs:label "té especialitat"@ca ;
     rdfs:domain fib:Grau ;
     rdfs:range fib:Especialitat .
+
+fib:OrganGovern a owl:Class ;
+    rdfs:label "Òrgan de govern"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
+fib:concepte-aules a fib:ConcepteAcademic,
+        fib:EspaiFisic ;
+    skos:altLabel "aula docent"@ca,
+        "aules docents"@ca,
+        "on són les aules"@ca,
+        "ubicació de les aules"@ca ;
+    skos:prefLabel "Aules docents"@ca ;
+    skos:related fib:concepte-horaris ;
+    fib:patroUrl "aules-docents" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib/espais/aules-docents"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-la-facultat .
 
 fib:concepte-borsa-de-treball a fib:ConcepteAcademic ;
     skos:altLabel "bolsa de trabajo"@ca,
@@ -821,32 +2768,91 @@ fib:concepte-borsa-de-treball a fib:ConcepteAcademic ;
     fib:pesIntencio "0.2"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/empresa/borsa-de-treball"^^xsd:anyURI .
 
-fib:concepte-especialitats a fib:ConcepteAcademic ;
-    skos:altLabel "especialidad"@ca,
-        "especialidades"@ca,
-        "especialitat"@ca,
-        "especialitats"@ca,
-        "especialización"@ca,
-        "mencions"@ca,
-        "menció"@ca,
-        "specialization"@ca ;
-    skos:prefLabel "Especialitats"@ca ;
-    skos:related fib:concepte-pla-d-estudis ;
-    fib:patroUrl "especialitats" ;
-    fib:pesIntencio "0.22"^^xsd:float ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats"^^xsd:anyURI .
+fib:concepte-bustia a fib:ConcepteAcademic,
+        fib:ServeiFIB ;
+    skos:altLabel "bustia"@ca,
+        "bústia"@ca,
+        "bústia de queixes"@ca,
+        "queixa"@ca,
+        "queixes"@ca,
+        "quejas"@ca,
+        "reclamació"@ca,
+        "suggeriment"@ca ;
+    skos:prefLabel "Bústia FIB"@ca ;
+    skos:related fib:concepte-tramits ;
+    fib:patroUrl "bustia-fib" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/bustia-fib"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
 
-fib:concepte-la-facultat a fib:ConcepteAcademic ;
-    skos:altLabel "facultad de informática"@ca,
-        "facultat d'informàtica"@ca,
-        "la facultat"@ca,
-        "la fib"@ca,
-        "què és la fib"@ca ;
-    skos:prefLabel "La FIB"@ca ;
-    skos:related fib:concepte-contacte ;
-    fib:patroUrl "la-fib" ;
-    fib:pesIntencio "0.18"^^xsd:float ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib"^^xsd:anyURI .
+fib:concepte-centres-de-recerca a fib:ConcepteAcademic,
+        fib:UnitatRecerca ;
+    skos:altLabel "centre de recerca"@ca,
+        "centres de recerca"@ca,
+        "centro de investigación"@ca,
+        "research center"@ca ;
+    skos:prefLabel "Centres de recerca"@ca ;
+    skos:related fib:concepte-recerca ;
+    fib:patroUrl "centres-de-recerca" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/recerca/centres-de-recerca"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-recerca .
+
+fib:concepte-certificats a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "certificació acadèmica"@ca,
+        "certificado académico"@ca,
+        "certificat"@ca,
+        "certificats"@ca,
+        "demanar un certificat"@ca ;
+    skos:prefLabel "Certificats acadèmics"@ca ;
+    skos:related fib:concepte-tramits ;
+    fib:patroUrl "certificacions" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/certificacions-academiques"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
+fib:concepte-departaments a fib:ConcepteAcademic,
+        fib:UnitatRecerca ;
+    skos:altLabel "departament"@ca,
+        "departamento"@ca,
+        "departamentos"@ca,
+        "departaments"@ca,
+        "department"@ca,
+        "quins departaments"@ca ;
+    skos:prefLabel "Departaments"@ca ;
+    skos:related fib:concepte-recerca ;
+    fib:patroUrl "departaments" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/recerca/departaments"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-recerca .
+
+fib:concepte-grups-de-recerca a fib:ConcepteAcademic,
+        fib:UnitatRecerca ;
+    skos:altLabel "grup de recerca"@ca,
+        "grupo de investigación"@ca,
+        "grups d'investigació"@ca,
+        "grups de recerca"@ca,
+        "research group"@ca,
+        "research groups"@ca ;
+    skos:prefLabel "Grups de recerca"@ca ;
+    skos:related fib:concepte-recerca ;
+    fib:patroUrl "grups-de-recerca" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/recerca/grups-de-recerca"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-recerca .
+
+fib:concepte-inlab a fib:ConcepteAcademic,
+        fib:UnitatRecerca ;
+    skos:altLabel "inlab"@ca,
+        "inlab fib"@ca,
+        "laboratori d'innovació"@ca ;
+    skos:prefLabel "inLab FIB"@ca ;
+    skos:related fib:concepte-recerca ;
+    fib:patroUrl "inlab-fib" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/recerca/inlab-fib"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-recerca .
 
 fib:concepte-nota-de-tall a fib:ConcepteAcademic ;
     skos:altLabel "nota d'accés"@ca,
@@ -905,6 +2911,62 @@ fib:concepte-professorat a fib:ConcepteAcademic ;
     fib:pesIntencio "0.22"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/professorat"^^xsd:anyURI .
 
+fib:concepte-reconeixement-de-credits a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "convalidació d'assignatures"@ca,
+        "convalidar assignatures"@ca,
+        "reconeixement d'assignatures"@ca,
+        "reconeixement de crèdits"@ca,
+        "reconocimiento de créditos"@ca ;
+    skos:prefLabel "Reconeixement de crèdits"@ca ;
+    skos:related fib:concepte-tramits ;
+    fib:patroUrl "reconeixement" ;
+    fib:pesIntencio "0.26"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/reconeixement-dassignatures"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
+fib:concepte-simultaneitat-estudis a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "cursar dos graus alhora"@ca,
+        "estudiar dues carreres"@ca,
+        "simultaneidad de estudios"@ca,
+        "simultaneitat d'estudis"@ca,
+        "simultaneïtat"@ca ;
+    skos:prefLabel "Simultaneïtat d'estudis"@ca ;
+    skos:related fib:concepte-tramits ;
+    fib:patroUrl "simultaneitat" ;
+    fib:pesIntencio "0.26"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/simultaneitat-destudis"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
+fib:concepte-titol a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "demanar el títol"@ca,
+        "expedició del títol"@ca,
+        "obtenir el títol"@ca,
+        "recollida del títol"@ca,
+        "recollir el títol"@ca,
+        "suplement europeu al títol"@ca ;
+    skos:prefLabel "Sol·licitud del títol"@ca ;
+    skos:related fib:concepte-tramits ;
+    fib:patroUrl "recollida-del-titol" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/recollida-del-titol"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
+fib:concepte-trasllat-expedient a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "canviar d'universitat"@ca,
+        "traslado de expediente"@ca,
+        "trasllat"@ca,
+        "trasllat d'expedient"@ca ;
+    skos:prefLabel "Trasllat d'expedient"@ca ;
+    skos:related fib:concepte-tramits ;
+    fib:patroUrl "trasllat" ;
+    fib:pesIntencio "0.26"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/trasllat-dun-expedient"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
 fib:concepte-assignatures a fib:ConcepteAcademic ;
     skos:altLabel "asignatura"@ca,
         "asignaturas"@ca,
@@ -920,6 +2982,21 @@ fib:concepte-assignatures a fib:ConcepteAcademic ;
     fib:patroUrl "assignatures" ;
     fib:pesIntencio "0.1"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures"^^xsd:anyURI .
+
+fib:concepte-baixa-matricula a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "anul·lar la matrícula"@ca,
+        "baixa acadèmica"@ca,
+        "donar-se de baixa"@ca,
+        "renúncia de matrícula"@ca,
+        "treure assignatures de la matrícula"@ca ;
+    skos:prefLabel "Renúncia de matrícula"@ca ;
+    skos:related fib:concepte-matricula,
+        fib:concepte-tramits ;
+    fib:patroUrl "renuncia" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/renuncia-la-matricula"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
 
 fib:concepte-calendari-academic a fib:ConcepteAcademic ;
     skos:altLabel "calendari"@ca,
@@ -937,19 +3014,74 @@ fib:concepte-calendari-academic a fib:ConcepteAcademic ;
     fib:pesIntencio "0.2"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/calendaris-academics"^^xsd:anyURI .
 
-fib:concepte-contacte a fib:ConcepteAcademic ;
-    skos:altLabel "adreça"@ca,
-        "contacte"@ca,
-        "contacto"@ca,
-        "email de secretaria"@ca,
-        "on és la facultat"@ca,
-        "telèfon"@ca ;
-    skos:prefLabel "Contacte"@ca ;
-    skos:related fib:concepte-la-facultat,
+fib:concepte-canvi-de-mencio a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "cambio de mención"@ca,
+        "canvi d'especialitat"@ca,
+        "canvi de menció"@ca,
+        "canviar d'especialitat"@ca,
+        "canviar de menció"@ca ;
+    skos:prefLabel "Canvi de menció"@ca ;
+    skos:related fib:concepte-especialitats,
         fib:concepte-tramits ;
-    fib:patroUrl "contacte" ;
-    fib:pesIntencio "0.15"^^xsd:float ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/contacte"^^xsd:anyURI .
+    fib:patroUrl "canvi-de-mencio" ;
+    fib:pesIntencio "0.26"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits/canvi-de-mencio-gei"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
+fib:concepte-cita-previa a fib:ConcepteAcademic,
+        fib:Tramit ;
+    skos:altLabel "appointment"@ca,
+        "atenció presencial"@ca,
+        "cita previa"@ca,
+        "cita prèvia"@ca,
+        "demanar cita"@ca,
+        "demanar hora"@ca ;
+    skos:prefLabel "Cita prèvia"@ca ;
+    skos:related fib:concepte-contacte,
+        fib:concepte-tramits ;
+    fib:patroUrl "cita-previa" ;
+    fib:pesIntencio "0.24"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/cita-previa"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-tramits .
+
+fib:concepte-dobles-titulacions a fib:ConcepteAcademic,
+        fib:ProgramaMobilitat ;
+    skos:altLabel "centres de doble titulació"@ca,
+        "doble grau"@ca,
+        "doble màster"@ca,
+        "doble titulacio"@ca,
+        "doble titulació"@ca,
+        "doble titulación"@ca,
+        "dobles titulaciones"@ca,
+        "dobles titulacions"@ca,
+        "double degree"@ca,
+        "fer dues titulacions"@ca,
+        "titulació doble"@ca,
+        "universitats de doble titulació"@ca ;
+    skos:prefLabel "Dobles titulacions"@ca ;
+    skos:related fib:concepte-mobilitat,
+        fib:concepte-programes-de-mobilitat ;
+    fib:patroUrl "dobles-titulacions" ;
+    fib:pesIntencio "0.35"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/mobilitat/dobles-titulacions"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-mobilitat .
+
+fib:concepte-especialitats a fib:ConcepteAcademic ;
+    skos:altLabel "especialidad"@ca,
+        "especialidades"@ca,
+        "especialitat"@ca,
+        "especialitats"@ca,
+        "especialización"@ca,
+        "mencions"@ca,
+        "menció"@ca,
+        "specialization"@ca ;
+    skos:prefLabel "Especialitats"@ca ;
+    skos:related fib:concepte-canvi-de-mencio,
+        fib:concepte-pla-d-estudis ;
+    fib:patroUrl "especialitats" ;
+    fib:pesIntencio "0.22"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats"^^xsd:anyURI .
 
 fib:concepte-examens a fib:ConcepteAcademic ;
     skos:altLabel "avaluació"@ca,
@@ -968,44 +3100,6 @@ fib:concepte-examens a fib:ConcepteAcademic ;
     fib:patroUrl "examens" ;
     fib:pesIntencio "0.25"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/examens"^^xsd:anyURI .
-
-fib:concepte-horaris a fib:ConcepteAcademic ;
-    skos:altLabel "aules"@ca,
-        "hora de classe"@ca,
-        "horari"@ca,
-        "horari de classes"@ca,
-        "horario"@ca,
-        "horarios"@ca,
-        "horaris"@ca,
-        "quan tinc classe"@ca,
-        "quina hora"@ca ;
-    skos:prefLabel "Horaris"@ca ;
-    skos:related fib:concepte-calendari-academic,
-        fib:concepte-examens ;
-    fib:patroUrl "horaris" ;
-    fib:pesIntencio "0.25"^^xsd:float ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/horaris"^^xsd:anyURI .
-
-fib:concepte-mobilitat a fib:ConcepteAcademic ;
-    skos:altLabel "anar fora"@ca,
-        "doble titulació"@ca,
-        "erasmus"@ca,
-        "estada internacional"@ca,
-        "estudiar fora"@ca,
-        "exchange"@ca,
-        "incoming"@ca,
-        "intercanvi"@ca,
-        "mobilitat"@ca,
-        "movilidad"@ca,
-        "outgoing"@ca ;
-    skos:prefLabel "Mobilitat"@ca ;
-    skos:related fib:concepte-beques,
-        fib:concepte-tramits ;
-    fib:patroUrl "incoming",
-        "mobilitat",
-        "outgoing" ;
-    fib:pesIntencio "0.2"^^xsd:float ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/mobilitat"^^xsd:anyURI .
 
 fib:concepte-pla-d-estudis a fib:ConcepteAcademic ;
     skos:altLabel "crèdits del grau"@ca,
@@ -1034,6 +3128,32 @@ fib:concepte-treball-de-fi-de-grau a fib:ConcepteAcademic ;
     fib:pesIntencio "0.25"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/treball-de-fi-de-grau"^^xsd:anyURI .
 
+fib:concepte-universitats-partner a fib:ConcepteAcademic,
+        fib:ProgramaMobilitat ;
+    skos:altLabel "destinacions de mobilitat"@ca,
+        "on puc anar d'erasmus"@ca,
+        "partner universities"@ca,
+        "quines universitats"@ca,
+        "universidades de destino"@ca,
+        "universitats de destinació"@ca,
+        "universitats partner"@ca,
+        "universitats sòcies"@ca ;
+    skos:prefLabel "Universitats partner"@ca ;
+    skos:related fib:concepte-mobilitat,
+        fib:concepte-programes-de-mobilitat ;
+    fib:patroUrl "universitats-partner" ;
+    fib:pesIntencio "0.26"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/mobilitat/aliances-internacionals/universitats-partner"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-mobilitat .
+
+fib:EspaiFisic a owl:Class ;
+    rdfs:label "Espai físic"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
+fib:ProgramaMobilitat a owl:Class ;
+    rdfs:label "Programa de mobilitat"@ca ;
+    rdfs:subClassOf fib:ConcepteAcademic .
+
 fib:Titulacio a owl:Class ;
     rdfs:label "Titulació"@ca ;
     rdfs:subClassOf fib:EntitatAcademica .
@@ -1054,12 +3174,72 @@ fib:concepte-beques a fib:ConcepteAcademic ;
     fib:pesIntencio "0.22"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/beques-i-ajuts"^^xsd:anyURI .
 
-fib:EntitatAcademica a owl:Class ;
-    rdfs:label "Entitat acadèmica"@ca .
+fib:concepte-contacte a fib:ConcepteAcademic ;
+    skos:altLabel "adreça"@ca,
+        "contacte"@ca,
+        "contacto"@ca,
+        "email de secretaria"@ca,
+        "on és la facultat"@ca,
+        "telèfon"@ca ;
+    skos:prefLabel "Contacte"@ca ;
+    skos:related fib:concepte-cita-previa,
+        fib:concepte-la-facultat,
+        fib:concepte-tramits ;
+    fib:patroUrl "contacte" ;
+    fib:pesIntencio "0.15"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/contacte"^^xsd:anyURI .
+
+fib:concepte-horaris a fib:ConcepteAcademic ;
+    skos:altLabel "aules"@ca,
+        "hora de classe"@ca,
+        "horari"@ca,
+        "horari de classes"@ca,
+        "horario"@ca,
+        "horarios"@ca,
+        "horaris"@ca,
+        "quan tinc classe"@ca,
+        "quina hora"@ca ;
+    skos:prefLabel "Horaris"@ca ;
+    skos:related fib:concepte-aules,
+        fib:concepte-calendari-academic,
+        fib:concepte-examens ;
+    fib:patroUrl "horaris" ;
+    fib:pesIntencio "0.25"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/horaris"^^xsd:anyURI .
+
+fib:concepte-programes-de-mobilitat a fib:ConcepteAcademic,
+        fib:ProgramaMobilitat ;
+    skos:altLabel "aliances internacionals"@ca,
+        "exchange programs"@ca,
+        "programa d'intercanvi"@ca,
+        "programa de mobilitat"@ca,
+        "programas de movilidad"@ca,
+        "programes d'intercanvi"@ca,
+        "programes de mobilitat"@ca,
+        "sicue"@ca,
+        "unitech"@ca,
+        "vulcanus"@ca ;
+    skos:prefLabel "Programes de mobilitat"@ca ;
+    skos:related fib:concepte-dobles-titulacions,
+        fib:concepte-mobilitat,
+        fib:concepte-universitats-partner ;
+    fib:patroUrl "aliances-internacionals",
+        "programes-de-mobilitat" ;
+    fib:pesIntencio "0.28"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/mobilitat/aliances-internacionals/programes-de-mobilitat"^^xsd:anyURI ;
+    fib:subconcepteDe fib:concepte-mobilitat .
 
 fib:Master a owl:Class ;
     rdfs:label "Màster"@ca ;
     rdfs:subClassOf fib:Titulacio .
+
+fib:ServeiFIB a owl:Class ;
+    rdfs:label "Servei de la FIB"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
+
+fib:UnitatRecerca a owl:Class ;
+    rdfs:label "Unitat de recerca"@ca ;
+    rdfs:subClassOf fib:EntitatAcademica .
 
 fib:concepte-normativa-academica a fib:ConcepteAcademic ;
     skos:altLabel "convocatòria"@ca,
@@ -1085,34 +3265,28 @@ fib:Grau a owl:Class ;
     rdfs:label "Grau"@ca ;
     rdfs:subClassOf fib:Titulacio .
 
-fib:concepte-tramits a fib:ConcepteAcademic ;
-    skos:altLabel "certificat"@ca,
-        "convalidació"@ca,
-        "gestions"@ca,
-        "instància"@ca,
-        "reconeixement de crèdits"@ca,
-        "secretaria"@ca,
-        "sol·licitud"@ca,
-        "tramit"@ca,
-        "tramits"@ca,
-        "tràmit"@ca,
-        "tràmits"@ca,
-        "trámite"@ca,
-        "trámites"@ca ;
-    skos:prefLabel "Tràmits"@ca ;
-    skos:related fib:concepte-beques,
-        fib:concepte-contacte,
-        fib:concepte-matricula,
-        fib:concepte-mobilitat,
-        fib:concepte-normativa-academica ;
-    fib:patroUrl "secretaria",
-        "tramits" ;
-    fib:pesIntencio "0.18"^^xsd:float ;
-    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits"^^xsd:anyURI .
-
 fib:Especialitat a owl:Class ;
     rdfs:label "Especialitat"@ca ;
     rdfs:subClassOf fib:EntitatAcademica .
+
+fib:EntitatAcademica a owl:Class ;
+    rdfs:label "Entitat acadèmica"@ca .
+
+fib:Tramit a owl:Class ;
+    rdfs:label "Tràmit"@ca ;
+    rdfs:subClassOf fib:ConcepteAcademic .
+
+fib:concepte-la-facultat a fib:ConcepteAcademic ;
+    skos:altLabel "facultad de informática"@ca,
+        "facultat d'informàtica"@ca,
+        "la facultat"@ca,
+        "la fib"@ca,
+        "què és la fib"@ca ;
+    skos:prefLabel "La FIB"@ca ;
+    skos:related fib:concepte-contacte ;
+    fib:patroUrl "la-fib" ;
+    fib:pesIntencio "0.18"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/la-fib"^^xsd:anyURI .
 
 fib:concepte-matricula a fib:ConcepteAcademic ;
     skos:altLabel "apuntar-me"@ca,
@@ -1129,7 +3303,8 @@ fib:concepte-matricula a fib:ConcepteAcademic ;
         "matricularse"@ca,
         "matrícula"@ca ;
     skos:prefLabel "Matrícula"@ca ;
-    skos:related fib:concepte-beques,
+    skos:related fib:concepte-baixa-matricula,
+        fib:concepte-beques,
         fib:concepte-calendari-academic,
         fib:concepte-normativa-academica,
         fib:concepte-nota-de-tall,
@@ -1139,6 +3314,44 @@ fib:concepte-matricula a fib:ConcepteAcademic ;
     fib:patroUrl "matricula" ;
     fib:pesIntencio "0.2"^^xsd:float ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/matricula"^^xsd:anyURI .
+
+fib:concepte-mobilitat a fib:ConcepteAcademic ;
+    skos:altLabel "anar fora"@ca,
+        "erasmus"@ca,
+        "estada internacional"@ca,
+        "estudiar fora"@ca,
+        "exchange"@ca,
+        "incoming"@ca,
+        "intercanvi"@ca,
+        "marxar a l'estranger"@ca,
+        "mobilitat"@ca,
+        "movilidad"@ca,
+        "outgoing"@ca ;
+    skos:prefLabel "Mobilitat"@ca ;
+    skos:related fib:concepte-beques,
+        fib:concepte-dobles-titulacions,
+        fib:concepte-programes-de-mobilitat,
+        fib:concepte-tramits,
+        fib:concepte-universitats-partner ;
+    fib:patroUrl "incoming",
+        "mobilitat",
+        "outgoing" ;
+    fib:pesIntencio "0.2"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/mobilitat"^^xsd:anyURI .
+
+fib:concepte-recerca a fib:ConcepteAcademic ;
+    skos:altLabel "investigació"@ca,
+        "investigación"@ca,
+        "recerca"@ca,
+        "research"@ca ;
+    skos:prefLabel "Recerca"@ca ;
+    skos:related fib:concepte-centres-de-recerca,
+        fib:concepte-departaments,
+        fib:concepte-grups-de-recerca,
+        fib:concepte-inlab ;
+    fib:patroUrl "recerca" ;
+    fib:pesIntencio "0.18"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/recerca"^^xsd:anyURI .
 
 fib:especialitat-sistemes-dinformacio a fib:Especialitat ;
     skos:altLabel "information systems"@ca,
@@ -1176,9 +3389,102 @@ fib:especialitat-enginyeria-de-computadors a fib:Especialitat ;
     skos:prefLabel "Enginyeria de Computadors"@ca ;
     fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-enginyeria-informatica/pla-destudis/especialitats/enginyeria-de-computadors"^^xsd:anyURI .
 
+fib:master-master-en-ciencia-de-dades a fib:Master ;
+    skos:altLabel "MDS"@ca,
+        "ciencia de datos"@ca,
+        "ciència de dades"@ca,
+        "data science"@ca,
+        "màster en ciència de dades"@ca,
+        "máster en ciencia de datos"@ca ;
+    skos:prefLabel "Màster en Ciència de Dades"@ca ;
+    fib:codi "MDS" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-ciencia-de-dades"^^xsd:anyURI .
+
+fib:concepte-tramits a fib:ConcepteAcademic ;
+    skos:altLabel "certificat"@ca,
+        "convalidació"@ca,
+        "gestions"@ca,
+        "instància"@ca,
+        "reconeixement de crèdits"@ca,
+        "secretaria"@ca,
+        "sol·licitud"@ca,
+        "tramit"@ca,
+        "tramits"@ca,
+        "tràmit"@ca,
+        "tràmits"@ca,
+        "trámite"@ca,
+        "trámites"@ca ;
+    skos:prefLabel "Tràmits"@ca ;
+    skos:related fib:concepte-baixa-matricula,
+        fib:concepte-beques,
+        fib:concepte-bustia,
+        fib:concepte-canvi-de-mencio,
+        fib:concepte-certificats,
+        fib:concepte-cita-previa,
+        fib:concepte-contacte,
+        fib:concepte-matricula,
+        fib:concepte-mobilitat,
+        fib:concepte-normativa-academica,
+        fib:concepte-reconeixement-de-credits,
+        fib:concepte-simultaneitat-estudis,
+        fib:concepte-titol,
+        fib:concepte-trasllat-expedient ;
+    fib:patroUrl "secretaria",
+        "tramits" ;
+    fib:pesIntencio "0.18"^^xsd:float ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/que-necessites/tramits"^^xsd:anyURI .
+
+fib:master-master-en-enginyeria-informatica a fib:Master ;
+    skos:altLabel "MEI"@ca,
+        "màster en enginyeria informàtica"@ca,
+        "máster en ingeniería informática"@ca ;
+    skos:prefLabel "Màster en Enginyeria Informàtica"@ca ;
+    fib:codi "MEI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-enginyeria-informatica"^^xsd:anyURI .
+
+fib:grau-grau-en-ciencia-i-enginyeria-de-dades a fib:Grau ;
+    skos:altLabel "GCED"@ca,
+        "ciencia e ingeniería de datos"@ca,
+        "ciència i enginyeria de dades"@ca,
+        "data science and engineering"@ca ;
+    skos:prefLabel "Grau en Ciència i Enginyeria de Dades"@ca ;
+    fib:codi "GCED" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-ciencia-i-enginyeria-de-dades"^^xsd:anyURI .
+
+fib:grau-grau-en-bioinformatica a fib:Grau ;
+    skos:altLabel "bioinformatics"@ca,
+        "bioinformàtica"@ca,
+        "bioinformática"@ca ;
+    skos:prefLabel "Grau en Bioinformàtica"@ca ;
+    fib:codi "GBIO" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-bioinformatica"^^xsd:anyURI .
+
+fib:grau-grau-en-intel-ligencia-artificial a fib:Grau ;
+    skos:altLabel "GIA"@ca,
+        "grado en inteligencia artificial"@ca,
+        "grau en intel·ligència artificial"@ca ;
+    skos:prefLabel "Grau en Intel·ligència Artificial"@ca ;
+    fib:codi "GIA" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/graus/grau-en-intelligencia-artificial"^^xsd:anyURI .
+
 fib:ConcepteAcademic a owl:Class ;
     rdfs:label "Concepte acadèmic"@ca ;
     rdfs:subClassOf fib:EntitatAcademica .
+
+fib:master-master-en-intel-ligencia-artificial a fib:Master ;
+    skos:altLabel "MAI"@ca,
+        "màster en intel·ligència artificial"@ca,
+        "máster en inteligencia artificial"@ca ;
+    skos:prefLabel "Màster en Intel·ligència Artificial"@ca ;
+    fib:codi "MAI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-intelligencia-artificial"^^xsd:anyURI .
+
+fib:master-master-en-innovacio-i-recerca-en-informatica a fib:Master ;
+    skos:altLabel "MIRI"@ca,
+        "màster en innovació i recerca en informàtica"@ca ;
+    skos:prefLabel "Màster en Innovació i Recerca en Informàtica"@ca ;
+    fib:codi "MIRI" ;
+    fib:recursCanonic "https://www.fib.upc.edu/ca/masters/master-en-innovacio-i-recerca-en-informatica"^^xsd:anyURI .
 
 fib:grau-grau-en-enginyeria-informatica a fib:Grau ;
     skos:altLabel "GEI"@ca,

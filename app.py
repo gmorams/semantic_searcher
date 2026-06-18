@@ -29,7 +29,7 @@ st.set_page_config(
 )
 
 MODE_LABELS = {
-    "hybrid": "Híbrida (RRF) — recomanada",
+    "hybrid": "Híbrida (RRF)",
     "controlled": "Ontologia controlada + entity linking",
     "ontology": "Expansió ontològica naive",
     "dense": "Vectorial pura (baseline)",
@@ -87,7 +87,7 @@ def load_ontology():
 
 @st.cache_resource(show_spinner="Carregant models de cerca...")
 def load_rag_chain(mode):
-    from chatbot.rag_chain import RAGChain
+    from agent.rag_chain import RAGChain
     return RAGChain(mode=mode)
 
 

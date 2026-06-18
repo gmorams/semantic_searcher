@@ -1,8 +1,6 @@
-"""EXP.2a: expansio ontologica naive de la consulta.
-
-La consulta s'expandeix amb sinonims i conceptes relacionats de l'ontologia
-i es fa una unica cerca vectorial amb la consulta enriquida. Es l'estrategia
-"naive" que serveix per mesurar si l'expansio per si sola aporta millora.
+"""
+Expansión ontológica naive: se enriquece la consulta con sinónimos y
+relacionados y se lanza una única búsqueda vectorial.
 """
 
 from db.vector_store import VectorStore

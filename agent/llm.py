@@ -2,11 +2,7 @@ import settings
 
 
 def get_llm(max_tokens=None):
-    """
-    Retorna una instancia del LLM.
-    Si hi ha OPENAI_API_KEY configurada, usa OpenAI.
-    Si no, usa Ollama (model local gratuit).
-    """
+    """Devuelve la instancia LLM activa: OpenAI si hay clave, Ollama si no."""
     if settings.OPENAI_API_KEY and not settings.OPENAI_API_KEY.startswith("sk-your"):
         from langchain_openai import ChatOpenAI
         kwargs = {
@@ -16,7 +12,6 @@ def get_llm(max_tokens=None):
         }
         if max_tokens:
             kwargs["max_tokens"] = max_tokens
-        print(f"[LLM] Usant OpenAI: {settings.LLM_MODEL}")
         return ChatOpenAI(**kwargs)
     else:
         from langchain_ollama import ChatOllama
@@ -27,5 +22,4 @@ def get_llm(max_tokens=None):
         }
         if max_tokens:
             kwargs["num_predict"] = max_tokens
-        print(f"[LLM] Usant Ollama local: {model}")
         return ChatOllama(**kwargs)

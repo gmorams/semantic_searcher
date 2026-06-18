@@ -1,11 +1,6 @@
 """
-Crawler/Scraper de fib.upc.edu
-Recorre les seccions principals de la web de la FIB,
-descarrega el contingut HTML, el parseja i el guarda com a documents nets.
-
-Us:
-    python3 scraper.py              # Scrape complet
-    python3 scraper.py --quick      # Nomes seccions principals (mes rapid)
+Scraper de fib.upc.edu. Descarga las secciones principales, parsea el HTML
+y guarda los documentos resultantes en disco.
 """
 
 import requests
@@ -18,21 +13,21 @@ from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 
 # ============================================================================
-# CONFIGURACIO
+# CONFIGURACION
 # ============================================================================
 
 BASE_URL = "https://www.fib.upc.edu"
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "scraped_data")
-DELAY = 0.5  # Respectar el servidor
+DELAY = 0.5  # respetar al servidor entre peticiones
 
 HEADERS = {
     "User-Agent": "FIBot-TFG-Scraper/1.0 (Academic Research Project - UPC FIB)",
     "Accept-Language": "ca,es;q=0.9,en;q=0.8",
 }
 
-# Seccions a scrapejar amb prioritat
+# secciones semilla, ordenadas por prioridad
 SEED_URLS = [
-    # Grau en Enginyeria Informatica
+    # Grado en Ingenieria Informatica (GEI)
     "/ca/graus/grau-en-enginyeria-informatica",
     "/ca/graus/grau-en-enginyeria-informatica/matricula",
     "/ca/graus/grau-en-enginyeria-informatica/pla-destudis",
@@ -43,40 +38,87 @@ SEED_URLS = [
     "/ca/graus/grau-en-enginyeria-informatica/normativa-academica",
     "/ca/graus/grau-en-enginyeria-informatica/treball-de-fi-de-grau",
     "/ca/graus/grau-en-enginyeria-informatica/professorat",
-    # Altres graus
+    # otros grados
     "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades",
+    "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/matricula",
+    "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/horaris",
+    "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/examens",
+    "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis",
+    "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures",
     "/ca/graus/grau-en-intelligencia-artificial",
-    # Tramits
+    "/ca/graus/grau-en-intelligencia-artificial/matricula",
+    "/ca/graus/grau-en-intelligencia-artificial/horaris",
+    "/ca/graus/grau-en-intelligencia-artificial/examens",
+    "/ca/graus/grau-en-intelligencia-artificial/pla-destudis",
+    "/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures",
+    # Bioinformatica (grados interuniversitarios)
+    "/ca/graus/grau-en-bioinformatica",
+    "/ca/graus/grau-en-bioinformatica/pla-destudis",
+    "/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures",
+    # Masters oficiales de la FIB
+    "/ca/masters/master-en-enginyeria-informatica",
+    "/ca/masters/master-en-enginyeria-informatica/matricula",
+    "/ca/masters/master-en-enginyeria-informatica/horaris",
+    "/ca/masters/master-en-enginyeria-informatica/examens",
+    "/ca/masters/master-en-enginyeria-informatica/pla-destudis",
+    "/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica/matricula",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica/horaris",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica/examens",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures",
+    "/ca/masters/master-en-ciencia-de-dades",
+    "/ca/masters/master-en-ciencia-de-dades/matricula",
+    "/ca/masters/master-en-ciencia-de-dades/horaris",
+    "/ca/masters/master-en-ciencia-de-dades/examens",
+    "/ca/masters/master-en-ciencia-de-dades/pla-destudis",
+    "/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures",
+    "/ca/masters/master-en-intelligencia-artificial",
+    "/ca/masters/master-en-intelligencia-artificial/matricula",
+    "/ca/masters/master-en-intelligencia-artificial/horaris",
+    "/ca/masters/master-en-intelligencia-artificial/examens",
+    "/ca/masters/master-en-intelligencia-artificial/pla-destudis",
+    "/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures",
+    # tramites y servicios
     "/ca/que-necessites/tramits",
-    # Info general
+    "/ca/que-necessites/cita-previa",
+    "/ca/que-necessites/bustia-fib",
+    # info general
     "/ca/la-fib",
+    "/ca/la-fib/govern",
+    "/ca/la-fib/associacions",
+    "/ca/la-fib/la-facultat-en-xifres",
     "/ca/que-necessites",
     "/ca/que-necessites/calendaris-academics",
     "/ca/que-necessites/beques-i-ajuts",
-    # Mobilitat
+    # movilidad
     "/ca/mobilitat",
+    "/ca/mobilitat/dobles-titulacions",
+    "/ca/mobilitat/aliances-internacionals",
+    "/ca/mobilitat/aliances-internacionals/programes-de-mobilitat",
+    "/ca/mobilitat/aliances-internacionals/universitats-partner",
+    # investigacion
+    "/ca/recerca",
+    "/ca/recerca/departaments",
+    "/ca/recerca/grups-de-recerca",
+    "/ca/recerca/centres-de-recerca",
+    "/ca/recerca/inlab-fib",
+    # empresa
+    "/ca/empresa",
 ]
 
-# Assignatures del GEI (les scrapegem totes individualment)
-ASSIGNATURES = [
-    "F", "FM", "IC", "PRO1", "EC", "M1", "M2", "PRO2",
-    "BD", "CI", "EDA", "PE", "SO", "AC", "EEE", "IES", "PROP", "XC", "IDI", "PAR",
-    # Computacio
-    "A", "G", "IA", "LI", "LP", "TC", "AA", "APA", "CAIM", "CL", "CN", "IO", "SID",
-    # Eng. Computadors
-    "AC2", "DSBM", "MP", "PEC", "SO2", "XC2", "CASO", "CPD", "PAP", "PCA", "PDS", "STR", "VLSI",
-    # Eng. Software
-    "AS", "ASW", "DBD", "ER", "GPS", "PES", "CAP", "CBDE", "CSI", "ECSDI", "SIM", "SOAD",
-    # Sistemes d'Informacio
-    "ADEI", "DSI", "NE", "PSI", "SIO", "ABD", "EDO", "MI", "VPE", "MD",
-    # Tecnologies de la Informacio
-    "ASO", "PI", "PTI", "SI", "SOA", "TXC", "AD", "IM", "SDX", "TCI",
-    # Optatives
-    "APC", "ASMI", "C", "CCQ", "CDI", "DCS", "EET", "GCS", "GEOC",
-    "LDPE", "PAE", "ROB", "SLDS", "TGA", "VC", "VJ",
+# indices de asignaturas: de cada uno descubrimos dinamicamente todos los codigos.
+ASSIG_INDEX_URLS = [
+    "/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures",
+    "/ca/graus/grau-en-ciencia-i-enginyeria-de-dades/pla-destudis/assignatures",
+    "/ca/graus/grau-en-intelligencia-artificial/pla-destudis/assignatures",
+    "/ca/graus/grau-en-bioinformatica/pla-destudis/assignatures",
+    "/ca/masters/master-en-enginyeria-informatica/pla-destudis/assignatures",
+    "/ca/masters/master-en-innovacio-i-recerca-en-informatica/pla-destudis/assignatures",
+    "/ca/masters/master-en-ciencia-de-dades/pla-destudis/assignatures",
+    "/ca/masters/master-en-intelligencia-artificial/pla-destudis/assignatures",
 ]
-
-ASSIG_URL_TEMPLATE = "/ca/graus/grau-en-enginyeria-informatica/pla-destudis/assignatures/{}"
 
 
 # ============================================================================
@@ -93,7 +135,7 @@ class FIBScraper:
         os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     def fetch(self, url):
-        """Descarrega una URL amb retry."""
+        """Descarga una URL con reintentos."""
         full_url = url if url.startswith("http") else BASE_URL + url
         if full_url in self.visited:
             return None
@@ -106,27 +148,23 @@ class FIBScraper:
                     time.sleep(DELAY)
                     return resp
                 elif resp.status_code == 404:
-                    print(f"  [404] {full_url}")
                     return None
                 else:
-                    print(f"  [{resp.status_code}] {full_url} (retry {attempt+1})")
                     time.sleep(2)
-            except Exception as e:
-                print(f"  [ERROR] {full_url}: {e} (retry {attempt+1})")
+            except Exception:
                 time.sleep(2)
         self.failed.append(full_url)
         return None
 
     def parse_page(self, response, url):
-        """Parseja una pagina HTML i extreu el contingut principal."""
+        """Extrae el contenido principal de una pagina."""
         soup = BeautifulSoup(response.content, "html.parser")
 
-        # Titol principal
+        # titulo principal
         h1_tags = soup.find_all("h1")
         title = " ".join(t.get_text(strip=True) for t in h1_tags) if h1_tags else ""
 
-        # Provar multiples selectors per trobar el contingut principal
-        # Prioritzar els que tenen mes text real
+        # probamos varios selectores y nos quedamos con el primero que tenga texto real
         candidates = [
             soup.find("div", id="section-main-content"),
             soup.find("div", id="content"),
@@ -146,10 +184,9 @@ class FIBScraper:
         if not main:
             return []
 
-        # Extreure tot el text net (sense scripts/styles/navs)
+        # limpiamos scripts, estilos y elementos de navegacion
         for tag in main.find_all(["script", "style", "noscript"]):
             tag.decompose()
-        # Eliminar menus de navegacio laterals i breadcrumbs
         for nav in main.find_all(["nav"]):
             nav.decompose()
         for sidebar in main.find_all("div", class_=lambda c: c and any(
@@ -159,11 +196,10 @@ class FIBScraper:
         for aside in main.find_all("aside"):
             aside.decompose()
 
-        # Extreure seccions per h2
         sections = self._extract_sections(main, title, url)
 
         if not sections:
-            # Fallback: agafar tot el text
+            # fallback: todo el texto en una unica seccion
             text = main.get_text(separator="\n", strip=True)
             if text and len(text) > 50:
                 sections = [{
@@ -176,14 +212,14 @@ class FIBScraper:
         return sections
 
     def _extract_sections(self, main_div, page_title, url):
-        """Divideix el contingut en seccions basades en h2/h3."""
+        """Trocea el contenido por h2/h3."""
         full_url = url if url.startswith("http") else BASE_URL + url
         sections = []
 
         h2_tags = main_div.find_all("h2")
 
         if not h2_tags:
-            # Sense h2: retornar tot com una sola seccio
+            # sin h2 devolvemos todo el bloque
             text = main_div.get_text(separator="\n", strip=True)
             if text and len(text) > 50:
                 sections.append({
@@ -194,7 +230,7 @@ class FIBScraper:
                 })
             return sections
 
-        # Text abans del primer h2
+        # texto previo al primer h2
         pre_text = ""
         for sibling in main_div.children:
             if sibling == h2_tags[0]:
@@ -209,7 +245,6 @@ class FIBScraper:
                 "section": "Introduccio",
             })
 
-        # Seccions h2
         for h2 in h2_tags:
             section_title = h2.get_text(strip=True)
             section_text = ""
@@ -230,15 +265,47 @@ class FIBScraper:
         return sections
 
     def _title_from_url(self, url):
-        """Genera un titol a partir de la URL."""
+        """Titulo de respaldo a partir de la URL."""
         path = urlparse(url).path if url.startswith("http") else url
         parts = path.strip("/").split("/")
         if parts:
             return parts[-1].replace("-", " ").title()
         return "Document"
 
+    def _discover_assignatures_from_index(self, index_url):
+        """Descubre todas las URLs de asignaturas listadas en un indice de pla-destudis."""
+        # peticion directa: no la marcamos como visitada porque la indice tambien sale en SEED
+        full_url = index_url if index_url.startswith("http") else BASE_URL + index_url
+        try:
+            resp = self.session.get(full_url, timeout=15)
+            if resp.status_code != 200:
+                return set()
+            time.sleep(DELAY)
+        except Exception:
+            return set()
+
+        soup = BeautifulSoup(resp.content, "html.parser")
+        prefix = index_url.rstrip("/") + "/"
+        found = set()
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            # normaliza a path relativo
+            if href.startswith(BASE_URL):
+                href = href[len(BASE_URL):]
+            if not href.startswith(prefix):
+                continue
+            tail = href[len(prefix):].strip("/")
+            # solo nos interesa el primer segmento despues del prefijo
+            if not tail or "/" in tail or "?" in tail or "#" in tail:
+                continue
+            # heuristica: los codigos de asignatura son cortos y alfanumericos en mayusculas
+            if not re.match(r"^[A-Z0-9\-]{1,15}$", tail):
+                continue
+            found.add(prefix + tail)
+        return found
+
     def discover_links(self, response, url):
-        """Descobreix links interns rellevants dins una pagina."""
+        """Descubre enlaces internos relevantes en una pagina."""
         soup = BeautifulSoup(response.content, "html.parser")
         main = soup.find("div", id="section-main-content")
         if not main:
@@ -247,7 +314,7 @@ class FIBScraper:
         links = set()
         for a in main.find_all("a", href=True):
             href = a["href"]
-            # Nomes links interns de la FIB en catala
+            # solo enlaces internos en catalan
             if href.startswith("/ca/"):
                 full = BASE_URL + href
                 if full not in self.visited and self._is_relevant(href):
@@ -258,7 +325,7 @@ class FIBScraper:
         return links
 
     def _is_relevant(self, url):
-        """Filtra URLs no rellevants."""
+        """Descarta URLs ruidosas (redes sociales, assets, etc.)."""
         skip_patterns = [
             "/node/", "/user/", "/search", "/feed", "/print/",
             ".jpg", ".png", ".gif", ".svg", ".css", ".js",
@@ -268,72 +335,46 @@ class FIBScraper:
         return not any(p in url.lower() for p in skip_patterns)
 
     def scrape_all(self, quick=False):
-        """Executa el scraping complet."""
-        print(f"{'='*60}")
-        print(f"  SCRAPING DE fib.upc.edu")
-        print(f"{'='*60}\n")
-
-        # 1. Seccions principals (seeds)
-        print("1. Scrapejant seccions principals...")
+        """Ejecuta el scraping completo."""
+        # 1. secciones semilla
         discovered_links = set()
-        for i, seed_url in enumerate(SEED_URLS):
-            print(f"  [{i+1}/{len(SEED_URLS)}] {seed_url}")
+        for seed_url in SEED_URLS:
             resp = self.fetch(seed_url)
             if resp:
                 docs = self.parse_page(resp, seed_url)
                 self.documents.extend(docs)
-                # Descobrir links addicionals
                 new_links = self.discover_links(resp, seed_url)
                 discovered_links.update(new_links)
 
-        print(f"\n  -> {len(self.documents)} documents de seccions principals")
-        print(f"  -> {len(discovered_links)} links addicionals descoberts\n")
+        # 2. descubrimiento dinamico de asignaturas (grados + masters)
+        all_assig_urls = set()
+        for index_url in ASSIG_INDEX_URLS:
+            assig_urls = self._discover_assignatures_from_index(index_url)
+            all_assig_urls.update(assig_urls)
 
-        # 2. Assignatures individuals
-        print("2. Scrapejant assignatures del GEI...")
-        for i, assig in enumerate(ASSIGNATURES):
-            url = ASSIG_URL_TEMPLATE.format(assig)
-            if i % 10 == 0:
-                print(f"  [{i+1}/{len(ASSIGNATURES)}] Processant assignatures...")
-            resp = self.fetch(url)
+        for assig_url in sorted(all_assig_urls):
+            resp = self.fetch(assig_url)
             if resp:
-                docs = self.parse_page(resp, url)
+                docs = self.parse_page(resp, assig_url)
                 self.documents.extend(docs)
 
-        print(f"\n  -> {len(self.documents)} documents totals amb assignatures\n")
-
-        # 3. Links descoberts (si no quick mode)
+        # 3. enlaces descubiertos (solo si no estamos en modo rapido)
         if not quick and discovered_links:
-            print(f"3. Scrapejant {len(discovered_links)} links addicionals descoberts...")
-            for i, link in enumerate(sorted(discovered_links)):
-                if i % 20 == 0:
-                    print(f"  [{i+1}/{len(discovered_links)}] Processant links...")
+            for link in sorted(discovered_links):
                 resp = self.fetch(link)
                 if resp:
                     docs = self.parse_page(resp, link)
                     self.documents.extend(docs)
 
-        # 4. Guardar resultats
         self._save_results()
-
-        print(f"\n{'='*60}")
-        print(f"  SCRAPING COMPLETAT!")
-        print(f"  Documents obtinguts: {len(self.documents)}")
-        print(f"  Pagines visitades:   {len(self.visited)}")
-        print(f"  Errors:              {len(self.failed)}")
-        print(f"  Dades guardades a:   {OUTPUT_DIR}/")
-        print(f"{'='*60}")
-
         return self.documents
 
     def _save_results(self):
-        """Guarda els documents scrapejats a disc."""
+        """Persiste los documentos y las estadisticas en disco."""
         output_file = os.path.join(OUTPUT_DIR, "fib_documents.json")
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(self.documents, f, ensure_ascii=False, indent=2)
-        print(f"\n  Guardat a {output_file}")
 
-        # Stats
         stats = {
             "total_documents": len(self.documents),
             "pages_visited": len(self.visited),
@@ -353,4 +394,11 @@ if __name__ == "__main__":
     quick = "--quick" in sys.argv
     scraper = FIBScraper()
     scraper.scrape_all(quick=quick)
+    print(f"\n{'='*60}")
+    print(f"  SCRAPING COMPLETAT!")
+    print(f"  Documents obtinguts: {len(scraper.documents)}")
+    print(f"  Pagines visitades:   {len(scraper.visited)}")
+    print(f"  Errors:              {len(scraper.failed)}")
+    print(f"  Dades guardades a:   {OUTPUT_DIR}/")
+    print(f"{'='*60}")
     print(f"\nAra executa: python3 ingest.py --from-scrape")

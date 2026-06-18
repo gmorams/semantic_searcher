@@ -1,23 +1,7 @@
-"""
-Avaluacio automatica i reproduible de les estrategies de recuperacio.
+"""Evaluacion automatica y reproducible de las estrategias de recuperacion.
 
-Per a cada mode de cerca executa totes les consultes del golden set
-(`evaluation/queries.json`) i calcula metriques estandard de recuperacio
-d'informacio a nivell de pagina (URL):
-
-    Hit@1 / Hit@3 / Hit@5   hi ha alguna URL rellevant al top-k?
-    MRR                     mean reciprocal rank de la primera URL rellevant
-    P@5                     precisio: fraccio del top-5 que es rellevant
-    R@5                     recall: fraccio de les URLs rellevants trobades
-    nDCG@5                  discounted cumulative gain normalitzat (binari)
-
-Els resultats es desglossen per split (dev/test) per detectar sobreajust:
-el split 'test' conte parafrasis held-out no usades durant el disseny.
-
-Us:
-    python3 evaluation/evaluate.py                      # tots els modes
-    python3 evaluation/evaluate.py --modes bm25,hybrid  # modes concrets
-    python3 evaluation/evaluate.py --split test         # nomes held-out
+Para cada modo ejecuta el golden set y calcula metricas estandar a nivel de URL
+(Hit@K, MRR, P@5, R@5, nDCG@5), desglosadas por split dev/test.
 """
 
 import argparse
@@ -50,7 +34,7 @@ def load_queries(split="all"):
 
 
 def retrieved_urls(retriever, query, k=K):
-    """Top-k URLs uniques (en ordre de ranking) per a una consulta."""
+    """Top-k URLs unicas (en orden de ranking) para una consulta."""
     output = retriever.search(query, top_k=k * 4)
     urls = []
     for item in output["results"]:
@@ -95,7 +79,7 @@ def aggregate(per_query):
 
 
 def evaluate_mode(mode, queries):
-    print(f"\n>>> Avaluant mode: {mode} ({MODES[mode]})")
+    print(f"\n>>> Evaluando modo: {mode} ({MODES[mode]})")
     retriever = get_retriever(mode)
     details = []
     for q in queries:
@@ -131,12 +115,12 @@ def print_table(rows, title):
 def save_results(all_details, timestamp):
     os.makedirs(RESULTS_DIR, exist_ok=True)
 
-    # Detall per consulta (JSON, per a analisi d'errors)
+    # detalle por consulta para analisis de errores
     detail_file = os.path.join(RESULTS_DIR, f"details_{timestamp}.json")
     with open(detail_file, "w", encoding="utf-8") as f:
         json.dump(all_details, f, ensure_ascii=False, indent=2)
 
-    # Resum agregat (CSV, per a les taules de la memoria)
+    # resumen agregado para las tablas de la memoria
     csv_file = os.path.join(RESULTS_DIR, f"summary_{timestamp}.csv")
     with open(csv_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -152,35 +136,34 @@ def save_results(all_details, timestamp):
                                 [round(agg[k], 4) for k in
                                  ["hit@1", "hit@3", "hit@5", "mrr", "p@5", "r@5", "ndcg@5"]])
 
-    print(f"\nResultats guardats a:")
+    print(f"\nResultados guardados en:")
     print(f"  {csv_file}")
     print(f"  {detail_file}")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Avaluacio de les estrategies de cerca")
+    parser = argparse.ArgumentParser(description="Evaluacion de las estrategias de busqueda")
     parser.add_argument("--modes", default=",".join(MODES),
-                        help=f"Modes separats per comes (disponibles: {','.join(MODES)})")
+                        help=f"Modos separados por comas (disponibles: {','.join(MODES)})")
     parser.add_argument("--split", default="all", choices=["all", "dev", "test"])
     args = parser.parse_args()
 
     modes = [m.strip() for m in args.modes.split(",") if m.strip()]
     for m in modes:
         if m not in MODES:
-            print(f"ERROR: mode desconegut '{m}'. Disponibles: {list(MODES)}")
+            print(f"ERROR: modo desconocido '{m}'. Disponibles: {list(MODES)}")
             sys.exit(1)
 
     queries = load_queries(args.split)
-    print(f"Golden set: {len(queries)} consultes (split={args.split})")
+    print(f"Golden set: {len(queries)} consultas (split={args.split})")
 
     all_details = {}
     for mode in modes:
         all_details[mode] = evaluate_mode(mode, queries)
 
-    # Taules: global + per split
-    for split, title in [("all", "RESULTATS GLOBALS"),
-                         ("dev", "SPLIT DEV (consultes de disseny)"),
-                         ("test", "SPLIT TEST (held-out: parafrasis no vistes)")]:
+    for split, title in [("all", "RESULTADOS GLOBALES"),
+                         ("dev", "SPLIT DEV (consultas de diseño)"),
+                         ("test", "SPLIT TEST (held-out: parafrasis no vistas)")]:
         rows = []
         for mode in modes:
             subset = (all_details[mode] if split == "all"

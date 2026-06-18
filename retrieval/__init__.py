@@ -1,12 +1,4 @@
-"""Factoria d'estrategies de cerca.
-
-Modes disponibles (coherents amb els experiments de la memoria):
-    bm25        Baseline lexic (Okapi BM25)
-    dense       Baseline vectorial (embeddings + cosinus)
-    ontology    EXP.2a: expansio ontologica naive de la consulta
-    controlled  EXP.2b: ontologia + entity linking + reranking controlat
-    hybrid      EXP.3: fusio RRF (BM25 + vectorial + controlada)
-"""
+"""Factoría de estrategias de búsqueda."""
 
 MODES = {
     "bm25": "Baseline lexic (BM25)",
@@ -20,7 +12,7 @@ _instances = {}
 
 
 def get_retriever(mode):
-    """Retorna (i memoritza) el retriever del mode indicat."""
+    """Devuelve (y memoriza) el retriever del modo indicado."""
     if mode not in MODES:
         raise ValueError(f"Mode de cerca desconegut: {mode}. Disponibles: {list(MODES)}")
 
